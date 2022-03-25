@@ -27,10 +27,10 @@ interface Options {
  * ```
  */
 export const request = (
-  query: string | Source,
-  { context, variables }: Options = {}
+	query: string | Source,
+	{ context, variables }: Options = {}
 ) => {
-  return executeGraphQL(schema, query, undefined, context || {}, variables);
+	return executeGraphQL(schema, query, undefined, context || {}, variables);
 };
 
 /**

@@ -6,11 +6,11 @@ interface Props {
 }
 
 export default function Layout({ children }: Props) {
-  return (
-    <>
-      <Navbar />
-      {children}
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Navbar />
+			{children}
+			<Footer />
+		</>
+	);
 }

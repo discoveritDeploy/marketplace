@@ -18,25 +18,25 @@ declare global {
 }
 
 passport.serializeUser(async (u: Express.User, done) => {
-  const email = u.email.toLowerCase();
-  const user = await prisma.user.upsert({
-    create: {
-      email,
-    },
-    update: {},
-    where: {
-      email,
-    },
-  });
+	const email = u.email.toLowerCase();
+	const user = await prisma.user.upsert({
+		create: {
+			email,
+		},
+		update: {},
+		where: {
+			email,
+		},
+	});
 
-  done(null, {
-    ...u,
-    id: user.id,
-  });
+	done(null, {
+		...u,
+		id: user.id,
+	});
 });
 
 passport.deserializeUser(async (user: Express.User, done) => {
-  done(null, user);
+	done(null, user);
 });
 
 export default passport;

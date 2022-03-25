@@ -2,30 +2,30 @@ import { testData } from "../../../test/seed/data";
 import { request, graphql } from "../../../test/request";
 
 describe(`currentUser`, () => {
-  it(`should return null when unauthenticated`, async () => {
-    expect(
-      await request(
-        graphql`
+	it(`should return null when unauthenticated`, async () => {
+		expect(
+			await request(
+				graphql`
           {
             currentUser {
               id
             }
           }
         `
-      )
-    ).toMatchInlineSnapshot(`
+			)
+		).toMatchInlineSnapshot(`
         Object {
           "data": Object {
             "currentUser": null,
           },
         }
     `);
-  });
+	});
 
-  it(`should return the current user data when authenticated`, async () => {
-    expect(
-      await request(
-        graphql`
+	it(`should return the current user data when authenticated`, async () => {
+		expect(
+			await request(
+				graphql`
           {
             currentUser {
               id
@@ -33,13 +33,13 @@ describe(`currentUser`, () => {
             }
           }
         `,
-        {
-          context: {
-            user: testData.users[0],
-          },
-        }
-      )
-    ).toMatchInlineSnapshot(`
+				{
+					context: {
+						user: testData.users[0],
+					},
+				}
+			)
+		).toMatchInlineSnapshot(`
           Object {
             "data": Object {
               "currentUser": Object {
@@ -49,15 +49,15 @@ describe(`currentUser`, () => {
             },
           }
       `);
-  });
+	});
 });
 
 describe(`updateUser`, () => {
-  it(`should update the user's name`, async () => {
-    // Right name initially
-    expect(
-      await request(
-        graphql`
+	it(`should update the user's name`, async () => {
+		// Right name initially
+		expect(
+			await request(
+				graphql`
           {
             currentUser {
               id
@@ -65,13 +65,13 @@ describe(`updateUser`, () => {
             }
           }
         `,
-        {
-          context: {
-            user: testData.users[0],
-          },
-        }
-      )
-    ).toMatchInlineSnapshot(`
+				{
+					context: {
+						user: testData.users[0],
+					},
+				}
+			)
+		).toMatchInlineSnapshot(`
       Object {
         "data": Object {
           "currentUser": Object {
@@ -82,10 +82,10 @@ describe(`updateUser`, () => {
       }
     `);
 
-    // Update name
-    expect(
-      await request(
-        graphql`
+		// Update name
+		expect(
+			await request(
+				graphql`
           mutation updateUser($userId: String!) {
             updateUser(userId: $userId, name: "New name") {
               id
@@ -93,16 +93,16 @@ describe(`updateUser`, () => {
             }
           }
         `,
-        {
-          context: {
-            user: testData.users[0],
-          },
-          variables: {
-            userId: testData.users[0].id,
-          },
-        }
-      )
-    ).toMatchInlineSnapshot(`
+				{
+					context: {
+						user: testData.users[0],
+					},
+					variables: {
+						userId: testData.users[0].id,
+					},
+				}
+			)
+		).toMatchInlineSnapshot(`
       Object {
         "data": Object {
           "updateUser": Object {
@@ -113,10 +113,10 @@ describe(`updateUser`, () => {
       }
     `);
 
-    // Updated name
-    expect(
-      await request(
-        graphql`
+		// Updated name
+		expect(
+			await request(
+				graphql`
           {
             currentUser {
               id
@@ -124,13 +124,13 @@ describe(`updateUser`, () => {
             }
           }
         `,
-        {
-          context: {
-            user: testData.users[0],
-          },
-        }
-      )
-    ).toMatchInlineSnapshot(`
+				{
+					context: {
+						user: testData.users[0],
+					},
+				}
+			)
+		).toMatchInlineSnapshot(`
       Object {
         "data": Object {
           "currentUser": Object {
@@ -140,5 +140,5 @@ describe(`updateUser`, () => {
         },
       }
     `);
-  });
+	});
 });

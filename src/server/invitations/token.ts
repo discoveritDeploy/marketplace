@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 const SECRET = process.env.INVITATION_TOKEN_SECRET;
 
 if (!SECRET)
-  throw new Error("Please specify the INVITATION_TOKEN_SECRET env variable.");
+	throw new Error("Please specify the INVITATION_TOKEN_SECRET env variable.");
 
 type JwtPayload = {
   destination: string;
@@ -19,14 +19,14 @@ type JwtPayload = {
  * ```
  */
 export const decodeInvitationToken = (token: string): JwtPayload | null => {
-  if (!token) {
-    return null;
-  }
-  try {
-    return jwt.verify(token, SECRET) as JwtPayload;
-  } catch (err) {
-    return null;
-  }
+	if (!token) {
+		return null;
+	}
+	try {
+		return jwt.verify(token, SECRET) as JwtPayload;
+	} catch (err) {
+		return null;
+	}
 };
 
 /**
@@ -41,6 +41,6 @@ export const decodeInvitationToken = (token: string): JwtPayload | null => {
  * ```
  */
 export const generateInvitationToken = (payload: JwtPayload): string =>
-  jwt.sign(payload, SECRET, {
-    expiresIn: "1w",
-  });
+	jwt.sign(payload, SECRET, {
+		expiresIn: "1w",
+	});

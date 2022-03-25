@@ -7,21 +7,21 @@ import { Request } from "./api-route";
  */
 export const trustProxyMiddleware: Middleware<Request, NextApiResponse> =
   function (req, _, next) {
-    req.protocol = getProtocol(req);
-    next();
+  	req.protocol = getProtocol(req);
+  	next();
   };
 
 function getProtocol(req: Request) {
-  // @ts-ignore the types for req.connection are incorrect
-  if (req.connection?.encrypted) {
-    return "https";
-  }
+	// @ts-ignore the types for req.connection are incorrect
+	if (req.connection?.encrypted) {
+		return "https";
+	}
 
-  const forwardedProto =
+	const forwardedProto =
     req.headers && (req.headers["x-forwarded-proto"] as string);
-  if (forwardedProto) {
-    return forwardedProto.split(/\s*,\s*/)[0];
-  }
+	if (forwardedProto) {
+		return forwardedProto.split(/\s*,\s*/)[0];
+	}
 
-  return "http";
+	return "http";
 }

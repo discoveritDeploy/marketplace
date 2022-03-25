@@ -14,19 +14,19 @@ type Plan = keyof typeof plans;
  * ```
  */
 export const getProjectPaidPlan = (project: Project | null): Plan | null => {
-  if (
-    !project ||
+	if (
+		!project ||
     !project.stripePriceId ||
     !project.stripeCurrentPeriodEnd ||
     // We give projects a grace period of 24 hours to pay their invoices
     project.stripeCurrentPeriodEnd.getTime() + MILLISECONDS_IN_A_DAY <
       Date.now()
-  )
-    return null;
+	)
+		return null;
 
-  const plan = Object.keys(plans).find(
-    (plan) => plans[plan as Plan] === project.stripePriceId
-  );
+	const plan = Object.keys(plans).find(
+		(plan) => plans[plan as Plan] === project.stripePriceId
+	);
 
-  return (plan as Plan) || null;
+	return (plan as Plan) || null;
 };

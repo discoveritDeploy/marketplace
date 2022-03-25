@@ -5,14 +5,14 @@ import { client } from "../client/graphql/client";
 import Layout from "../client/components/Layout";
 
 function CustomApp({ Component, pageProps }: AppProps) {
-  return (
-    <Provider value={client}>
-      <Layout>
-        <Component {...pageProps} />
-        <Toaster position="top-center" />
-      </Layout>
-    </Provider>
-  );
+	return (
+		<Provider value={client}>
+			<Layout>
+				<Component {...pageProps} />
+				<Toaster position="top-center" />
+			</Layout>
+		</Provider>
+	);
 }
 
 export default CustomApp;

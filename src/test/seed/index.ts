@@ -18,41 +18,41 @@ export interface SeedData {
 
 // Inspired by prisma/docs#451
 async function emptyDatabase() {
-  const tables = Prisma.dmmf.datamodel.models.map(
-    (model) => model.dbName || model.name
-  );
+	const tables = Prisma.dmmf.datamodel.models.map(
+		(model) => model.dbName || model.name
+	);
 
-  for (const table of tables) {
-    await prisma.$executeRawUnsafe(`DELETE FROM "public"."${table}";`);
-  }
+	for (const table of tables) {
+		await prisma.$executeRawUnsafe(`DELETE FROM "public"."${table}";`);
+	}
 }
 
 async function seedDatabase({ users, projects = [] }: SeedData) {
-  // Insert users
-  await Promise.all(
-    users.map((user) =>
-      prisma.user.create({
-        data: user,
-      })
-    )
-  );
+	// Insert users
+	await Promise.all(
+		users.map((user) =>
+			prisma.user.create({
+				data: user,
+			})
+		)
+	);
 
-  // Insert projects & connect them to their users
-  await Promise.all(
-    projects.map((project) =>
-      prisma.project.create({
-        data: {
-          ...project,
-          users: {
-            connect: project.users?.map((id) => ({ id })),
-          },
-        },
-      })
-    )
-  );
+	// Insert projects & connect them to their users
+	await Promise.all(
+		projects.map((project) =>
+			prisma.project.create({
+				data: {
+					...project,
+					users: {
+						connect: project.users?.map((id) => ({ id })),
+					},
+				},
+			})
+		)
+	);
 }
 
 export async function reseedDatabase(data: SeedData = testData) {
-  await emptyDatabase();
-  await seedDatabase(data);
+	await emptyDatabase();
+	await seedDatabase(data);
 }
