@@ -30,6 +30,19 @@ const apolloServer = new ApolloServer({
 const startServer = apolloServer.start();
 
 export default handler().use((req: MicroRequest, res: ServerResponse) => {
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader(
+		"Access-Control-Allow-Origin",
+		"https://studio.apollographql.com"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept"
+	);
+	if (req.method === "OPTIONS") {
+		res.end();
+		return false;
+	}
 	startServer.then(() => {
 		apolloServer.createHandler({
 			path: "/api",
