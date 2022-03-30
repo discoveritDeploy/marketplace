@@ -1,4 +1,4 @@
-import { extendType, list, nonNull, nullable, queryField } from "nexus";
+import { list, nonNull, nullable, queryField } from "nexus";
 import { Item } from "./models";
 import { ItemWhereUniqueInput } from "./inputs";
 
@@ -19,6 +19,8 @@ export const item = queryField("item", {
 export const items = queryField("items", {
 	type: nullable(list(nonNull(Item))),
 	resolve: async (root, args, ctx) => {
+		console.log(await ctx.prisma.item.findFirst());
+
 		return ctx.prisma.item.findMany({});
 	},
 });

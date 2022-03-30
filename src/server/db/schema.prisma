@@ -33,6 +33,11 @@ model Project {
   stripeCurrentPeriodEnd DateTime?
 }
 
+type Info {
+  info1 String?
+  info2 String?
+}
+
 model Item {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt   DateTime @db.Date
@@ -41,4 +46,50 @@ model Item {
   title       String
   updatedAt   DateTime @db.Date
   url         String?
+}
+
+type Address {
+  street   String
+  city     String
+  province String
+  cp       Int
+  country  String
+}
+
+type CommercialAddress {
+  address           Address
+  commercialContact String
+  commercialPhone   Int
+}
+
+type DepositAddress {
+  address         Address
+  depositeContact String
+  depositePhone   Int
+}
+
+type Delivery {
+  deliveryTime String
+  shipping     String
+}
+
+type CommercialConditions {
+  minimumPurchase Int
+  amountDiscount  Int
+  term            Int
+  paymentAccepted String
+  delivery        Delivery
+}
+
+model Brand {
+  id                   String               @id @default(auto()) @map("_id") @db.ObjectId
+  registrationDate     DateTime             @default(now()) @db.Date
+  brandName            String
+  commercialName       String
+  taxId                String
+  taxCategory          String
+  legalAddress         Address
+  commercialAddress    CommercialAddress
+  depositAddress       DepositAddress
+  commercialConditions CommercialConditions
 }
