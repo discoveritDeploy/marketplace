@@ -17,15 +17,15 @@ export interface SeedData {
 }
 
 // Inspired by prisma/docs#451
-async function emptyDatabase() {
-	const tables = Prisma.dmmf.datamodel.models.map(
-		(model) => model.dbName || model.name
-	);
-
-	for (const table of tables) {
-		await prisma.$executeRawUnsafe(`DELETE FROM "public"."${table}";`);
-	}
-}
+// async function emptyDatabase() {
+// 	const tables = Prisma.dmmf.datamodel.models.map(
+// 		(model) => model.dbName || model.name
+// 	);
+//
+// 	for (const table of tables) {
+// 		await prisma.$executeRawUnsafe(`DELETE FROM "public"."${table}";`);
+// 	}
+// }
 
 async function seedDatabase({ users, projects = [] }: SeedData) {
 	// Insert users
@@ -53,6 +53,6 @@ async function seedDatabase({ users, projects = [] }: SeedData) {
 }
 
 export async function reseedDatabase(data: SeedData = testData) {
-	await emptyDatabase();
+	//await emptyDatabase();
 	await seedDatabase(data);
 }

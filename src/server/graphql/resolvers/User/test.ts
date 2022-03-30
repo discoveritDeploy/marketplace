@@ -1,5 +1,5 @@
-import { testData } from "../../../test/seed/data";
-import { request, graphql } from "../../../test/request";
+import { testData } from "../../../../test/seed/data";
+import { request, graphql } from "../../../../test/request";
 
 describe(`currentUser`, () => {
 	it(`should return null when unauthenticated`, async () => {

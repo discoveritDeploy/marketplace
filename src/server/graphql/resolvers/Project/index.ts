@@ -1,18 +1,18 @@
 import { enumType, extendType, nonNull, objectType, stringArg } from "nexus";
-import prisma from "../../db/prisma";
-import { getProjectPaidPlan } from "../../get-project-paid-plan";
-import { plans } from "../../stripe/plans";
+import prisma from "../../../db/prisma";
+import { getProjectPaidPlan } from "../../../get-project-paid-plan";
+import { plans } from "../../../stripe/plans";
 import slug from "slug";
-import { generateInvitationToken } from "../../invitations/token";
-import { sendEmail } from "../../send-email";
-import stripe from "../../stripe";
+import { generateInvitationToken } from "../../../invitations/token";
+import { sendEmail } from "../../../send-email";
+import stripe from "../../../stripe";
 
 export const PaidPlan = enumType({
 	name: `PaidPlan`,
 	members: Object.keys(plans),
 });
 
-const Project = objectType({
+export const Project = objectType({
 	name: "Project",
 	definition(t) {
 		t.nonNull.string("id");
@@ -60,7 +60,7 @@ const Project = objectType({
 	},
 });
 
-const queries = extendType({
+export const projectQueries = extendType({
 	type: "Query",
 	definition: (t) => {
 		t.field("project", {
@@ -97,7 +97,7 @@ const queries = extendType({
 	},
 });
 
-const mutations = extendType({
+export const projectMutations = extendType({
 	type: "Mutation",
 	definition: (t) => {
 		t.nullable.field("createProject", {
@@ -295,5 +295,3 @@ const mutations = extendType({
 		});
 	},
 });
-
-export default [Project, mutations, queries];
