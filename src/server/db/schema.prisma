@@ -46,6 +46,7 @@ model Item {
   title       String
   updatedAt   DateTime @db.Date
   url         String?
+  info        Info?
 }
 
 type Address {
@@ -63,9 +64,9 @@ type CommercialAddress {
 }
 
 type DepositAddress {
-  address         Address
-  depositeContact String
-  depositePhone   Int
+  address        Address
+  depositContact String
+  depositPhone   Int
 }
 
 type Delivery {
@@ -73,7 +74,7 @@ type Delivery {
   shipping     String
 }
 
-type CommercialConditions {
+type CommercialCondition {
   minimumPurchase Int
   amountDiscount  Int
   term            Int
@@ -82,14 +83,14 @@ type CommercialConditions {
 }
 
 model Brand {
-  id                   String               @id @default(auto()) @map("_id") @db.ObjectId
-  registrationDate     DateTime             @default(now()) @db.Date
-  brandName            String
-  commercialName       String
-  taxId                String
-  taxCategory          String
-  legalAddress         Address
-  commercialAddress    CommercialAddress
-  depositAddress       DepositAddress
-  commercialConditions CommercialConditions
+  id                  String              @id @default(auto()) @map("_id") @db.ObjectId
+  registrationDate    DateTime            @default(now()) @db.Date
+  brandName           String
+  commercialName      String
+  taxId               String
+  taxCategory         String
+  legalAddress        Address
+  commercialAddress   CommercialAddress
+  depositAddress      DepositAddress
+  commercialCondition CommercialCondition
 }

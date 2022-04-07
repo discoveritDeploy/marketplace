@@ -2,7 +2,7 @@ import { list, nonNull, nullable, queryField } from "nexus";
 import { Brand } from "./models";
 import { BrandWhereUniqueInput } from "./inputs";
 
-export const getBrandById = queryField("brand", {
+export const brand = queryField("brand", {
 	type: nullable(Brand),
 	args: {
 		where: nonNull(BrandWhereUniqueInput),
@@ -16,7 +16,7 @@ export const getBrandById = queryField("brand", {
 	},
 });
 
-export const getBrands = queryField("brands", {
+export const brands = queryField("brands", {
 	type: nullable(list(nonNull(Brand))),
 	resolve: async (root, args, ctx) => {
 		return ctx.prisma.brand.findMany({});

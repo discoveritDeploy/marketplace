@@ -19,8 +19,6 @@ export const item = queryField("item", {
 export const items = queryField("items", {
 	type: nullable(list(nonNull(Item))),
 	resolve: async (root, args, ctx) => {
-		console.log(await ctx.prisma.item.findFirst());
-
 		return ctx.prisma.item.findMany({});
 	},
 });

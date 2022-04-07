@@ -2,23 +2,31 @@
 ### Do not make changes to this file directly
 
 type Address {
-  city: String
-  country: String
-  cp: Int
-  province: String
-  street: String
+  city: String!
+  country: String!
+  cp: Int!
+  province: String!
+  street: String!
+}
+
+input AddressInput {
+  city: String!
+  country: String!
+  cp: Int!
+  province: String!
+  street: String!
 }
 
 type Brand {
   brandName: String!
-  commercialAddress: CommercialAddress
-  commercialConditions: CommercialConditions
-  commercialName: String
-  depositAddress: DepositAddress
+  commercialAddress: CommercialAddress!
+  commercialCondition: CommercialCondition!
+  commercialName: String!
+  depositAddress: DepositAddress!
   id: ID!
-  legalAddress: Address
-  taxCategory: String
-  taxId: String
+  legalAddress: Address!
+  taxCategory: String!
+  taxId: String!
 }
 
 input BrandWhereUniqueInput {
@@ -26,28 +34,65 @@ input BrandWhereUniqueInput {
 }
 
 type CommercialAddress {
-  Address: Address
-  commercialContact: String
-  commercialPhone: Int
+  address: Address!
+  commercialContact: String!
+  commercialPhone: Int!
 }
 
-type CommercialConditions {
-  Address: Delivery
-  amountDiscount: Int
-  minimumPurchase: Int
-  paymentAccepted: String
-  term: Int
+input CommercialAddressInput {
+  addressInput: AddressInput!
+  commercialContact: String!
+  commercialPhone: Int!
+}
+
+type CommercialCondition {
+  amountDiscount: Int!
+  delivery: Delivery!
+  minimumPurchase: Int!
+  paymentAccepted: String!
+  term: Int!
+}
+
+input CommercialConditionsInput {
+  amountDiscount: Int!
+  deliveryInput: DeliveryInput!
+  minimumPurchase: Int!
+  paymentAccepted: String!
+  term: Int!
+}
+
+input CreateBrandInput {
+  brandName: String!
+  commercialAddressInput: CommercialAddressInput!
+  commercialConditionsInput: CommercialConditionsInput!
+  commercialName: String!
+  depositAddressInput: DepositAddressInput!
+  id: ID!
+  legalAddressInput: AddressInput!
+  taxCategory: String!
+  taxId: String!
 }
 
 type Delivery {
-  deliveryTime: String
-  shipping: String
+  deliveryTime: String!
+  shipping: String!
+}
+
+input DeliveryInput {
+  deliveryTime: String!
+  shipping: String!
 }
 
 type DepositAddress {
-  Address: Address
-  depositeContact: String
-  depositePhone: Int
+  address: Address!
+  depositContact: String!
+  depositPhone: Int!
+}
+
+input DepositAddressInput {
+  addressInput: AddressInput!
+  depositContact: String!
+  depositPhone: Int!
 }
 
 type Info {
@@ -69,7 +114,7 @@ input ItemWhereUniqueInput {
 }
 
 type Mutation {
-  createBrand: Brand
+  createBrand(input: CreateBrandInput!): Brand
   createItem: Item
   createProject(name: String!, slug: String): Project
   createStripeCheckoutBillingPortalUrl(projectId: String!): String

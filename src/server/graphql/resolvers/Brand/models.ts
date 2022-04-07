@@ -3,48 +3,48 @@ import { objectType } from "nexus";
 export const Address = objectType({
 	name: "Address",
 	definition(t) {
-		t.string("street");
-		t.string("city");
-		t.string("province");
-		t.int("cp");
-		t.string("country");
+		t.nonNull.string("street");
+		t.nonNull.string("city");
+		t.nonNull.string("province");
+		t.nonNull.int("cp");
+		t.nonNull.string("country");
 	},
 });
 
 export const CommercialAddress = objectType({
 	name: "CommercialAddress",
 	definition(t) {
-		t.field("Address", { type: Address });
-		t.string("commercialContact");
-		t.int("commercialPhone");
+		t.nonNull.field("address", { type: Address });
+		t.nonNull.string("commercialContact");
+		t.nonNull.int("commercialPhone");
 	},
 });
 
 export const DepositAddress = objectType({
 	name: "DepositAddress",
 	definition(t) {
-		t.field("Address", { type: Address });
-		t.string("depositeContact");
-		t.int("depositePhone");
+		t.nonNull.field("address", { type: Address });
+		t.nonNull.string("depositContact");
+		t.nonNull.int("depositPhone");
 	},
 });
 
 export const Delivery = objectType({
 	name: "Delivery",
 	definition(t) {
-		t.string("deliveryTime");
-		t.string("shipping");
+		t.nonNull.string("deliveryTime");
+		t.nonNull.string("shipping");
 	},
 });
 
-export const CommercialConditions = objectType({
-	name: "CommercialConditions",
+export const CommercialCondition = objectType({
+	name: "CommercialCondition",
 	definition(t) {
-		t.int("minimumPurchase");
-		t.int("amountDiscount");
-		t.int("term");
-		t.string("paymentAccepted");
-		t.field("Address", { type: Delivery });
+		t.nonNull.int("minimumPurchase");
+		t.nonNull.int("amountDiscount");
+		t.nonNull.int("term");
+		t.nonNull.string("paymentAccepted");
+		t.nonNull.field("delivery", { type: Delivery });
 	},
 });
 
@@ -53,12 +53,12 @@ export const Brand = objectType({
 	definition(t) {
 		t.nonNull.id("id");
 		t.nonNull.string("brandName");
-		t.string("commercialName");
-		t.string("taxId");
-		t.string("taxCategory");
-		t.field("legalAddress", { type: Address });
-		t.field("commercialAddress", { type: CommercialAddress });
-		t.field("depositAddress", { type: DepositAddress });
-		t.field("commercialConditions", { type: CommercialConditions });
+		t.nonNull.string("commercialName");
+		t.nonNull.string("taxId");
+		t.nonNull.string("taxCategory");
+		t.nonNull.field("legalAddress", { type: Address });
+		t.nonNull.field("commercialAddress", { type: CommercialAddress });
+		t.nonNull.field("depositAddress", { type: DepositAddress });
+		t.nonNull.field("commercialCondition", { type: CommercialCondition });
 	},
 });
