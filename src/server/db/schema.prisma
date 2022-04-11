@@ -8,6 +8,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Bedrock built-in models
+
 model User {
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
   createdAt  DateTime  @default(now()) @db.Date
@@ -33,6 +35,7 @@ model Project {
   stripeCurrentPeriodEnd DateTime?
 }
 
+// Item (test)
 type Info {
   info1 String?
   info2 String?
@@ -40,15 +43,16 @@ type Info {
 
 model Item {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt   DateTime @db.Date
+  createdAt   DateTime @default(now()) @db.Date
   description String?
   imageUrl    String?
   title       String
-  updatedAt   DateTime @db.Date
+  updatedAt   DateTime @default(now()) @db.Date
   url         String?
   info        Info?
 }
 
+// Brand
 type Address {
   street   String
   city     String
@@ -93,4 +97,105 @@ model Brand {
   commercialAddress   CommercialAddress
   depositAddress      DepositAddress
   commercialCondition CommercialCondition
+}
+
+// Retail
+type FullName {
+  firstName String
+  lastName  String
+}
+
+model Retail {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt      DateTime       @default(now()) @db.Date
+  updatedAt      DateTime       @default(now()) @db.Date
+  supportTicket  String[]
+  email          String
+  nickname       String
+  fullName       FullName
+  depositAddress DepositAddress
+}
+
+// Order
+type OrderProduct {
+  id        String
+  title     String
+  quantity  Int
+  unitPrice Float
+}
+
+type OrderRetail {
+  id       String
+  nickname String
+
+}
+
+type OrderBrand {
+  id       String
+  nickname String
+}
+
+type Withholding {
+  type String
+}
+
+type Payment {
+  status      String
+  withholding Withholding[]
+}
+
+model Order {
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt    DateTime       @default(now()) @db.Date
+  updatedAt    DateTime       @default(now()) @db.Date
+  orderStatus  String
+  orderProduct OrderProduct[]
+  totalAmount  Float
+  orderRetail  OrderRetail
+  orderBrand   OrderBrand
+  payment      Payment
+  shippingId   Int
+}
+
+// Product
+type ReferencePrice {
+  avgSellingPrice Float
+  markUp          Float
+}
+
+type Price {
+  originalPrice  Float
+  referencePrice ReferencePrice?
+}
+
+type ClaimsPolicy {
+  acceptsRefund Boolean
+}
+
+type TechnicalSpecification {
+  description String
+}
+
+model Product {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now()) @db.Date
+
+  modifiedAt             DateTime               @default(now()) @db.Date
+  title                  String
+  titleDescription       String
+  minQSale               Float
+  price                  Price
+  claimsPolicy           ClaimsPolicy?
+  technicalSpecification TechnicalSpecification
+  selledUnits            Int
+}
+
+// PreuserBrand
+
+model PreuserBrand {
+  id                 String @id @default(auto()) @map("_id") @db.ObjectId
+  contactMail        String
+  contactPhone       String
+  taxId              Int
+  commercialCategory String
 }
