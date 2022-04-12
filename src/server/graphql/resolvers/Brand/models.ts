@@ -1,64 +1,45 @@
 import { objectType } from "nexus";
-
-export const Address = objectType({
-	name: "Address",
-	definition(t) {
-		t.nonNull.string("street");
-		t.nonNull.string("city");
-		t.nonNull.string("province");
-		t.nonNull.int("cp");
-		t.nonNull.string("country");
-	},
-});
+import { Address, DepositAddress } from "../commons";
 
 export const CommercialAddress = objectType({
 	name: "CommercialAddress",
 	definition(t) {
-		t.nonNull.field("address", { type: Address });
-		t.nonNull.string("commercialContact");
-		t.nonNull.int("commercialPhone");
-	},
-});
-
-export const DepositAddress = objectType({
-	name: "DepositAddress",
-	definition(t) {
-		t.nonNull.field("address", { type: Address });
-		t.nonNull.string("depositContact");
-		t.nonNull.int("depositPhone");
+		t.field("address", { type: Address });
+		t.string("commercialContact");
+		t.int("commercialPhone");
 	},
 });
 
 export const Delivery = objectType({
 	name: "Delivery",
 	definition(t) {
-		t.nonNull.string("deliveryTime");
-		t.nonNull.string("shipping");
+		t.string("deliveryTime");
+		t.string("shipping");
 	},
 });
 
 export const CommercialCondition = objectType({
 	name: "CommercialCondition",
 	definition(t) {
-		t.nonNull.int("minimumPurchase");
-		t.nonNull.int("amountDiscount");
-		t.nonNull.int("term");
-		t.nonNull.string("paymentAccepted");
-		t.nonNull.field("delivery", { type: Delivery });
+		t.int("minimumPurchase");
+		t.int("amountDiscount");
+		t.int("term");
+		t.string("paymentAccepted");
+		t.field("delivery", { type: Delivery });
 	},
 });
 
 export const Brand = objectType({
 	name: "Brand",
 	definition(t) {
-		t.nonNull.id("id");
-		t.nonNull.string("brandName");
-		t.nonNull.string("commercialName");
-		t.nonNull.string("taxId");
-		t.nonNull.string("taxCategory");
-		t.nonNull.field("legalAddress", { type: Address });
-		t.nonNull.field("commercialAddress", { type: CommercialAddress });
-		t.nonNull.field("depositAddress", { type: DepositAddress });
-		t.nonNull.field("commercialCondition", { type: CommercialCondition });
+		t.id("id");
+		t.string("brandName");
+		t.string("commercialName");
+		t.string("taxId");
+		t.string("taxCategory");
+		t.field("legalAddress", { type: Address });
+		t.field("commercialAddress", { type: CommercialAddress });
+		t.field("depositAddress", { type: DepositAddress });
+		t.field("commercialCondition", { type: CommercialCondition });
 	},
 });

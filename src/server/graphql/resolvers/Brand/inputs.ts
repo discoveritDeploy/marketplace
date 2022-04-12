@@ -3,70 +3,70 @@ import { inputObjectType } from "nexus";
 export const BrandWhereUniqueInput = inputObjectType({
 	name: "BrandWhereUniqueInput",
 	definition(t) {
-		t.nonNull.id("id");
+		t.id("id");
 	},
 });
 
 export const AddressInput = inputObjectType({
 	name: "AddressInput",
 	definition(t) {
-		t.nonNull.string("street");
-		t.nonNull.string("city");
-		t.nonNull.string("province");
-		t.nonNull.int("cp");
-		t.nonNull.string("country");
+		t.string("street");
+		t.string("city");
+		t.string("province");
+		t.int("cp");
+		t.string("country");
 	},
 });
 
 export const CommercialAddressInput = inputObjectType({
 	name: "CommercialAddressInput",
 	definition(t) {
-		t.nonNull.field("addressInput", { type: AddressInput });
-		t.nonNull.string("commercialContact");
-		t.nonNull.int("commercialPhone");
+		t.field("addressInput", { type: AddressInput });
+		t.string("commercialContact");
+		t.int("commercialPhone");
 	},
 });
 
 export const DepositAddressInput = inputObjectType({
 	name: "DepositAddressInput",
 	definition(t) {
-		t.nonNull.field("addressInput", { type: AddressInput });
-		t.nonNull.string("depositContact");
-		t.nonNull.int("depositPhone");
+		t.field("address", { type: AddressInput });
+		t.string("depositContact");
+		t.int("depositPhone");
 	},
 });
 
 export const DeliveryInput = inputObjectType({
 	name: "DeliveryInput",
 	definition(t) {
-		t.nonNull.string("deliveryTime");
-		t.nonNull.string("shipping");
+		t.string("deliveryTime");
+		t.string("shipping");
 	},
 });
 
 export const CommercialConditionsInput = inputObjectType({
 	name: "CommercialConditionsInput",
 	definition(t) {
-		t.nonNull.int("minimumPurchase");
-		t.nonNull.int("amountDiscount");
-		t.nonNull.int("term");
-		t.nonNull.string("paymentAccepted");
-		t.nonNull.field("deliveryInput", { type: DeliveryInput });
+		t.int("minimumPurchase");
+		t.int("amountDiscount");
+		t.int("term");
+		t.string("paymentAccepted");
+		t.field("delivery", { type: DeliveryInput });
 	},
 });
 
 export const CreateBrandInput = inputObjectType({
 	name: "CreateBrandInput",
 	definition(t) {
-		t.nonNull.id("id");
-		t.nonNull.string("brandName");
-		t.nonNull.string("commercialName");
-		t.nonNull.string("taxId");
-		t.nonNull.string("taxCategory");
-		t.nonNull.field("legalAddressInput", { type: AddressInput });
-		t.nonNull.field("commercialAddressInput", { type: CommercialAddressInput });
-		t.nonNull.field("depositAddressInput", { type: DepositAddressInput });
-		t.nonNull.field("commercialConditionsInput", {
+		t.id("id");
+		t.string("brandName");
+		t.string("commercialName");
+		t.string("taxId");
+		t.string("taxCategory");
+		t.field("legalAddress", { type: AddressInput });
+		t.field("commercialAddress", { type: CommercialAddressInput });
+		t.field("depositAddress", { type: DepositAddressInput });
+		t.field("commercialConditions", {
 			type: CommercialConditionsInput,
 		});
 	},

@@ -2,11 +2,11 @@
 ### Do not make changes to this file directly
 
 type Address {
-  city: String!
-  country: String!
-  cp: Int!
-  province: String!
-  street: String!
+  city: String
+  country: String
+  cp: Int
+  province: String
+  street: String
 }
 
 input AddressInput {
@@ -18,15 +18,15 @@ input AddressInput {
 }
 
 type Brand {
-  brandName: String!
-  commercialAddress: CommercialAddress!
-  commercialCondition: CommercialCondition!
-  commercialName: String!
-  depositAddress: DepositAddress!
-  id: ID!
-  legalAddress: Address!
-  taxCategory: String!
-  taxId: String!
+  brandName: String
+  commercialAddress: CommercialAddress
+  commercialCondition: CommercialCondition
+  commercialName: String
+  depositAddress: DepositAddress
+  id: ID
+  legalAddress: Address
+  taxCategory: String
+  taxId: String
 }
 
 input BrandWhereUniqueInput {
@@ -34,9 +34,9 @@ input BrandWhereUniqueInput {
 }
 
 type CommercialAddress {
-  address: Address!
-  commercialContact: String!
-  commercialPhone: Int!
+  address: Address
+  commercialContact: String
+  commercialPhone: Int
 }
 
 input CommercialAddressInput {
@@ -46,16 +46,16 @@ input CommercialAddressInput {
 }
 
 type CommercialCondition {
-  amountDiscount: Int!
-  delivery: Delivery!
-  minimumPurchase: Int!
-  paymentAccepted: String!
-  term: Int!
+  amountDiscount: Int
+  delivery: Delivery
+  minimumPurchase: Int
+  paymentAccepted: String
+  term: Int
 }
 
 input CommercialConditionsInput {
   amountDiscount: Int!
-  deliveryInput: DeliveryInput!
+  delivery: DeliveryInput!
   minimumPurchase: Int!
   paymentAccepted: String!
   term: Int!
@@ -63,19 +63,19 @@ input CommercialConditionsInput {
 
 input CreateBrandInput {
   brandName: String!
-  commercialAddressInput: CommercialAddressInput!
-  commercialConditionsInput: CommercialConditionsInput!
+  commercialAddress: CommercialAddressInput!
+  commercialConditions: CommercialConditionsInput!
   commercialName: String!
-  depositAddressInput: DepositAddressInput!
+  depositAddress: DepositAddressInput!
   id: ID!
-  legalAddressInput: AddressInput!
+  legalAddress: AddressInput!
   taxCategory: String!
   taxId: String!
 }
 
 type Delivery {
-  deliveryTime: String!
-  shipping: String!
+  deliveryTime: String
+  shipping: String
 }
 
 input DeliveryInput {
@@ -84,20 +84,30 @@ input DeliveryInput {
 }
 
 type DepositAddress {
-  address: Address!
+  address: Address
+  depositContact: String
+  depositPhone: Int
+}
+
+input DepositAddressInput {
+  address: AddressInput!
   depositContact: String!
   depositPhone: Int!
 }
 
-input DepositAddressInput {
-  addressInput: AddressInput!
-  depositContact: String!
-  depositPhone: Int!
+type FullName {
+  firstName: String
+  lastName: String
 }
 
 type Info {
   info1: String
   info2: String
+}
+
+input InfoInput {
+  info1: String!
+  info2: String!
 }
 
 type Item {
@@ -109,19 +119,27 @@ type Item {
   url: String
 }
 
+input ItemInput {
+  description: String!
+  imageUrl: String!
+  info: InfoInput!
+  title: String!
+  url: String!
+}
+
 input ItemWhereUniqueInput {
   id: ID!
 }
 
 type Mutation {
   createBrand(input: CreateBrandInput!): Brand
-  createItem: Item
+  createItem(input: ItemInput!): Item
   createProject(name: String!, slug: String): Project
   createStripeCheckoutBillingPortalUrl(projectId: String!): String
   createStripeCheckoutSession(plan: PaidPlan!, projectId: String!): String
   inviteToProject(email: String!, projectId: String!): Boolean
-  removeBrand: Brand
-  removeItem: Item
+  removeBrand(where: BrandWhereUniqueInput!): Brand
+  removeItem(where: ItemWhereUniqueInput!): Item
   removeUserFromProject(projectId: String!, userId: String!): Project
   updateUser(name: String, userId: String!): User
 }
@@ -153,6 +171,14 @@ type PageInfo {
 
 enum PaidPlan {
   pro
+}
+
+type PreUserBrand {
+  commercialCategory: String
+  contactMail: String
+  contactPhone: Int
+  id: ID
+  taxId: Int
 }
 
 type Project {
@@ -204,6 +230,15 @@ type Query {
   item(where: ItemWhereUniqueInput!): Item
   items: [Item!]
   project(id: String, slug: String): Project
+}
+
+type Retail {
+  depositAddress: DepositAddress
+  email: String
+  fullName: FullName
+  id: ID
+  nickname: String
+  supportTicket: [String]
 }
 
 type User {
