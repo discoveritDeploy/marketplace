@@ -8,6 +8,10 @@ const shouldGenerateArtifacts =
   process.env.NODE_ENV === "development" || !!process.env.GENERATE;
 
 export const schema = makeSchema({
+	nonNullDefaults: {
+		input: true,
+		output: false,
+	},
 	types: types,
 	// Type the GraphQL context when used in Nexus resolvers
 	contextType: {

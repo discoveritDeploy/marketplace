@@ -1,4 +1,4 @@
-import { extendType, nonNull, objectType, stringArg } from "nexus";
+import { extendType, nonNull, nullable, objectType, stringArg } from "nexus";
 import prisma from "../../../db/prisma";
 
 export const User = objectType({
@@ -53,7 +53,7 @@ export const userMutations = extendType({
 			type: "User",
 			args: {
 				userId: nonNull(stringArg()),
-				name: stringArg(),
+				name: nullable(stringArg()),
 			},
 			resolve: async (_, { userId, name }, ctx) => {
 				if (!ctx.user?.id || userId !== ctx.user.id) return null;

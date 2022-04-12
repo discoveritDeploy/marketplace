@@ -1,4 +1,11 @@
-import { enumType, extendType, nonNull, objectType, stringArg } from "nexus";
+import {
+	enumType,
+	extendType,
+	nonNull,
+	nullable,
+	objectType,
+	stringArg,
+} from "nexus";
 import prisma from "../../../db/prisma";
 import { getProjectPaidPlan } from "../../../get-project-paid-plan";
 import { plans } from "../../../stripe/plans";
@@ -66,8 +73,8 @@ export const projectQueries = extendType({
 		t.field("project", {
 			type: "Project",
 			args: {
-				id: stringArg(),
-				slug: stringArg(),
+				id: nullable(stringArg()),
+				slug: nullable(stringArg()),
 			},
 			resolve: async (_, { id, slug }, ctx) => {
 				if (!ctx.user?.id) return null;
@@ -104,7 +111,7 @@ export const projectMutations = extendType({
 			type: "Project",
 			args: {
 				name: nonNull(stringArg()),
-				slug: stringArg(),
+				slug: nullable(stringArg()),
 			},
 			resolve: async (_, args, ctx) => {
 				if (!ctx.user?.id) return null;
@@ -289,7 +296,6 @@ export const projectMutations = extendType({
 						},
 					},
 				});
-
 				return project;
 			},
 		});
