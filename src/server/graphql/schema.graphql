@@ -29,6 +29,14 @@ type Brand {
   taxId: String
 }
 
+type ClaimsPolicy {
+  acceptsRefund: Boolean
+}
+
+input ClaimsPolicyInput {
+  acceptsRefund: Boolean!
+}
+
 type CommercialAddress {
   address: Address
   commercialContact: String
@@ -68,11 +76,31 @@ input CreateBrandInput {
   taxId: String!
 }
 
+input CreateOrderInput {
+  orderBrand: OrderBrandInput!
+  orderProduct: [OrderProductInput!]!
+  orderRetail: OrderRetailInput!
+  orderStatus: String!
+  payment: PaymentInput!
+  shippingId: Int!
+  totalAmount: Float!
+}
+
 input CreatePreUserBrandInput {
   commercialCategory: String!
   contactMail: String!
   contactPhone: Int!
   taxId: Int!
+}
+
+input CreateProductInput {
+  claimsPolicy: ClaimsPolicyInput!
+  minQSale: Float!
+  price: PriceInput!
+  selledUnits: Int!
+  technicalSpecification: TechnicalSpecificationInput!
+  title: String!
+  titleDescription: String!
 }
 
 input CreateRetailInput {
@@ -150,17 +178,66 @@ input ItemWhereUniqueInput {
 type Mutation {
   createBrand(input: CreateBrandInput!): Brand
   createItem(input: ItemInput!): Item
+  createOrder(input: CreateOrderInput!): Order
   createPreUserBrand(input: CreatePreUserBrandInput!): PreUserBrand
+  createProduct(input: CreateProductInput!): Product
   createProject(name: String!, slug: String): Project
   createStripeCheckoutBillingPortalUrl(projectId: String!): String
   createStripeCheckoutSession(plan: PaidPlan!, projectId: String!): String
   inviteToProject(email: String!, projectId: String!): Boolean
   removeBrand(where: WhereUniqueId!): Brand
   removeItem(where: ItemWhereUniqueInput!): Item
+  removeOrder(where: WhereUniqueId!): Order
   removePreUserBrand(where: WhereUniqueId!): PreUserBrand
+  removeProduct(where: WhereUniqueId!): Product
   removeRetail(where: WhereUniqueId!): Retail
   removeUserFromProject(projectId: String!, userId: String!): Project
   updateUser(name: String, userId: String!): User
+}
+
+type Order {
+  id: ID
+  orderBrand: OrderBrand
+  orderProduct: [OrderProduct]
+  orderRetail: OrderRetail
+  orderStatus: String
+  payment: Payment
+  shippingId: Int
+  totalAmount: Float
+}
+
+type OrderBrand {
+  id: ID
+  nickname: String
+}
+
+input OrderBrandInput {
+  id: ID!
+  nickname: String!
+}
+
+type OrderProduct {
+  id: ID
+  quantity: Int
+  title: String
+  unitPrice: Float
+}
+
+input OrderProductInput {
+  id: ID!
+  quantity: Int!
+  title: String!
+  unitPrice: Float!
+}
+
+type OrderRetail {
+  id: ID
+  nickname: String
+}
+
+input OrderRetailInput {
+  id: ID!
+  nickname: String!
 }
 
 """
@@ -192,12 +269,43 @@ enum PaidPlan {
   pro
 }
 
+type Payment {
+  status: String
+  withholding: [Withholding]
+}
+
+input PaymentInput {
+  status: String!
+  withholding: [WithholdingInput!]!
+}
+
 type PreUserBrand {
   commercialCategory: String
   contactMail: String
   contactPhone: Int
   id: ID
   taxId: Int
+}
+
+type Price {
+  originalPrice: Float
+  referencePrice: ReferencePrice
+}
+
+input PriceInput {
+  originalPrice: Float!
+  referencePrice: ReferencePriceInput!
+}
+
+type Product {
+  claimsPolicy: ClaimsPolicy
+  id: ID
+  minQSale: Float
+  price: Price
+  selledUnits: Int
+  technicalSpecification: TechnicalSpecification
+  title: String
+  titleDescription: String
 }
 
 type Project {
@@ -248,11 +356,25 @@ type Query {
   currentUser: User
   item(where: ItemWhereUniqueInput!): Item
   items: [Item!]
+  order(where: WhereUniqueId!): Order
+  orders: [Order!]
   preUserBrand(where: WhereUniqueId!): PreUserBrand
   preUserBrands: [PreUserBrand!]
+  product(where: WhereUniqueId!): Product
+  products: [Product!]
   project(id: String, slug: String): Project
   retail(where: WhereUniqueId!): Retail
   retails: [Retail!]
+}
+
+type ReferencePrice {
+  avgSellingPrice: Float
+  markUp: Float
+}
+
+input ReferencePriceInput {
+  avgSellingPrice: Float!
+  markUp: Float!
 }
 
 type Retail {
@@ -262,6 +384,14 @@ type Retail {
   id: ID
   nickname: String
   supportTicket: [String]
+}
+
+type TechnicalSpecification {
+  description: String
+}
+
+input TechnicalSpecificationInput {
+  description: String!
 }
 
 type User {
@@ -307,4 +437,12 @@ type UserEdge {
 
 input WhereUniqueId {
   id: ID!
+}
+
+type Withholding {
+  type: String
+}
+
+input WithholdingInput {
+  type: String!
 }

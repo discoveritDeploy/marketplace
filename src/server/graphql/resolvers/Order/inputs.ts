@@ -37,7 +37,7 @@ export const PaymentInput = inputObjectType({
 	name: "PaymentInput",
 	definition(t) {
 		t.string("status");
-		t.field("withholding", { type: WithholdingInput });
+		t.list.field("withholding", { type: WithholdingInput });
 	},
 });
 

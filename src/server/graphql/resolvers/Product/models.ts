@@ -31,7 +31,7 @@ export const TechnicalSpecification = objectType({
 });
 
 export const Product = objectType({
-	name: "Order",
+	name: "Product",
 	definition(t) {
 		t.id("id");
 		t.string("title");

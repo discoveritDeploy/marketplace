@@ -37,7 +37,7 @@ export const Payment = objectType({
 	name: "Payment",
 	definition(t) {
 		t.string("status");
-		t.field("withholding", { type: Withholding });
+		t.list.field("withholding", { type: Withholding });
 	},
 });
 

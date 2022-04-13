@@ -31,7 +31,7 @@ export const TechnicalSpecificationInput = inputObjectType({
 });
 
 export const CreateProductInput = inputObjectType({
-	name: "CreateOrderInput",
+	name: "CreateProductInput",
 	definition(t) {
 		t.string("title");
 		t.string("titleDescription");
