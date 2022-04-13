@@ -1,12 +1,5 @@
 import { inputObjectType } from "nexus";
 
-export const BrandWhereUniqueInput = inputObjectType({
-	name: "BrandWhereUniqueInput",
-	definition(t) {
-		t.id("id");
-	},
-});
-
 export const AddressInput = inputObjectType({
 	name: "AddressInput",
 	definition(t) {

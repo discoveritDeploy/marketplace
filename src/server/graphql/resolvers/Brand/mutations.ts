@@ -1,6 +1,7 @@
 import { mutationField, nonNull, nullable } from "nexus";
 import { Brand } from "./models";
-import { BrandWhereUniqueInput, CreateBrandInput } from "./inputs";
+import { CreateBrandInput } from "./inputs";
+import { WhereUniqueId } from "../commons";
 
 export const createBrand = mutationField("createBrand", {
 	type: nullable(Brand),
@@ -18,7 +19,7 @@ export const createBrand = mutationField("createBrand", {
 export const removeBrand = mutationField("removeBrand", {
 	type: nullable(Brand),
 	args: {
-		where: nonNull(BrandWhereUniqueInput),
+		where: nonNull(WhereUniqueId),
 	},
 	resolve: async (root, args, ctx) => {
 		return ctx.prisma.brand.delete({

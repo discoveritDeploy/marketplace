@@ -1,11 +1,11 @@
 import { list, nonNull, nullable, queryField } from "nexus";
 import { Brand } from "./models";
-import { BrandWhereUniqueInput } from "./inputs";
+import { WhereUniqueId } from "../commons/inputs";
 
 export const brand = queryField("brand", {
 	type: nullable(Brand),
 	args: {
-		where: nonNull(BrandWhereUniqueInput),
+		where: nonNull(WhereUniqueId),
 	},
 	resolve: async (root, args, ctx) => {
 		return ctx.prisma.brand.findUnique({
