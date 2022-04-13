@@ -37,8 +37,8 @@ export const DeliveryInput = inputObjectType({
 	},
 });
 
-export const CommercialConditionsInput = inputObjectType({
-	name: "CommercialConditionsInput",
+export const CommercialConditionInput = inputObjectType({
+	name: "CommercialConditionInput",
 	definition(t) {
 		t.int("minimumPurchase");
 		t.int("amountDiscount");
@@ -59,8 +59,8 @@ export const CreateBrandInput = inputObjectType({
 		t.field("legalAddress", { type: AddressInput });
 		t.field("commercialAddress", { type: CommercialAddressInput });
 		t.field("depositAddress", { type: DepositAddressInput });
-		t.field("commercialConditions", {
-			type: CommercialConditionsInput,
+		t.field("commercialCondition", {
+			type: CommercialConditionInput,
 		});
 	},
 });
