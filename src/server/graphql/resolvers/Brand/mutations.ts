@@ -7,12 +7,11 @@ export const createBrand = mutationField("createBrand", {
 	type: nullable(Brand),
 	args: { input: nonNull(CreateBrandInput) },
 	resolve: async (root, args, ctx) => {
-		return null;
-		// return ctx.prisma.brand.create({
-		// 	data: {
-		// 		...args.input
-		// 	},
-		// });
+		return ctx.prisma.brand.create({
+			data: {
+				...args.input,
+			},
+		});
 	},
 });
 

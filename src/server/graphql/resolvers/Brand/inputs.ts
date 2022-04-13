@@ -14,7 +14,7 @@ export const AddressInput = inputObjectType({
 export const CommercialAddressInput = inputObjectType({
 	name: "CommercialAddressInput",
 	definition(t) {
-		t.field("addressInput", { type: AddressInput });
+		t.field("address", { type: AddressInput });
 		t.string("commercialContact");
 		t.int("commercialPhone");
 	},
@@ -51,7 +51,6 @@ export const CommercialConditionInput = inputObjectType({
 export const CreateBrandInput = inputObjectType({
 	name: "CreateBrandInput",
 	definition(t) {
-		t.id("id");
 		t.string("brandName");
 		t.string("commercialName");
 		t.string("taxId");
