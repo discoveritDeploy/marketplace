@@ -29,10 +29,6 @@ type Brand {
   taxId: String
 }
 
-input BrandWhereUniqueInput {
-  id: ID!
-}
-
 type CommercialAddress {
   address: Address
   commercialContact: String
@@ -138,8 +134,10 @@ type Mutation {
   createStripeCheckoutBillingPortalUrl(projectId: String!): String
   createStripeCheckoutSession(plan: PaidPlan!, projectId: String!): String
   inviteToProject(email: String!, projectId: String!): Boolean
-  removeBrand(where: BrandWhereUniqueInput!): Brand
+  removeBrand(where: WhereUniqueId!): Brand
   removeItem(where: ItemWhereUniqueInput!): Item
+  removePreUserBrand(where: WhereUniqueId!): PreUserBrand
+  removeRetail(where: WhereUniqueId!): Retail
   removeUserFromProject(projectId: String!, userId: String!): Project
   updateUser(name: String, userId: String!): User
 }
@@ -224,7 +222,7 @@ type ProjectEdge {
 }
 
 type Query {
-  brand(where: BrandWhereUniqueInput!): Brand
+  brand(where: WhereUniqueId!): Brand
   brands: [Brand!]
   currentUser: User
   item(where: ItemWhereUniqueInput!): Item
@@ -280,4 +278,8 @@ type UserEdge {
   https://facebook.github.io/relay/graphql/connections.htm#sec-Node
   """
   node: User
+}
+
+input WhereUniqueId {
+  id: ID!
 }
