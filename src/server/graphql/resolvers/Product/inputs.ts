@@ -33,7 +33,6 @@ export const TechnicalSpecificationInput = inputObjectType({
 export const CreateProductInput = inputObjectType({
 	name: "CreateOrderInput",
 	definition(t) {
-		t.id("id");
 		t.string("title");
 		t.string("titleDescription");
 		t.float("minQSale");
