@@ -1,31 +1,12 @@
 import { inputObjectType } from "nexus";
-
-export const AddressInput = inputObjectType({
-	name: "AddressInput",
-	definition(t) {
-		t.string("street");
-		t.string("city");
-		t.string("province");
-		t.int("cp");
-		t.string("country");
-	},
-});
+import { AddressInput, DepositAddressInput } from "../commons";
 
 export const CommercialAddressInput = inputObjectType({
 	name: "CommercialAddressInput",
 	definition(t) {
-		t.field("addressInput", { type: AddressInput });
+		t.field("address", { type: AddressInput });
 		t.string("commercialContact");
 		t.int("commercialPhone");
-	},
-});
-
-export const DepositAddressInput = inputObjectType({
-	name: "DepositAddressInput",
-	definition(t) {
-		t.field("address", { type: AddressInput });
-		t.string("depositContact");
-		t.int("depositPhone");
 	},
 });
 
@@ -37,8 +18,8 @@ export const DeliveryInput = inputObjectType({
 	},
 });
 
-export const CommercialConditionsInput = inputObjectType({
-	name: "CommercialConditionsInput",
+export const CommercialConditionInput = inputObjectType({
+	name: "CommercialConditionInput",
 	definition(t) {
 		t.int("minimumPurchase");
 		t.int("amountDiscount");
@@ -51,7 +32,6 @@ export const CommercialConditionsInput = inputObjectType({
 export const CreateBrandInput = inputObjectType({
 	name: "CreateBrandInput",
 	definition(t) {
-		t.id("id");
 		t.string("brandName");
 		t.string("commercialName");
 		t.string("taxId");
@@ -59,8 +39,8 @@ export const CreateBrandInput = inputObjectType({
 		t.field("legalAddress", { type: AddressInput });
 		t.field("commercialAddress", { type: CommercialAddressInput });
 		t.field("depositAddress", { type: DepositAddressInput });
-		t.field("commercialConditions", {
-			type: CommercialConditionsInput,
+		t.field("commercialCondition", {
+			type: CommercialConditionInput,
 		});
 	},
 });
