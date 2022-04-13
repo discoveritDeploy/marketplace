@@ -36,7 +36,7 @@ type CommercialAddress {
 }
 
 input CommercialAddressInput {
-  addressInput: AddressInput!
+  address: AddressInput!
   commercialContact: String!
   commercialPhone: Int!
 }
@@ -68,6 +68,13 @@ input CreateBrandInput {
   taxId: String!
 }
 
+input CreatePreUserBrandInput {
+  commercialCategory: String!
+  contactMail: String!
+  contactPhone: Int!
+  taxId: Int!
+}
+
 input CreateRetailInput {
   depositAddress: DepositAddressInput!
   email: String!
@@ -75,13 +82,6 @@ input CreateRetailInput {
   id: ID!
   nickname: String!
   supportTicket: [String!]!
-}
-
-input CreatePreUserBrandInput {
-  commercialCategory: String!
-  contactMail: String!
-  contactPhone: Int!
-  taxId: Int!
 }
 
 type Delivery {
@@ -248,6 +248,8 @@ type Query {
   currentUser: User
   item(where: ItemWhereUniqueInput!): Item
   items: [Item!]
+  preUserBrand(where: WhereUniqueId!): PreUserBrand
+  preUserBrands: [PreUserBrand!]
   project(id: String, slug: String): Project
   retail(where: WhereUniqueId!): Retail
   retails: [Retail!]
