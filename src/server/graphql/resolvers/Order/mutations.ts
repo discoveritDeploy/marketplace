@@ -1,6 +1,6 @@
 import { mutationField, nonNull, nullable } from "nexus";
 import { Order } from "./models";
-import { WhereUniqueId } from "../commons/inputs";
+import { WhereUniqueId } from "../commons";
 
 export const removeOrder = mutationField("removeOrder", {
 	type: nullable(Order),
