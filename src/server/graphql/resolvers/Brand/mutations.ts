@@ -1,7 +1,7 @@
 import { mutationField, nonNull, nullable } from "nexus";
 import { Brand } from "./models";
 import { CreateBrandInput } from "./inputs";
-import { WhereUniqueId } from "../commons/inputs";
+import { WhereUniqueId } from "../commons";
 
 export const createBrand = mutationField("createBrand", {
 	type: nullable(Brand),
