@@ -1,6 +1,7 @@
 import { mutationField, nonNull, nullable } from "nexus";
 import { Product } from "./models";
 import { WhereUniqueId } from "../commons";
+import { CreateProductInput } from "./inputs";
 
 export const removeProduct = mutationField("removeProduct", {
 	type: nullable(Product),
@@ -13,8 +14,6 @@ export const removeProduct = mutationField("removeProduct", {
 		});
 	},
 });
-
-import { CreateProductInput } from "./inputs";
 
 export const createProduct = mutationField("createProduct", {
 	type: nullable(Product),
