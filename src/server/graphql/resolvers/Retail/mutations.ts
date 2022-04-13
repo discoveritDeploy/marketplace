@@ -1,6 +1,6 @@
 import { mutationField, nonNull, nullable } from "nexus";
 import { Retail } from "./models";
-import { WhereUniqueId } from "../commons/inputs";
+import { WhereUniqueId } from "../commons";
 
 export const removeRetail = mutationField("removeRetail", {
 	type: nullable(Retail),
