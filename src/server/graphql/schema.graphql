@@ -36,7 +36,7 @@ type CommercialAddress {
 }
 
 input CommercialAddressInput {
-  address: AddressInput!
+  addressInput: AddressInput!
   commercialContact: String!
   commercialPhone: Int!
 }
@@ -75,6 +75,13 @@ input CreateRetailInput {
   id: ID!
   nickname: String!
   supportTicket: [String!]!
+}
+
+input CreatePreUserBrandInput {
+  commercialCategory: String!
+  contactMail: String!
+  contactPhone: Int!
+  taxId: Int!
 }
 
 type Delivery {
@@ -143,6 +150,7 @@ input ItemWhereUniqueInput {
 type Mutation {
   createBrand(input: CreateBrandInput!): Brand
   createItem(input: ItemInput!): Item
+  createPreUserBrand(input: CreatePreUserBrandInput!): PreUserBrand
   createProject(name: String!, slug: String): Project
   createStripeCheckoutBillingPortalUrl(projectId: String!): String
   createStripeCheckoutSession(plan: PaidPlan!, projectId: String!): String
