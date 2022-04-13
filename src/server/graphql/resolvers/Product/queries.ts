@@ -1,6 +1,6 @@
 import { list, nonNull, nullable, queryField } from "nexus";
 import { Product } from "./models";
-import { WhereUniqueId } from "../commons/inputs";
+import { WhereUniqueId } from "../commons";
 
 export const product = queryField("product", {
 	type: nullable(Product),
