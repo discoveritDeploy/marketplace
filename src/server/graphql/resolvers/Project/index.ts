@@ -1,18 +1,25 @@
-import { enumType, extendType, nonNull, objectType, stringArg } from "nexus";
-import prisma from "../../db/prisma";
-import { getProjectPaidPlan } from "../../get-project-paid-plan";
-import { plans } from "../../stripe/plans";
+import {
+	enumType,
+	extendType,
+	nonNull,
+	nullable,
+	objectType,
+	stringArg,
+} from "nexus";
+import prisma from "../../../db/prisma";
+import { getProjectPaidPlan } from "../../../get-project-paid-plan";
+import { plans } from "../../../stripe/plans";
 import slug from "slug";
-import { generateInvitationToken } from "../../invitations/token";
-import { sendEmail } from "../../send-email";
-import stripe from "../../stripe";
+import { generateInvitationToken } from "../../../invitations/token";
+import { sendEmail } from "../../../send-email";
+import stripe from "../../../stripe";
 
 export const PaidPlan = enumType({
 	name: `PaidPlan`,
 	members: Object.keys(plans),
 });
 
-const Project = objectType({
+export const Project = objectType({
 	name: "Project",
 	definition(t) {
 		t.nonNull.string("id");
@@ -60,14 +67,14 @@ const Project = objectType({
 	},
 });
 
-const queries = extendType({
+export const projectQueries = extendType({
 	type: "Query",
 	definition: (t) => {
 		t.field("project", {
 			type: "Project",
 			args: {
-				id: stringArg(),
-				slug: stringArg(),
+				id: nullable(stringArg()),
+				slug: nullable(stringArg()),
 			},
 			resolve: async (_, { id, slug }, ctx) => {
 				if (!ctx.user?.id) return null;
@@ -97,14 +104,14 @@ const queries = extendType({
 	},
 });
 
-const mutations = extendType({
+export const projectMutations = extendType({
 	type: "Mutation",
 	definition: (t) => {
 		t.nullable.field("createProject", {
 			type: "Project",
 			args: {
 				name: nonNull(stringArg()),
-				slug: stringArg(),
+				slug: nullable(stringArg()),
 			},
 			resolve: async (_, args, ctx) => {
 				if (!ctx.user?.id) return null;
@@ -289,11 +296,8 @@ const mutations = extendType({
 						},
 					},
 				});
-
 				return project;
 			},
 		});
 	},
 });
-
-export default [Project, mutations, queries];

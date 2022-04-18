@@ -1,7 +1,7 @@
-import { extendType, nonNull, objectType, stringArg } from "nexus";
-import prisma from "../../db/prisma";
+import { extendType, nonNull, nullable, objectType, stringArg } from "nexus";
+import prisma from "../../../db/prisma";
 
-const User = objectType({
+export const User = objectType({
 	name: "User",
 	definition(t) {
 		t.nonNull.string("id");
@@ -28,7 +28,7 @@ const User = objectType({
 	},
 });
 
-const queries = extendType({
+export const userQueries = extendType({
 	type: "Query",
 	definition: (t) => {
 		t.field("currentUser", {
@@ -46,14 +46,14 @@ const queries = extendType({
 	},
 });
 
-const mutations = extendType({
+export const userMutations = extendType({
 	type: "Mutation",
 	definition: (t) => {
 		t.nullable.field("updateUser", {
 			type: "User",
 			args: {
 				userId: nonNull(stringArg()),
-				name: stringArg(),
+				name: nullable(stringArg()),
 			},
 			resolve: async (_, { userId, name }, ctx) => {
 				if (!ctx.user?.id || userId !== ctx.user.id) return null;
@@ -66,5 +66,3 @@ const mutations = extendType({
 		});
 	},
 });
-
-export default [User, mutations, queries];

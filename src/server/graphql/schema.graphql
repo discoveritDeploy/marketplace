@@ -2,13 +2,244 @@
 ### Do not make changes to this file directly
 
 
+type Address {
+  city: String
+  country: String
+  cp: Int
+  province: String
+  street: String
+}
+
+input AddressInput {
+  city: String!
+  country: String!
+  cp: Int!
+  province: String!
+  street: String!
+}
+
+type Brand {
+  brandName: String
+  commercialAddress: CommercialAddress
+  commercialCondition: CommercialCondition
+  commercialName: String
+  depositAddress: DepositAddress
+  id: ID
+  legalAddress: Address
+  taxCategory: String
+  taxId: String
+}
+
+type ClaimsPolicy {
+  acceptsRefund: Boolean
+}
+
+input ClaimsPolicyInput {
+  acceptsRefund: Boolean!
+}
+
+type CommercialAddress {
+  address: Address
+  commercialContact: String
+  commercialPhone: Int
+}
+
+input CommercialAddressInput {
+  address: AddressInput!
+  commercialContact: String!
+  commercialPhone: Int!
+}
+
+type CommercialCondition {
+  amountDiscount: Int
+  delivery: Delivery
+  minimumPurchase: Int
+  paymentAccepted: String
+  term: Int
+}
+
+input CommercialConditionInput {
+  amountDiscount: Int!
+  delivery: DeliveryInput!
+  minimumPurchase: Int!
+  paymentAccepted: String!
+  term: Int!
+}
+
+input CreateBrandInput {
+  brandName: String!
+  commercialAddress: CommercialAddressInput!
+  commercialCondition: CommercialConditionInput!
+  commercialName: String!
+  depositAddress: DepositAddressInput!
+  legalAddress: AddressInput!
+  taxCategory: String!
+  taxId: String!
+}
+
+input CreateOrderInput {
+  orderBrand: OrderBrandInput!
+  orderProduct: [OrderProductInput!]!
+  orderRetail: OrderRetailInput!
+  orderStatus: String!
+  payment: PaymentInput!
+  shippingId: Int!
+  totalAmount: Float!
+}
+
+input CreatePreUserBrandInput {
+  commercialCategory: commercialCategory!
+  contactMail: String!
+  contactPhone: Float!
+  taxId: Float!
+}
+
+input CreateProductInput {
+  claimsPolicy: ClaimsPolicyInput!
+  minQSale: Float!
+  price: PriceInput!
+  selledUnits: Int!
+  technicalSpecification: TechnicalSpecificationInput!
+  title: String!
+  titleDescription: String!
+}
+
+input CreateRetailInput {
+  depositAddress: DepositAddressInput!
+  email: String!
+  fullName: FullNameInput!
+  id: ID!
+  nickname: String!
+  supportTicket: [String!]!
+}
+
+type Delivery {
+  deliveryTime: String
+  shipping: String
+}
+
+input DeliveryInput {
+  deliveryTime: String!
+  shipping: String!
+}
+
+type DepositAddress {
+  address: Address
+  depositContact: String
+  depositPhone: Int
+}
+
+input DepositAddressInput {
+  address: AddressInput!
+  depositContact: String!
+  depositPhone: Int!
+}
+
+type FullName {
+  firstName: String
+  lastName: String
+}
+
+input FullNameInput {
+  firstName: String!
+  lastName: String!
+}
+
+type Info {
+  info1: String
+  info2: String
+}
+
+input InfoInput {
+  info1: String!
+  info2: String!
+}
+
+type Item {
+  description: String
+  id: ID!
+  imageUrl: String
+  info: Info
+  title: String!
+  url: String
+}
+
+input ItemInput {
+  description: String!
+  imageUrl: String!
+  info: InfoInput!
+  title: String!
+  url: String!
+}
+
+input ItemWhereUniqueInput {
+  id: ID!
+}
+
 type Mutation {
+  createBrand(input: CreateBrandInput!): Brand
+  createItem(input: ItemInput!): Item
+  createOrder(input: CreateOrderInput!): Order
+  createPreUserBrand(input: CreatePreUserBrandInput!): PreUserBrand
+  createProduct(input: CreateProductInput!): Product
   createProject(name: String!, slug: String): Project
+  createRetail(input: CreateRetailInput!): Retail
   createStripeCheckoutBillingPortalUrl(projectId: String!): String
   createStripeCheckoutSession(plan: PaidPlan!, projectId: String!): String
   inviteToProject(email: String!, projectId: String!): Boolean
+  removeBrand(where: WhereUniqueId!): Brand
+  removeItem(where: ItemWhereUniqueInput!): Item
+  removeOrder(where: WhereUniqueId!): Order
+  removePreUserBrand(where: WhereUniqueId!): PreUserBrand
+  removeProduct(where: WhereUniqueId!): Product
+  removeRetail(where: WhereUniqueId!): Retail
   removeUserFromProject(projectId: String!, userId: String!): Project
   updateUser(name: String, userId: String!): User
+}
+
+type Order {
+  id: ID
+  orderBrand: OrderBrand
+  orderProduct: [OrderProduct]
+  orderRetail: OrderRetail
+  orderStatus: String
+  payment: Payment
+  shippingId: Int
+  totalAmount: Float
+}
+
+type OrderBrand {
+  id: ID
+  nickname: String
+}
+
+input OrderBrandInput {
+  id: ID!
+  nickname: String!
+}
+
+type OrderProduct {
+  id: ID
+  quantity: Int
+  title: String
+  unitPrice: Float
+}
+
+input OrderProductInput {
+  id: ID!
+  quantity: Int!
+  title: String!
+  unitPrice: Float!
+}
+
+type OrderRetail {
+  id: ID
+  nickname: String
+}
+
+input OrderRetailInput {
+  id: ID!
+  nickname: String!
 }
 
 """
@@ -38,6 +269,45 @@ type PageInfo {
 
 enum PaidPlan {
   pro
+}
+
+type Payment {
+  status: String
+  withholding: [Withholding]
+}
+
+input PaymentInput {
+  status: String!
+  withholding: [WithholdingInput!]!
+}
+
+type PreUserBrand {
+  commercialCategory: commercialCategory
+  contactMail: String
+  contactPhone: Float
+  id: ID
+  taxId: Float
+}
+
+type Price {
+  originalPrice: Float
+  referencePrice: ReferencePrice
+}
+
+input PriceInput {
+  originalPrice: Float!
+  referencePrice: ReferencePriceInput!
+}
+
+type Product {
+  claimsPolicy: ClaimsPolicy
+  id: ID
+  minQSale: Float
+  price: Price
+  selledUnits: Int
+  technicalSpecification: TechnicalSpecification
+  title: String
+  titleDescription: String
 }
 
 type Project {
@@ -75,8 +345,47 @@ type ProjectEdge {
 }
 
 type Query {
+  brand(where: WhereUniqueId!): Brand
+  brands: [Brand!]
   currentUser: User
+  item(where: ItemWhereUniqueInput!): Item
+  items: [Item!]
+  order(where: WhereUniqueId!): Order
+  orders: [Order!]
+  preUserBrand(where: WhereUniqueId!): PreUserBrand
+  preUserBrands: [PreUserBrand!]
+  product(where: WhereUniqueId!): Product
+  products: [Product!]
   project(id: String, slug: String): Project
+  retail(where: WhereUniqueId!): Retail
+  retails: [Retail!]
+}
+
+type ReferencePrice {
+  avgSellingPrice: Float
+  markUp: Float
+}
+
+input ReferencePriceInput {
+  avgSellingPrice: Float!
+  markUp: Float!
+}
+
+type Retail {
+  depositAddress: DepositAddress
+  email: String
+  fullName: FullName
+  id: ID
+  nickname: String
+  supportTicket: [String]
+}
+
+type TechnicalSpecification {
+  description: String
+}
+
+input TechnicalSpecificationInput {
+  description: String!
 }
 
 type User {
@@ -110,4 +419,24 @@ type UserEdge {
 
   """https://facebook.github.io/relay/graphql/connections.htm#sec-Node"""
   node: User
+}
+
+input WhereUniqueId {
+  id: ID!
+}
+
+type Withholding {
+  type: String
+}
+
+input WithholdingInput {
+  type: String!
+}
+
+"""categoria comercial"""
+enum commercialCategory {
+  BLANQUERIA
+  CUIDADO
+  INDUMENTARIA
+  VARIOS
 }

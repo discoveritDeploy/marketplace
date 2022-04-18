@@ -5,9 +5,9 @@ import productDatabase from "client/data/product-database";
 import { Grid, Pagination } from "@mui/material";
 import React from "react";
 
-export interface ProductCard1ListProps {}
+// export interface ProductCard1ListProps {}
 
-const ProductCard1List: React.FC<ProductCard1ListProps> = () => {
+const ProductCard1List: React.FC = () => {
 	return (
 		<div>
 			<Grid container spacing={3}>

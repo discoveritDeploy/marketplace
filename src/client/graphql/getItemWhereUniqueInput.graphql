@@ -1,0 +1,7 @@
+query Item($where: ItemWhereUniqueInput!) {
+  item(where: $where) {
+    id
+    title
+    description
+  }
+}
