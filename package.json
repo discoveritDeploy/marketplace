@@ -19,39 +19,59 @@
     "prisma:migrate": "yarn prisma migrate dev",
     "prisma:studio": "prisma studio",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest — coverage",
     "typecheck": "concurrently --raw yarn:typecheck:*",
     "typecheck:app": "tsc --noEmit",
     "typecheck:cypress": "tsc --noEmit -p cypress/tsconfig.json",
     "cypress:open": "cypress open",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "validate": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.5.1",
+    "@mui/material": "^5.5.3",
     "@prisma/client": "^3.9.2",
+    "@reduxjs/toolkit": "^1.8.1",
     "@urql/exchange-graphcache": "^4.3.6",
     "apollo-server-micro": "^3.6.3",
+    "axios": "^0.26.1",
+    "axios-mock-adapter": "^1.20.0",
+    "chart.js": "^3.7.1",
+    "clsx": "^1.1.1",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.0",
+    "formik": "^2.2.9",
     "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
+    "merge": "^2.1.1",
     "micro": "^9.3.4",
     "next": "^12.1.0",
     "next-connect": "^0.12.2",
     "nexus": "^1.2.0",
+    "nprogress": "^0.2.0",
     "passport": "^0.5.2",
     "passport-magic-login": "1.0.9",
     "postmark": "^3.0.1",
+    "pure-react-carousel": "^1.27.6",
     "raw-body": "^2.5.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.1.0",
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.2.0",
+    "simplebar-react": "^2.3.6",
     "slug": "^5.2.0",
     "stripe": "^8.205.0",
-    "urql": "^2.2.0"
+    "urql": "^2.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
+    "@emotion/jest": "^11.8.0",
     "@graphql-codegen/cli": "2.6.2",
     "@graphql-codegen/near-operation-file-preset": "^2.2.6",
     "@graphql-codegen/typescript": "^2.4.5",
@@ -60,15 +80,20 @@
     "@graphql-codegen/typescript-urql-graphcache": "^2.2.6",
     "@netlify/plugin-nextjs": "^4.2.7",
     "@stripe/stripe-js": "^1.23.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "12.1.2",
     "@types/common-tags": "^1.8.1",
     "@types/cookie-session": "^2.0.44",
     "@types/jest": "^27.4.0",
+    "@types/lodash": "^4.14.181",
     "@types/node": "^17.0.21",
+    "@types/nprogress": "^0.2.0",
     "@types/passport": "^1.0.7",
     "@types/react": "^17.0.39",
     "@types/slug": "^5.0.3",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
+    "babel-jest": "^27.5.1",
     "common-tags": "1.8.2",
     "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
@@ -86,20 +111,50 @@
     "typescript": "^4.6.2"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx,ts,tsx}",
+      "!**/*.d.ts",
+      "!**/node_modules/**"
+    ],
+    "roots": [
+      "<rootDir>"
+    ],
     "setupFiles": [
       "dotenv/config"
     ],
+    "clearMocks": true,
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "./src/test/jest-setup.ts"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/.next/"
+    ],
     "transform": {
-      "\\.tsx?$": [
+      "^.+\\.(js|jsx|ts|tsx|mjs)$": [
         "babel-jest",
         {
           "configFile": "./.babelrc.jest.js"
         }
       ]
-    }
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/src/__mocks__/stylesMock.js",
+      "\\.(css|scss)$": "identity-obj-proxy",
+      "^client(.*)$": "<rootDir>/src/client/$1"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ]
   },
   "prisma": {
     "schema": "src/server/db/schema.prisma"

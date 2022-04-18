@@ -3,6 +3,7 @@ module.exports = {
 	plugins: ["@typescript-eslint", "import"],
 	env: {
 		node: true,
+		jest: true
 	},
 	extends: [
 		"eslint:recommended",
@@ -29,6 +30,10 @@ module.exports = {
 		],
 		indent: ["error", "tab"],
 		"no-tabs": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"react/jsx-curly-newline": 1,
+		"prefer-spread and react/destructuring-assignment": 1
 	},
 	overrides: [
 		{

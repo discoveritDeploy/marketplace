@@ -13,8 +13,24 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@theme/*": [
+        "/client/theme/*"
+      ],
+      "@components/*": [
+        "/client/components/*"
+      ],
+      "@hooks/*": [
+        "/client/hooks/*"
+      ],
+      "@client/*": [
+        "/client/*"
+      ],
+    }
+
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/**/*.tsx", "**/**/*.ts", "src/pages/app.test.jsx", "src/__mocks__/mockRouter.js"],
   "exclude": ["node_modules", "cypress"]
 }
