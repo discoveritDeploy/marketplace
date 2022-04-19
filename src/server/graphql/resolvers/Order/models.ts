@@ -1,4 +1,4 @@
-import { objectType } from "nexus";
+import { enumType, objectType } from "nexus";
 
 export const OrderProduct = objectType({
 	name: "OrderProduct",
@@ -41,11 +41,17 @@ export const Payment = objectType({
 	},
 });
 
+export const OrderStatus = enumType({
+	name: "orderStatus",
+	members: ['CONFIRMED', 'INVOICED', 'PAID', 'SHIPPED', 'DELIVERED'],
+	description: "status de la orden"
+})
+
 export const Order = objectType({
 	name: "Order",
 	definition(t) {
 		t.id("id");
-		t.string("orderStatus");
+		t.field("orderStatus", { type: OrderStatus});
 		t.list.field("orderProduct", { type: OrderProduct });
 		t.float("totalAmount");
 		t.field("orderRetail", { type: OrderRetail });

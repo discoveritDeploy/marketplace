@@ -1,28 +1,28 @@
 import BazarButton from "client/components/BazarButton";
-import Image from "client/components/BazarImage";
 import BazarTextField from "client/components/BazarTextField";
-import FlexBox from "client/components/FlexBox";
-import { H3, H6, Small } from "client/components/Typography";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { Box, Card, CardProps, Divider, IconButton } from "@mui/material";
+import { H3, Small } from "client/components/Typography";
+import { Card, CardProps, MenuItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useMutation } from "urql";
+import { CommercialCategory } from 'client/graphql/types.generated'
+import { useCreatePreUserBrandMutation } from 'client/graphql/createPreUserBrand.generated'
 import { useFormik } from "formik";
-import Link from "next/link";
+import toast from "react-hot-toast";
+
 import { useRouter } from "next/router";
-import React, { useCallback, useState } from "react";
+import React from "react";
 import * as yup from "yup";
+import BazarSelectField from "../BazarSelectField";
+import { CreatePreUserBrandInput } from "client/graphql/types.generated";
 
 const fbStyle = { background: "#3B5998", color: "white" };
 const googleStyle = { background: "#4285F4", color: "white" };
 
-type StyledCardProps = { passwordVisibility?: boolean };
-
-const StyledCard = styled<React.FC<StyledCardProps & CardProps>>(
-	({ children, passwordVisibility, ...rest }) => (
+const StyledCard = styled<React.FC<CardProps>>(
+	({ children, ...rest }) => (
 		<Card {...rest}>{children}</Card>
 	)
-)<CardProps>(({ theme, passwordVisibility }) => ({
+)<CardProps>(({ theme }) => ({
 	width: 500,
 	[theme.breakpoints.down("sm")]: { width: "100%" },
 
@@ -30,11 +30,6 @@ const StyledCard = styled<React.FC<StyledCardProps & CardProps>>(
 		textAlign: "center",
 		padding: "3rem 3.75rem 0px",
 		[theme.breakpoints.down("xs")]: { padding: "1.5rem 1rem 0px" },
-	},
-	".passwordEye": {
-		color: passwordVisibility
-			? theme.palette.grey[600]
-			: theme.palette.grey[400],
 	},
 	".facebookButton": {
 		marginBottom: 10,
@@ -51,22 +46,38 @@ const StyledCard = styled<React.FC<StyledCardProps & CardProps>>(
 	},
 }));
 
-const Login = () => {
-	const [passwordVisibility, setPasswordVisibility] = useState(false);
+const VALUE_CATEGORIES = ['INDUMENTARIA', 'BLANQUERIA', 'CUIDADO', 'VARIOS']
 
-	const router = useRouter();
+interface LoginProps {
+	toggleDialog: () => void
+}
 
-	const togglePasswordVisibility = useCallback(() => {
-		setPasswordVisibility((visible) => !visible);
-	}, []);
+const Login: React.FC<LoginProps> = ({toggleDialog}) => {
+	const [, CreatePreUserBrand] = useCreatePreUserBrandMutation()
 
-	const handleFormSubmit = async (values: any) => {
-		console.log(values);
-		const href = {
-			pathname: '/[brand]',
-			query: { brand: values.email },
-		  }
-		router.replace(href)
+	
+	const handleFormSubmit = async (values: CreatePreUserBrandInput) => {
+		 console.log("createPreUserBrand: ", CreatePreUserBrand);
+		 values['contactPhone'] = Number(values.contactPhone)
+		const v = { input: values}
+		toast.promise(
+			CreatePreUserBrand(v).then(toggleDialog),
+			{
+			  loading: 'Registrando....',
+			  success: () => `¡Registrado! El equipo de Discoverit se contactará enseguida.`,
+			  error: (err) => `This just happened: ${err.toString()}`,
+			},
+			{
+			  style: {
+					minWidth: '250px',
+			  },
+			  success: {
+					duration: 4000,
+					icon: '🔥',
+			  },
+			}
+		  )
+		
 	};
 
 	const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -76,27 +87,28 @@ const Login = () => {
     	validationSchema: formSchema,
     });
 
+
 	return (
-		<StyledCard elevation={3} passwordVisibility={passwordVisibility}>
+		<StyledCard elevation={3}>
 			<form className="content" onSubmit={handleSubmit}>
 				<H3 textAlign="center" mb={1}>
           Discoverit
 				</H3>
 				<Small
 					fontWeight="600"
-					fontSize="12px"
-					color="grey.800"
+					fontSize="16px"
+					color="grey.900"
 					textAlign="center"
 					mb={4.5}
 					display="block"
 				>
-          Logueate con tu email
+					Bienvenido al pre registro de Discoverit. Llena los datos y te vamos a estar contactando a la brevedad.
 				</Small>
 
 				<BazarTextField
 					mb={1.5}
-					name="email"
-					label="Email or Número de teléfono"
+					name="contactMail"
+					label="Email"
 					placeholder="exmple@mail.com"
 					variant="outlined"
 					size="small"
@@ -104,42 +116,54 @@ const Login = () => {
 					fullWidth
 					onBlur={handleBlur}
 					onChange={handleChange}
-					value={values.email || ""}
-					error={!!touched.email && !!errors.email}
-					helperText={touched.email && errors.email}
+					value={values.contactMail || ""}
+					error={!!touched.contactMail && !!errors.contactMail}
 				/>
-
 				<BazarTextField
-					mb={2}
-					name="password"
-					label="Password"
-					placeholder="*********"
-					autoComplete="on"
-					type={passwordVisibility ? "text" : "password"}
+					mb={1.5}
+					name="contactPhone"
+					label="Teléfono"
+					placeholder="codigo de area (sin cero) + número. Ej: 1195607122"
 					variant="outlined"
 					size="small"
+					type="phone"
 					fullWidth
-					InputProps={{
-						endAdornment: (
-							<IconButton
-								size="small"
-								type="button"
-								onClick={togglePasswordVisibility}
-							>
-								{passwordVisibility ? (
-									<Visibility className="passwordEye" fontSize="small" />
-								) : (
-									<VisibilityOff className="passwordEye" fontSize="small" />
-								)}
-							</IconButton>
-						),
-					}}
 					onBlur={handleBlur}
 					onChange={handleChange}
-					value={values.password || ""}
-					error={!!touched.password && !!errors.password}
-					helperText={touched.password && errors.password}
+					value={values.contactPhone || ""}
+					error={!!touched.contactPhone && !!errors.contactPhone}
 				/>
+				<BazarTextField
+					mb={1.5}
+					name="taxId"
+					label="Cuit"
+					placeholder="20342452501"
+					variant="outlined"
+					size="small"
+					type="number"
+					fullWidth
+					onBlur={handleBlur}
+					onChange={handleChange}
+					value={values.taxId || ""}
+					error={!!touched.taxId && !!errors.taxId}
+				/>
+				<BazarSelectField 
+					mb={1.5}
+					name="commercialCategory"
+					label="Categoría comercial"
+					placeholder="exmple@mail.com"
+					variant="outlined"
+					size="small"
+					type="email"
+					fullWidth
+					onBlur={handleBlur}
+					onChange={handleChange}
+					value={values.commercialCategory || ""}
+				>
+					{
+						VALUE_CATEGORIES.map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)
+					}
+				</BazarSelectField>
 
 				<BazarButton
 					variant="contained"
@@ -151,86 +175,27 @@ const Login = () => {
 						height: 44,
 					}}
 				>
-          Login
+          			Registrarme
 				</BazarButton>
-
-				<Box mb={2}>
-					<Box width="200px" mx="auto">
-						<Divider />
-					</Box>
-
-					<FlexBox justifyContent="center" mt={-1.625}>
-						<Box color="grey.600" bgcolor="background.paper" px={2}>
-              o
-						</Box>
-					</FlexBox>
-				</Box>
-
-				<BazarButton
-					className="facebookButton"
-					size="medium"
-					fullWidth
-					sx={{
-						mb: "10px",
-						height: 44,
-					}}
-				>
-					<Image
-						src="/assets/images/icons/facebook-filled-white.svg"
-						alt="facebook"
-					/>
-					<Box fontSize="12px" ml={1}>
-            Continua con Facebook
-					</Box>
-				</BazarButton>
-				<BazarButton
-					className="googleButton"
-					size="medium"
-					fullWidth
-					sx={{
-						height: 44,
-					}}
-				>
-					<Image src="/assets/images/icons/google-1.svg" alt="facebook" />
-					<Box fontSize="12px" ml={1}>
-            Continua con Google
-					</Box>
-				</BazarButton>
-
-				<FlexBox justifyContent="center" alignItems="center" my="1.25rem">
-					<Box>¿No tenés una cuenta?</Box>
-					<Link href="/signup">
-						<a>
-							<H6 ml={1} borderBottom="1px solid" borderColor="grey.900">
-                Registrate
-							</H6>
-						</a>
-					</Link>
-				</FlexBox>
 			</form>
-
-			<FlexBox justifyContent="center" bgcolor="grey.200" py={2.5}>
-        ¿Olvidaste tu contraseña?
-				<Link href="/">
-					<a>
-						<H6 ml={1} borderBottom="1px solid" borderColor="grey.900">
-              Reseteala
-						</H6>
-					</a>
-				</Link>
-			</FlexBox>
 		</StyledCard>
 	);
 };
 
-const initialValues = {
-	email: "",
-	password: "",
+
+
+const initialValues: CreatePreUserBrandInput = {
+	contactMail: "",
+	contactPhone: 0,
+	taxId: 0,
+	commercialCategory: CommercialCategory.Blanqueria
 };
 
 const formSchema = yup.object().shape({
-	email: yup.string().email("invalid email").required("${path} is required"),
-	password: yup.string().required("${path} is required"),
+	contactMail: yup.string().email("invalid email").required("El campo ${path} es requerido."),
+	contactPhone: yup.number().optional(),
+	taxId: yup.number().required().required("El campo ${path} es requerido."),
+	commercialCategory: yup.string().required("El campo ${path} es requerido.")
 });
 
 export default Login;

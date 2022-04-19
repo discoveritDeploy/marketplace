@@ -9,16 +9,19 @@ interface Props {
 }
 
 
-const StyledBox = styled(Box)(({ theme }) => ({
-	marginBottom: "7.5rem",
-	background: theme.palette.background.lightBlue
-}))
+const StyledBox = styled(Box)(({ theme }) => {
+	console.log('theme: ', theme)
+	return{
+		marginBottom: "7.5rem",
+		background: theme.palette.background?.lightBlue
+	}
+})
 
 
-const Section1: NextPage<Props> = ({ carouselData }) => {
+const Section1: React.FC<Props> = ({ carouselData }) => {
 	return (
 		<Fragment>
-			<Navbar />
+			{/* <Navbar /> */}
 			<StyledBox bgcolor="primary" mb={11.5}>
 				<Container sx={{ py: "2rem" }}>
 					{carouselData &&

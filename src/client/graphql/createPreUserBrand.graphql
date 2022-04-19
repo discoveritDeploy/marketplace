@@ -1,0 +1,8 @@
+mutation CreatePreUserBrand($input: CreatePreUserBrandInput!) {
+  createPreUserBrand(input: $input) {
+    contactMail
+    contactPhone
+    taxId
+    commercialCategory
+  }
+}

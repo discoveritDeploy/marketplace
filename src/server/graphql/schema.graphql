@@ -202,7 +202,7 @@ type Order {
   orderBrand: OrderBrand
   orderProduct: [OrderProduct]
   orderRetail: OrderRetail
-  orderStatus: String
+  orderStatus: orderStatus
   payment: Payment
   shippingId: Int
   totalAmount: Float
@@ -439,4 +439,13 @@ enum commercialCategory {
   CUIDADO
   INDUMENTARIA
   VARIOS
+}
+
+"""status de la orden"""
+enum orderStatus {
+  CONFIRMED
+  DELIVERED
+  INVOICED
+  PAID
+  SHIPPED
 }

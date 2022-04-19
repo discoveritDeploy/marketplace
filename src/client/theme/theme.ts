@@ -6,6 +6,20 @@ import { typography } from "./typography";
 import { createTheme, responsiveFontSizes, Theme } from "@mui/material";
 import { themeColors, primary, blue, marron, paste } from "./themeColors";
 
+declare module '@mui/material/styles' {
+	interface TypeBackground {
+		light: string
+		dark: string
+		lightBlue: string
+		default: string
+		main: string
+		paper: string
+	}
+
+}
+
+
+
 const THEMES = {
 	DEFAULT: "DEFAULT",
 	GROCERY: "GROCERY",
@@ -23,6 +37,8 @@ const breakpoints = {
 		xl: 1920,
 	},
 };
+
+
 
 const themesOptions = {
 	[THEMES.DEFAULT]: {

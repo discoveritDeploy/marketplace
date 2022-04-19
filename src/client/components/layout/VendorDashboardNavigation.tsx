@@ -5,7 +5,6 @@ import NoteAdd from "@mui/icons-material/NoteAdd";
 import Settings from "@mui/icons-material/Settings";
 import ShoppingCart from "@mui/icons-material/ShoppingCart";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import React from "react";
 import {
 	DashboardNavigationWrapper,
@@ -14,7 +13,7 @@ import {
 
 const VendorDashboardNavigation = () => {
 	const { pathname, query } = useRouter();
-	
+
 	return (
 		<DashboardNavigationWrapper
 			sx={{ px: "0px", py: "1.5rem", color: "grey.900" }}
@@ -24,7 +23,7 @@ const VendorDashboardNavigation = () => {
 					isCurrentPath={pathname.includes(item.href)}
 					href={{
 						pathname: '/[brand]'+ item.href,
-						query: { brand: query.brand },
+						query: { brand: query?.brand as string},
 					  }}
 					key={item.title}
 				>

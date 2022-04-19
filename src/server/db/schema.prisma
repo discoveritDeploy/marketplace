@@ -150,11 +150,19 @@ type Payment {
   withholding Withholding[]
 }
 
+enum orderStatus {
+  CONFIRMED
+  INVOICED
+  PAID
+  SHIPPED
+  DELIVERED
+}
+
 model Order {
   id           String         @id @default(auto()) @map("_id") @db.ObjectId
   createdAt    DateTime       @default(now()) @db.Date
   updatedAt    DateTime       @default(now()) @db.Date
-  orderStatus  String
+  orderStatus  orderStatus
   orderProduct OrderProduct[]
   totalAmount  Float
   orderRetail  OrderRetail

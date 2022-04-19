@@ -16,20 +16,12 @@
 //   }>;
 // }
 
-<<<<<<< HEAD
-// // Inspired by prisma/docs#451
-=======
 // Inspired by prisma/docs#451
->>>>>>> master
 // async function emptyDatabase() {
 // 	const tables = Prisma.dmmf.datamodel.models.map(
 // 		(model) => model.dbName || model.name
 // 	);
-<<<<<<< HEAD
-
-=======
 //
->>>>>>> master
 // 	for (const table of tables) {
 // 		await prisma.$executeRawUnsafe(`DELETE FROM "public"."${table}";`);
 // 	}
@@ -60,16 +52,7 @@
 // 	);
 // }
 
-<<<<<<< HEAD
 // export async function reseedDatabase(data: SeedData = testData) {
-// 	await emptyDatabase();
+// 	//await emptyDatabase();
 // 	await seedDatabase(data);
 // }
-
-test('placeholder', () => {})
-=======
-export async function reseedDatabase(data: SeedData = testData) {
-	//await emptyDatabase();
-	await seedDatabase(data);
-}
->>>>>>> master

@@ -1,10 +1,7 @@
 import FlexBox from "client/components/FlexBox";
-import DashboardPageHeader from "client/components/layout/DashboardPageHeader";
-import VendorDashboardLayout from "client/components/layout/VendorDashboardLayout";
 import TableRow from "client/components/TableRow";
 import { H5, H6 } from "client/components/Typography";
 import Delete from "@mui/icons-material/Delete";
-import ShoppingBag from "@mui/icons-material/ShoppingBag";
 import {
 	Avatar,
 	Button,
@@ -18,30 +15,17 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { format } from "date-fns";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import VendorDashboardOrders from "client/components/layout/VendorDashboardOrders";
 
 const OrderDetails = () => {
 	const router = useRouter();
 	const { id } = router.query;
 
 	return (
-		<VendorDashboardLayout>
-			<DashboardPageHeader
-				title="Order Details"
-				icon={ShoppingBag}
-				button={
-					<Link href="/vendor/orders" passHref>
-						<Button
-							color="primary"
-							sx={{ bgcolor: "primary.light", px: "2rem" }}
-						>
-              Back to Order List
-						</Button>
-					</Link>
-				}
-			/>
+		<VendorDashboardOrders>
+
 
 			<Card sx={{ p: "0px", mb: "30px" }}>
 				<TableRow
@@ -209,7 +193,7 @@ const OrderDetails = () => {
 					</Button>
 				</Grid>
 			</Grid>
-		</VendorDashboardLayout>
+		</VendorDashboardOrders>
 	);
 };
 

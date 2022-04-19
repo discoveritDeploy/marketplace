@@ -30,7 +30,7 @@ const getAPIURl = (): string => {
 		return `http://localhost:3000/api`;
 
 	// TODO: Replace with your production URL for the very final fallback
-	return "https://example.org";
+	return "http://localhost:3000/api";
 };
 
 export const client = createClient({

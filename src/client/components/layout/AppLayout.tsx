@@ -31,7 +31,7 @@ const AppLayout: FC<AppLayoutProps> = ({
 
 	return (
 		<ThemedContainer>
-			<Head>
+			 <Head>
 				<title>{title}</title>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -39,10 +39,10 @@ const AppLayout: FC<AppLayoutProps> = ({
 
 			{/* <Topbar /> */}
 
-			<Sticky fixedOn={0} onSticky={toggleIsFixed}>
+			 <Sticky fixedOn={0} onSticky={toggleIsFixed}>
 				<Header isFixed={isFixed} />
 			</Sticky>
-
+			{/*
 			{navbar && <div className="section-after-sticky">{navbar}</div>}
 			{!navbar ? (
 				<div className="section-after-sticky">{children}</div>
@@ -50,7 +50,8 @@ const AppLayout: FC<AppLayoutProps> = ({
 				children
 			)}
 
-			<MobileNavigationBar />
+			<MobileNavigationBar />  */}
+			{children}
 			<Footer />
 		</ThemedContainer>
 	);

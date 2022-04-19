@@ -3,6 +3,7 @@ import { Paragraph } from "client/components/Typography";
 import { Box, Button, Grid, styled } from "@mui/material";
 import React, { FC } from "react";
 import FlexBox from "../FlexBox";
+import RegisterButtons from "../registerButtons/registerButtons";
 
 // component props interface
 export interface CarouselCard1Props {
@@ -63,39 +64,7 @@ const CarouselCard1: FC<CarouselCard1Props> = ({ carousel }) => {
 					<Paragraph color="secondary.main" mb={2.7}>
 						{carousel.description}
 					</Paragraph>
-					<FlexBox gap="1rem">
-						<a href={carousel.buttonLik}>
-							<Button
-								className="button-link"
-								variant="outlined"
-								color="secondary"
-								disableElevation
-								sx={{
-									px: "1.75rem",
-									height: "44px",
-									borderRadius: "8px",
-								}}
-							>
-								{carousel.buttonText}
-							</Button>
-						</a>
-						<a href={carousel.buttonLik2}>
-							<Button
-								className="button-link"
-								variant="contained"
-								color="secondary"
-								disableElevation
-								sx={{
-									px: "1.75rem",
-									height: "44px",
-									borderRadius: "8px",
-								}}
-							>
-								{carousel.buttonText2}
-							</Button>
-						</a>
-					</FlexBox>
-					
+					<RegisterButtons />
 				</Grid>
 				<Grid item sm={5} xs={12}>
 					<BazarImage

@@ -1,4 +1,4 @@
-# Testing
+<!-- # Testing
 
 At Spectrum and GitHub, I quickly realised that unit tests are an utter waste of time when you're building a product. They're only useful for verifying implementation details, which shouldn't matter at all.
 
@@ -152,4 +152,4 @@ describe(`currentUser`, () => {
       `);
   });
 });
-```
+``` -->

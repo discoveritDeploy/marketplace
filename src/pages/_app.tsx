@@ -14,6 +14,7 @@ import { AppProvider } from "client/contexts/app/AppContext";
 import createEmotionCache from "client/createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { Client, Provider } from "urql";
+import ToasterElement from "client/Toaster";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -37,7 +38,7 @@ const App = ({
 	Component,
 	clientAndEmotionCache = clientSideEmotionCache,
 	pageProps,
-	client
+	clientUrlq
 }: MyAppProps) => {
 	const Layout = Component.layout || Fragment;
 
@@ -48,7 +49,7 @@ const App = ({
       jssStyles.parentElement!.removeChild(jssStyles);
 		}
 	}, []);
-
+	console.log('cliewnt: ', clientUrlq)
 	return (
 		<AppProvider>
 			<CacheProvider value={clientAndEmotionCache}>
@@ -61,6 +62,7 @@ const App = ({
 				<Provider value={client}>
 					<MuiTheme>
 						<Layout>
+							<ToasterElement />
 							<Component {...pageProps} />
 						</Layout>
 					</MuiTheme>

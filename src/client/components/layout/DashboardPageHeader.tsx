@@ -5,10 +5,11 @@ import useWindowSize from "client/hooks/useWindowSize";
 import Menu from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/system";
+import StatusWizardForOrders from "client/components/layout/statusWizardForOrders";
 import React from "react";
 
 const StyledBox = styled(Box)(({ theme }) => ({
-	display: "flex",
+	display: "column",
 
 	marginTop: theme.spacing(-2),
 	marginBottom: theme.spacing(3),
@@ -62,7 +63,9 @@ const DashboardPageHeader: React.FC<DashboardPageHeaderProps> = ({
 
 				{!isTablet && button}
 			</FlexBox>
-
+			<Box mt="32px">
+				<StatusWizardForOrders current={1} />
+			</Box>
 			{isTablet && !!button && <Box mt={2}>{button}</Box>}
 		</StyledBox>
 	);

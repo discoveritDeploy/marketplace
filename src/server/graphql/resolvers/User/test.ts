@@ -1,10 +1,5 @@
-<<<<<<< HEAD:src/server/graphql/User/test.ts
-// import { testData } from "../../../test/seed/data";
-// import { request, graphql } from "../../../test/request";
-=======
-import { testData } from "../../../../test/seed/data";
-import { request, graphql } from "../../../../test/request";
->>>>>>> master:src/server/graphql/resolvers/User/test.ts
+// import { testData } from "../../../../test/seed/data";
+// import { request, graphql } from "../../../../test/request";
 
 // describe(`currentUser`, () => {
 // 	it(`should return null when unauthenticated`, async () => {

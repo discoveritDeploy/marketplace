@@ -9,6 +9,7 @@ import Login from "client/components/sessions/Login";
 import { useAppContext } from "client/contexts/app/AppContext";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutline from "@mui/icons-material/PersonOutline";
+import toast from "react-hot-toast";
 import {
 	Badge,
 	Box,
@@ -98,7 +99,7 @@ const Header: FC<HeaderProps> = ({ isFixed, className }) => {
 						</a>
 					</Link>
 
-					{isFixed && (
+					{/* {isFixed && (
 						<CategoryMenu>
 							<FlexBox color="grey.600" alignItems="center" ml={2}>
 								<BazarButton color="inherit">
@@ -107,12 +108,12 @@ const Header: FC<HeaderProps> = ({ isFixed, className }) => {
 								</BazarButton>
 							</FlexBox>
 						</CategoryMenu>
-					)}
+					)} */}
 				</FlexBox>
-
+				{/* 
 				<FlexBox justifyContent="center" flex="1 1 0">
 					<SearchBox />
-				</FlexBox>
+				</FlexBox> */}
 
 				<FlexBox
 					alignItems="center"
@@ -127,7 +128,7 @@ const Header: FC<HeaderProps> = ({ isFixed, className }) => {
 					>
 						<PersonOutline />
 					</Box>
-					{cartHandle}
+					{/* {cartHandle} */}
 				</FlexBox>
 
 				<Dialog
@@ -136,12 +137,12 @@ const Header: FC<HeaderProps> = ({ isFixed, className }) => {
 					scroll="body"
 					onClose={toggleDialog}
 				>
-					<Login />
+					<Login toggleDialog={toggleDialog}/>
 				</Dialog>
 
-				<Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav}>
+				{/* <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav}>
 					<MiniCart />
-				</Drawer>
+				</Drawer> */}
 			</Container>
 		</HeaderWrapper>
 	);
