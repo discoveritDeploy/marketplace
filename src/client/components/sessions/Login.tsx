@@ -75,17 +75,17 @@ const Login: React.FC<LoginProps> = ({toggleDialog}) => {
 		try {
 			setLoading(true)
 			CreatePreUserBrand(v)
-			.then((res: any) =>{ 
-				console.log('res: ', res)
-				res?.data?.createPreUserBrand ? toast.success(`¡Registrado! El equipo de Discoverit se contactará enseguida.`): null
-			})
-			.then(() =>{
+				.then((res) =>{ 
+					console.log('res: ', res)
+					res?.data?.createPreUserBrand ? toast.success(`¡Registrado! El equipo de Discoverit se contactará enseguida.`): null
+				})
+				.then(() =>{
 				 setLoading(false)
 				 toggleDialog()
 				})
 		} catch (error) {
 			console.log('error: ', error)
-			toast.error((err: Error) => `Error: ${err.toString()}`)
+			toast.error((err) => `Error: ${err.toString()}`)
 			setLoading(false)
 			toggleDialog()
 		} 
@@ -103,95 +103,95 @@ const Login: React.FC<LoginProps> = ({toggleDialog}) => {
 	return (
 		<StyledCard elevation={3}>
 			{
-			loading  ? <FullPageLoader /> :
-			<form className="content" onSubmit={handleSubmit}>
-				<H3 textAlign="center" mb={1}>
+				loading  ? <FullPageLoader /> :
+					<form className="content" onSubmit={handleSubmit}>
+						<H3 textAlign="center" mb={1}>
           			Discoverit
-				</H3>
-				<Small
-					fontWeight="600"
-					fontSize="16px"
-					color="grey.900"
-					textAlign="center"
-					mb={4.5}
-					display="block"
-				>
+						</H3>
+						<Small
+							fontWeight="600"
+							fontSize="16px"
+							color="grey.900"
+							textAlign="center"
+							mb={4.5}
+							display="block"
+						>
 					Bienvenido al pre registro de Discoverit. Llena los datos y te vamos a estar contactando a la brevedad.
-				</Small>
+						</Small>
 
-				<BazarTextField
-					mb={1.5}
-					name="contactMail"
-					label="Email"
-					placeholder="exmple@mail.com"
-					variant="outlined"
-					size="small"
-					type="email"
-					fullWidth
-					onBlur={handleBlur}
-					onChange={handleChange}
-					value={values.contactMail || ""}
-					error={!!touched.contactMail && !!errors.contactMail}
-				/>
-				<BazarTextField
-					mb={1.5}
-					name="contactPhone"
-					label="Teléfono"
-					placeholder="codigo de area (sin cero) + número. Ej: 1195607122"
-					variant="outlined"
-					size="small"
-					type="phone"
-					fullWidth
-					onBlur={handleBlur}
-					onChange={handleChange}
-					value={values.contactPhone || ""}
-					error={!!touched.contactPhone && !!errors.contactPhone}
-				/>
-				<BazarTextField
-					mb={1.5}
-					name="taxId"
-					label="Cuit"
-					placeholder="20342452501"
-					variant="outlined"
-					size="small"
-					type="number"
-					fullWidth
-					onBlur={handleBlur}
-					onChange={handleChange}
-					value={values.taxId || ""}
-					error={!!touched.taxId && !!errors.taxId}
-				/>
-				<BazarSelectField 
-					mb={1.5}
-					name="commercialCategory"
-					label="Categoría comercial"
-					placeholder="exmple@mail.com"
-					variant="outlined"
-					size="small"
-					type="email"
-					fullWidth
-					onBlur={handleBlur}
-					onChange={handleChange}
-					value={VALUE_CATEGORIES[0] || ""}
-				>
-					{
-						VALUE_CATEGORIES.map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)
-					}
-				</BazarSelectField>
+						<BazarTextField
+							mb={1.5}
+							name="contactMail"
+							label="Email"
+							placeholder="exmple@mail.com"
+							variant="outlined"
+							size="small"
+							type="email"
+							fullWidth
+							onBlur={handleBlur}
+							onChange={handleChange}
+							value={values.contactMail || ""}
+							error={!!touched.contactMail && !!errors.contactMail}
+						/>
+						<BazarTextField
+							mb={1.5}
+							name="contactPhone"
+							label="Teléfono"
+							placeholder="codigo de area (sin cero) + número. Ej: 1195607122"
+							variant="outlined"
+							size="small"
+							type="phone"
+							fullWidth
+							onBlur={handleBlur}
+							onChange={handleChange}
+							value={values.contactPhone || ""}
+							error={!!touched.contactPhone && !!errors.contactPhone}
+						/>
+						<BazarTextField
+							mb={1.5}
+							name="taxId"
+							label="Cuit"
+							placeholder="20342452501"
+							variant="outlined"
+							size="small"
+							type="number"
+							fullWidth
+							onBlur={handleBlur}
+							onChange={handleChange}
+							value={values.taxId || ""}
+							error={!!touched.taxId && !!errors.taxId}
+						/>
+						<BazarSelectField 
+							mb={1.5}
+							name="commercialCategory"
+							label="Categoría comercial"
+							placeholder="exmple@mail.com"
+							variant="outlined"
+							size="small"
+							type="email"
+							fullWidth
+							onBlur={handleBlur}
+							onChange={handleChange}
+							value={VALUE_CATEGORIES[0] || ""}
+						>
+							{
+								VALUE_CATEGORIES.map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)
+							}
+						</BazarSelectField>
 
-				<BazarButton
-					variant="contained"
-					color="primary"
-					type="submit"
-					fullWidth
-					sx={{
-						mb: "1.65rem",
-						height: 44,
-					}}
-				>
+						<BazarButton
+							variant="contained"
+							color="primary"
+							type="submit"
+							fullWidth
+							sx={{
+								mb: "1.65rem",
+								height: 44,
+							}}
+						>
           			Registrarme
-				</BazarButton>
-			</form>
+						</BazarButton>
+					</form>
 			}
 		</StyledCard>
 	);
