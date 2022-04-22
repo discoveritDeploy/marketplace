@@ -5,12 +5,12 @@ import { useTheme } from "@mui/system";
 import { Box, styled } from "@mui/system";
 import Add from "@mui/icons-material/Add";
 import LazyImage from "@client/components/LazyImage";
-import { Button, Chip } from "@mui/material";
+import { Button, Chip, Theme } from "@mui/material";
 import Remove from "@mui/icons-material/Remove";
 import { CartItem } from "@client/reducers/cartReducer";
 import { H3, Span } from "@client/components/Typography";
 import BazarRating from "@client/components/BazarRating";
-import { useAppContext } from "contexts/app/AppContext";
+import { useAppContext } from "@client/contexts/app/AppContext";
 import React, { FC, useCallback, CSSProperties, Fragment } from "react";
 
 const StyledCard = styled(Box)(({ theme }) => ({
@@ -22,7 +22,7 @@ const StyledCard = styled(Box)(({ theme }) => ({
 	outline: `2px solid ${theme.palette.grey[200]}`,
 	transition: "all 250ms ease-in-out",
 	"&:hover": {
-		boxShadow: theme.shadows[2],
+		boxShadow: (theme as Theme).shadows[2],
 		"& .css-1i2n18j": {
 			display: "flex",
 		},
@@ -154,7 +154,7 @@ const ProductCard17: FC<Props> = (props) => {
 	const { state, dispatch } = useAppContext();
 
 	const cartItem: CartItem | undefined = state.cart.cartList.find(
-		(item) => item.id === id
+		(item: CartItem) => item.id === id
 	);
 
 	const handleCartAmountChange = useCallback(

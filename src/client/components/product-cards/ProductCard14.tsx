@@ -9,12 +9,12 @@ import LazyImage from "@client/components/LazyImage";
 import { CartItem } from "@client/reducers/cartReducer";
 import BazarRating from "@client/components/BazarRating";
 import { H3, Span } from "@client/components/Typography";
-import { useAppContext } from "contexts/app/AppContext";
+import { useAppContext } from "@client/contexts/app/AppContext";
 import PreviewIcon from "@mui/icons-material/RemoveRedEye";
 import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import React, { useCallback, CSSProperties } from "react";
 import ShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { Box, Button, Chip, styled } from "@mui/material";
+import { Box, Button, Chip, styled, Theme } from "@mui/material";
 
 const StyledBazarCard = styled(BazarCard)(({ theme }) => ({
 	position: "relative",
@@ -27,7 +27,7 @@ const StyledBazarCard = styled(BazarCard)(({ theme }) => ({
 	transition: "all 250ms ease-in-out",
 	borderRadius: "0px 10px 10px 10px",
 	"&:hover": {
-		boxShadow: theme.shadows[2],
+		boxShadow: (theme as Theme).shadows[2],
 		"& .css-1i2n18j": {
 			display: "flex",
 		},
@@ -69,7 +69,7 @@ const ItemController = styled(Box)(({ theme }) => ({
 		flexDirection: "column",
 		alignItems: "center",
 		justifyContent: "space-between",
-		boxShadow: theme.shadows[2],
+		boxShadow: (theme as Theme).shadows[2],
 		"& span": {
 			width: "100%",
 			height: "100%",
@@ -95,7 +95,7 @@ const ItemController = styled(Box)(({ theme }) => ({
 		},
 		"& svg": {
 			fontSize: 18,
-			color: theme.palette.grey[600],
+			color: (theme as Theme).palette.grey[600],
 		},
 	},
 }));
@@ -127,9 +127,9 @@ const ButtonBox = styled(FlexBox)(({ theme }) => ({
 	justifyContent: "space-between",
 	"& button": {
 		color: "#fff",
-		background: theme.palette.primary.main,
+		background: (theme as Theme).palette.primary.main,
 		"&:hover": {
-			background: theme.palette.primary[400],
+			background: (theme as Theme).palette.primary[400],
 		},
 	},
 }));
@@ -152,7 +152,7 @@ const ProductCard14: React.FC<ProductCard1Props> = (props) => {
 	const { off, id, title, price, imgUrl, rating, hideRating, hoverEffect } =
     props;
 
-	const { palette } = useTheme();
+	const { palette } = useTheme() as Theme;
 	const { state, dispatch } = useAppContext();
 
 	const cartItem: CartItem | undefined = state.cart.cartList.find(

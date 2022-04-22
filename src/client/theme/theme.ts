@@ -3,7 +3,7 @@ import getConfig from "next/config";
 import { useRouter } from "next/router";
 import { components } from "./components";
 import { typography } from "./typography";
-import { createTheme, responsiveFontSizes, Theme } from "@mui/material";
+import { createTheme, responsiveFontSizes, Theme, PaletteColor} from "@mui/material";
 import { themeColors, primary, blue, marron, paste } from "./themeColors";
 
 declare module '@mui/material/styles' {
@@ -16,6 +16,14 @@ declare module '@mui/material/styles' {
 		paper: string
 	}
 
+	interface TypeText {
+		paragraph?: string
+		muted?: string
+	}
+
+	interface PaletteColor {
+		[index: number | string]: string;
+	}
 }
 
 
@@ -135,19 +143,20 @@ const themesOptions = {
 
 export type MuiThemeProps = Theme;
 
-export const bazarTheme = () => {
+export const bazarTheme = (): MuiThemeProps => {
 	const { pathname } = useRouter();
 	const { publicRuntimeConfig } = getConfig();
 
 	/*============ Remove following code ==============*/
-	const updateTheme = (themeName) => {
+	const updateTheme = (themeName: string) => {
 		console.log("updateTheme", themeName);
 		publicRuntimeConfig.theme = themeName;
 		themeOptions = themesOptions[publicRuntimeConfig.theme];
+		return themeOptions
 	};
 
 	let themeOptions;
-	console.log(pathname);
+
 	switch (pathname) {
 	case "/":
 	case "/superstore-shop":
@@ -167,8 +176,7 @@ export const bazarTheme = () => {
 	case "/gift-shop":
 		updateTheme(THEMES.DEFAULT);
 		break;
-	default:
-		themeOptions = THEMES.DEFAULT;
+	default:THEMES.DEFAULT;
 		break;
 	}
 	/*============ Remove above code ==============*/

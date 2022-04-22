@@ -17,7 +17,7 @@ const Section9: FC<Props> = (props) => {
 	const { opticsList, opticsShops, opticsBrands } = props;
 	const [type, setType] = useState("shops");
 	const [selected, setSelected] = useState("");
-	const [list, setList] = useState<any[]>([]);
+	const [list, setList] = useState<any[] | undefined>([]);
 
 	const handleCategoryClick = (brand: any) => () => {
 		if (selected.match(brand)) {
@@ -75,7 +75,7 @@ const Section9: FC<Props> = (props) => {
 						</Box>
 					</FlexBox>
 
-					{list.map((brand) => (
+					{list?.map((brand) => (
 						<ProductCategoryItem
 							title={brand}
 							imgUrl={`/assets/images/${type}/${brand}.png`}
@@ -104,11 +104,11 @@ const Section9: FC<Props> = (props) => {
 					<CategorySectionHeader title="Optics / Watch" seeMoreLink="#" />
 
 					<Grid container spacing={3}>
-						{opticsList.map((item, ind) => (
+						{opticsList !== undefined ? opticsList?.map((item, ind) => (
 							<Grid item lg={4} sm={6} xs={12} key={ind}>
 								<ProductCard1 off={25} hoverEffect {...item} />
 							</Grid>
-						))}
+						)): null}
 					</Grid>
 				</Box>
 			</FlexBox>

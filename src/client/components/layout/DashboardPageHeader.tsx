@@ -49,7 +49,7 @@ const DashboardPageHeader: React.FC<DashboardPageHeaderProps> = ({
 	const width = useWindowSize();
 	const isTablet = width < 1025;
 	const { query } = useRouter();
-	const current: STATUS_ORDERS = query?.status;
+	const current: STATUS_ORDERS = query?.status as STATUS_ORDERS;
 	return (
 		<StyledBox>
 			<FlexBox mt={2} className="headerHold">

@@ -103,7 +103,7 @@ const MobileNavigationBar2: FC<Props> = ({ children }) => {
 			}
 		});
 
-		return () => window.removeEventListener("scroll", null);
+		return () => window.removeEventListener("scroll", () => null);
 	}, []);
 
 	return width <= 900 ? (

@@ -11,8 +11,8 @@ import { CartItem } from "@client/reducers/cartReducer";
 import PreviewIcon from "@mui/icons-material/RemoveRedEye";
 import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useAppContext } from "contexts/app/AppContext";
-import { Chip } from "@mui/material";
+import { useAppContext } from "@client/contexts/app/AppContext";
+import { Chip, Theme } from "@mui/material";
 
 const StyledCard = styled(Box)(({ theme }) => ({
 	position: "relative",
@@ -22,7 +22,7 @@ const StyledCard = styled(Box)(({ theme }) => ({
 	overflow: "hidden",
 	transition: "all 250ms ease-in-out",
 	"&:hover": {
-		boxShadow: theme.shadows[2],
+		boxShadow: (theme as Theme).shadows[2],
 		"& .css-1i2n18j": {
 			display: "flex",
 		},

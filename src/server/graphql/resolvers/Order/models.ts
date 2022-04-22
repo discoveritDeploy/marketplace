@@ -42,7 +42,7 @@ export const Payment = objectType({
 });
 
 export const OrderStatus = enumType({
-	name: "orderStatus",
+	name: "OrderStatus",
 	members: ['NEW', 'CONFIRMED', 'INVOICED', 'PAID', 'SHIPPED', 'DELIVERED', 'CANCELLED'],
 	description: "status de la orden"
 })
@@ -51,8 +51,6 @@ export const Order = objectType({
 	name: "Order",
 	definition(t) {
 		t.id("id");
-		t.string("createdAt")
-		t.string("updatedAt")
 		t.field("orderStatus", { type: OrderStatus});
 		t.list.field("orderProduct", { type: OrderProduct });
 		t.float("totalAmount");

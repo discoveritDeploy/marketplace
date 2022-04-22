@@ -56,3 +56,5 @@
 // 	//await emptyDatabase();
 // 	await seedDatabase(data);
 // }
+
+export {}

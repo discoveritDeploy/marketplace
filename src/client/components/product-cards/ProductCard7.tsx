@@ -2,7 +2,7 @@
 import Image from "@client/components/BazarImage";
 import FlexBox from "@client/components/FlexBox";
 import { Span } from "@client/components/Typography";
-import { useAppContext } from "contexts/app/AppContext";
+import { useAppContext } from "@client/contexts/app/AppContext";
 import Add from "@mui/icons-material/Add";
 import Close from "@mui/icons-material/Close";
 import Remove from "@mui/icons-material/Remove";

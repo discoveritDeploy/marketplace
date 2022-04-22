@@ -81,14 +81,14 @@ input CreateOrderInput {
   orderBrand: OrderBrandInput!
   orderProduct: [OrderProductInput!]!
   orderRetail: OrderRetailInput!
-  orderStatus: String!
+  orderStatus: OrderStatus!
   payment: PaymentInput!
   shippingId: Int!
   totalAmount: Float!
 }
 
 input CreatePreUserBrandInput {
-  commercialCategory: commercialCategory!
+  commercialCategory: String!
   contactMail: String!
   contactPhone: Float!
   taxId: Float!
@@ -198,16 +198,14 @@ type Mutation {
 }
 
 type Order {
-  createdAt: String
   id: ID
   orderBrand: OrderBrand
   orderProduct: [OrderProduct]
   orderRetail: OrderRetail
-  orderStatus: orderStatus
+  orderStatus: OrderStatus
   payment: Payment
   shippingId: Int
   totalAmount: Float
-  updatedAt: String
 }
 
 type OrderBrand {
@@ -242,6 +240,17 @@ type OrderRetail {
 input OrderRetailInput {
   id: ID!
   nickname: String!
+}
+
+"""status de la orden"""
+enum OrderStatus {
+  CANCELLED
+  CONFIRMED
+  DELIVERED
+  INVOICED
+  NEW
+  PAID
+  SHIPPED
 }
 
 """
@@ -284,7 +293,7 @@ input PaymentInput {
 }
 
 type PreUserBrand {
-  commercialCategory: commercialCategory
+  commercialCategory: String
   contactMail: String
   contactPhone: Float
   id: ID
@@ -433,23 +442,4 @@ type Withholding {
 
 input WithholdingInput {
   type: String!
-}
-
-"""categoria comercial"""
-enum commercialCategory {
-  BLANQUERIA
-  CUIDADO
-  INDUMENTARIA
-  VARIOS
-}
-
-"""status de la orden"""
-enum orderStatus {
-  CANCELLED
-  CONFIRMED
-  DELIVERED
-  INVOICED
-  NEW
-  PAID
-  SHIPPED
 }

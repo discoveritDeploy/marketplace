@@ -103,7 +103,7 @@ const Footer: FC = () => {
                   Phone: +11 5 566 7233
 								</Box>
 
-								<FlexBox className="flex" mx={-0.625}>
+								{/* <FlexBox className="flex" mx={-0.625}>
 									{iconList.map((item, ind) => (
 										<a
 											href={item.url}
@@ -121,7 +121,7 @@ const Footer: FC = () => {
 											</BazarIconButton>
 										</a>
 									))}
-								</FlexBox>
+								</FlexBox> */}
 							</Grid>
 						</Grid>
 					</Box>

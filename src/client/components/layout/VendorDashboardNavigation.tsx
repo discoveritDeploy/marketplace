@@ -21,10 +21,7 @@ const VendorDashboardNavigation = () => {
 			{linkList.map((item) => (
 				<StyledDashboardNav
 					isCurrentPath={pathname.includes(item.href)}
-					href={{
-						pathname: '/[brand]'+ item.href,
-						query: { brand: query?.brand as string},
-					  }}
+					href={`${query?.brand as string}/${item.href}`}
 					key={item.title}
 				>
 					<>

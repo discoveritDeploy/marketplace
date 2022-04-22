@@ -1,5 +1,5 @@
-import FlexBox from "components/FlexBox";
-import { H3, Span } from "components/Typography";
+import FlexBox from "@client/components/FlexBox";
+import { H3, Span } from "@client/components/Typography";
 import Call from "@mui/icons-material/Call";
 import East from "@mui/icons-material/East";
 import Place from "@mui/icons-material/Place";

@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from 'react'
+import { Auth } from '@client/types/commonTypes'
 // import Cookies from 'js-cookie'
 // import Router, { useRouter } from 'next/router'
 
@@ -6,10 +7,11 @@ import React, { createContext, useContext } from 'react'
 // import api from '../services/Api';
 
 
-const AuthContext = createContext({});
+const AuthContext = createContext<Auth | null>(null);
+
 
 export const AuthProvider: React.FC = ({ children }) => {
-	const user = null
+	const user = true
 	// const [user, setUser] = useState(null)
 	// const [loading, setLoading] = useState(true)
 

@@ -42,4 +42,6 @@
 //  */
 // export const graphql = oneLine;
 
-test('placeholder', () => {})
+// test('placeholder', () => {})
+
+export {}

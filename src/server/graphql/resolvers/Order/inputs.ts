@@ -1,4 +1,5 @@
 import { inputObjectType } from "nexus";
+import {OrderStatus} from "./models";
 
 export const OrderProductInput = inputObjectType({
 	name: "OrderProductInput",
@@ -44,7 +45,7 @@ export const PaymentInput = inputObjectType({
 export const CreateOrderInput = inputObjectType({
 	name: "CreateOrderInput",
 	definition(t) {
-		t.string("orderStatus");
+		t.field("orderStatus", { type: OrderStatus});
 		t.list.field("orderProduct", { type: OrderProductInput });
 		t.float("totalAmount");
 		t.field("orderRetail", { type: OrderRetailInput });

@@ -3,17 +3,14 @@ import BazarTextField from "@client/components/BazarTextField";
 import { H3, Small } from "@client/components/Typography";
 import { Card, CardProps, MenuItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useMutation } from "urql";
-import { CommercialCategory } from '@client/graphql/types.generated'
 import { useCreatePreUserBrandMutation } from '@client/graphql/createPreUserBrand.generated'
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
-
-import { useRouter } from "next/router";
 import React from "react";
 import * as yup from "yup";
 import BazarSelectField from "../BazarSelectField";
 import { CreatePreUserBrandInput } from "@client/graphql/types.generated";
+import FullPageLoader from "../circularProgress/cicularProgress";
 
 const fbStyle = { background: "#3B5998", color: "white" };
 const googleStyle = { background: "#4285F4", color: "white" };
@@ -46,7 +43,20 @@ const StyledCard = styled<React.FC<CardProps>>(
 	},
 }));
 
-const VALUE_CATEGORIES = ['INDUMENTARIA', 'BLANQUERIA', 'CUIDADO', 'VARIOS']
+const VALUE_CATEGORIES = [
+	'Animales y Mascotas', 
+	'Arte, Librería y Mercería', 
+	'Bebés', 
+	'Belleza y Cuidado Personal', 
+	'Deportes y Fitness',
+	'Bazar y Cocina',
+	'Textiles de Hogar y Decoración',
+	'Organización para el Hogar',
+	'Joyas y Relojes',
+	'Juegos y Juguetes',
+	'Ropa y Accesorios',
+	'Souvenirs, Cotillón y Fiestas'
+]
 
 interface LoginProps {
 	toggleDialog: () => void
@@ -54,29 +64,31 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({toggleDialog}) => {
 	const [, CreatePreUserBrand] = useCreatePreUserBrandMutation()
-
+	const [loading, setLoading] = React.useState(false)
 	
 	const handleFormSubmit = async (values: CreatePreUserBrandInput) => {
 		 console.log("createPreUserBrand: ", CreatePreUserBrand);
 		 values['contactPhone'] = Number(values.contactPhone)
 		const v = { input: values}
-		toast.promise(
-			CreatePreUserBrand(v).then(toggleDialog),
-			{
-			  loading: 'Registrando....',
-			  success: () => `¡Registrado! El equipo de Discoverit se contactará enseguida.`,
-			  error: (err) => `This just happened: ${err.toString()}`,
-			},
-			{
-			  style: {
-					minWidth: '250px',
-			  },
-			  success: {
-					duration: 4000,
-					icon: '🔥',
-			  },
-			}
-		  )
+		
+		
+		try {
+			setLoading(true)
+			CreatePreUserBrand(v)
+			.then((res: any) =>{ 
+				console.log('res: ', res)
+				res?.data?.createPreUserBrand ? toast.success(`¡Registrado! El equipo de Discoverit se contactará enseguida.`): null
+			})
+			.then(() =>{
+				 setLoading(false)
+				 toggleDialog()
+				})
+		} catch (error) {
+			console.log('error: ', error)
+			toast.error((err: Error) => `Error: ${err.toString()}`)
+			setLoading(false)
+			toggleDialog()
+		} 
 		
 	};
 
@@ -86,13 +98,15 @@ const Login: React.FC<LoginProps> = ({toggleDialog}) => {
     	initialValues,
     	validationSchema: formSchema,
     });
-
-
+	console.log('LOADING: ', loading)
+	
 	return (
 		<StyledCard elevation={3}>
+			{
+			loading  ? <FullPageLoader /> :
 			<form className="content" onSubmit={handleSubmit}>
 				<H3 textAlign="center" mb={1}>
-          Discoverit
+          			Discoverit
 				</H3>
 				<Small
 					fontWeight="600"
@@ -158,7 +172,7 @@ const Login: React.FC<LoginProps> = ({toggleDialog}) => {
 					fullWidth
 					onBlur={handleBlur}
 					onChange={handleChange}
-					value={values.commercialCategory || ""}
+					value={VALUE_CATEGORIES[0] || ""}
 				>
 					{
 						VALUE_CATEGORIES.map((item) => <MenuItem key={item} value={item}>{item}</MenuItem>)
@@ -178,6 +192,7 @@ const Login: React.FC<LoginProps> = ({toggleDialog}) => {
           			Registrarme
 				</BazarButton>
 			</form>
+			}
 		</StyledCard>
 	);
 };
@@ -188,7 +203,7 @@ const initialValues: CreatePreUserBrandInput = {
 	contactMail: "",
 	contactPhone: 0,
 	taxId: 0,
-	commercialCategory: CommercialCategory.Blanqueria
+	commercialCategory: VALUE_CATEGORIES[0]
 };
 
 const formSchema = yup.object().shape({

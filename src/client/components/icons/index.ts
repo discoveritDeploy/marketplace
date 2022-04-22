@@ -58,8 +58,14 @@ import Thermometer from "./health-and-beauty/Thermometer";
 import OxygenPump from "./health-and-beauty/OxygenPump";
 import LenseCase from "./health-and-beauty/LenseCase";
 import AutoMotive from "./health-and-beauty/Automotive";
+import { SvgIconProps } from '@mui/material';
 
-const appIcons = {
+export type service = {
+	[key: string]: ((props: SvgIconProps<"svg", {}>) => JSX.Element);
+  }
+  
+
+const appIcons: service = {
 	Beer,
 	Milk,
 	Snack,

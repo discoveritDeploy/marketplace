@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import FlexBox from "@client/components/FlexBox";
-import { H4, H5, H6, Span, Paragraph } from "@client/components/Typography";
+import { H4, H5, Span } from "@client/components/Typography";
 import {
 	Button,
 	Card,
@@ -8,10 +8,7 @@ import {
 	Box,
 	TextField,
 	TextFieldProps,
-	BoxProps,
 } from "@mui/material";
-import { PickersDay, PickersDayProps } from '@mui/x-date-pickers/PickersDay';
-import ChevronRight from "@mui/icons-material/ChevronRight";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
@@ -23,19 +20,6 @@ import VendorDashboardOrders from '@client/components/layout/VendorDashboardOrde
 interface ConfirmedProps {
     order: Order;
 }
-
-const LabelBox = styled<React.FC<TextFieldProps & BoxProps>>(
-	({children, ...rest })=> <Box {...rest}>{children}</Box>
-)(({ theme }) => ({
-	display: "flex",
-	alignItems: "center",
-	fontSize: "16px",
-	color: theme.palette.text.secondary,
-	border: '1px solid',
-	borderColor: theme.palette.grey[400],
-	borderRadius: "8px",
-	padding: "8px",
-}));
 
 const StyledBox = styled(Box)(({theme}) => ({
 	display: "flex",
@@ -58,34 +42,6 @@ const StyledInfo = styled(Box)(({theme}) => ({
 	marginTop: "8px"
 }))
 
-
-type CustomPickerDayProps = PickersDayProps<Date> & {
-    dayIsBetween: boolean;
-    isFirstDay: boolean;
-    isLastDay: boolean;
-  };
-  
-const CustomPickersDay = styled(PickersDay, {
-	shouldForwardProp: (prop) =>
-		prop !== 'dayIsBetween' && prop !== 'isFirstDay' && prop !== 'isLastDay',
-})<CustomPickerDayProps>(({ theme, dayIsBetween, isFirstDay, isLastDay }) => ({
-	...(dayIsBetween && {
-		borderRadius: 0,
-		backgroundColor: theme.palette.primary.main,
-		color: theme.palette.common.white,
-		'&:hover, &:focus': {
-			backgroundColor: theme.palette.primary.dark,
-		},
-	}),
-	...(isFirstDay && {
-		borderTopLeftRadius: '50%',
-		borderBottomLeftRadius: '50%',
-	}),
-	...(isLastDay && {
-		borderTopRightRadius: '50%',
-		borderBottomRightRadius: '50%',
-	}),
-})) as React.ComponentType<CustomPickerDayProps>;
 
 
 

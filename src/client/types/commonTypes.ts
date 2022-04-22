@@ -6,10 +6,14 @@ export type PrimitiveType = string | symbol | number | boolean;
 
 export type STATUS_ORDERS = 'NEW' | 'CONFIRMED' | 'INVOICED' | 'PAID' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED';
 
-interface DateConstructor {
+export interface DateConstructor {
     new(): Date;
 }
 
+
+export interface Auth {
+    isAuthenticated: boolean
+}
 
 export interface Order {
     id:           string;

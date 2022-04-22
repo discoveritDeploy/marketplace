@@ -7,7 +7,7 @@ export const order = queryField("order", {
 	args: {
 		where: nonNull(WhereUniqueId),
 	},
-	resolve: async (_, args, ctx) => {
+	resolve: async (root, args, ctx) => {
 		return ctx.prisma.order.findUnique({
 			where: {
 				...args.where,

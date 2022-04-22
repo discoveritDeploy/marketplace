@@ -1,5 +1,4 @@
 import { objectType } from "nexus";
-import { CommercialCategory } from "../commons";
 
 export const PreUserBrand = objectType({
 	name: "PreUserBrand",
@@ -8,6 +7,6 @@ export const PreUserBrand = objectType({
 		t.string("contactMail");
 		t.float("contactPhone");
 		t.float("taxId");
-		t.field("commercialCategory", { type: CommercialCategory});
+		t.string("commercialCategory");
 	},
 });

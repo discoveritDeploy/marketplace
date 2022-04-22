@@ -8,7 +8,7 @@ import Remove from "@mui/icons-material/Remove";
 import { CartItem } from "@client/reducers/cartReducer";
 import { H3, Span } from "@client/components/Typography";
 import BazarRating from "@client/components/BazarRating";
-import { useAppContext } from "contexts/app/AppContext";
+import { useAppContext } from "@client/contexts/app/AppContext";
 import { Box, Button, Chip, styled } from "@mui/material";
 import React, { useCallback, CSSProperties } from "react";
 import PreviewIcon from "@mui/icons-material/RemoveRedEye";

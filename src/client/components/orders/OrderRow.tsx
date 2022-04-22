@@ -9,7 +9,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { Order } from '@client/types/commonTypes'
-// component props interface
+
+
 export interface OrderRowProps {
   item: Order;
 }

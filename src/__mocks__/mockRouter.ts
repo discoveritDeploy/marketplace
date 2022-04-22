@@ -6,7 +6,7 @@ export function createMockRouter(router: Partial<NextRouter>): NextRouter {
 		isFallback: false,
 		back: jest.fn(),
 		beforePopState: jest.fn(),
-		pathname: [],
+		pathname: "/",
 		...router
-	}
+	} as NextRouter
 }

@@ -6,8 +6,8 @@ import { H4, Span } from "../Typography";
 import appIcons from "@client/components/icons";
 import FlexBox from "../FlexBox";
 
-type service = {
-  [key: string]:  any | (SvgIconProps);
+export type service = {
+  [key: string]:  any | ((props: SvgIconProps<"svg", {}>) => JSX.Element);
 }
 
 interface Props {

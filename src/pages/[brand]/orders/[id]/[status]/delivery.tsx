@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import FlexBox from "@client/components/FlexBox";
 import { H4, Paragraph } from "@client/components/Typography";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import {
 	Button,
 	Card,
 	Box,
+	Theme
 } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import GiftBox from "@client/components/icons/GiftBox";
@@ -20,8 +21,9 @@ interface ConfirmedProps {
 
 
   
-const DleiveryOrderDetails: React.FC<ConfirmedProps> = ({order}) => {
-	const theme = useTheme()
+const DeliveryOrderDetails: React.FC<ConfirmedProps> = ({order}) => {
+	const theme: Theme = useTheme() as Theme
+	console.log('theme: ', theme)
 	const {query} = useRouter()
 	const styles = {
 		largeIcon: {
@@ -81,4 +83,4 @@ const DleiveryOrderDetails: React.FC<ConfirmedProps> = ({order}) => {
 	);
 };
 
-export default DleiveryOrderDetails;
+export default DeliveryOrderDetails;

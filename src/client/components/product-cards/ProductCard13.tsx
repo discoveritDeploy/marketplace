@@ -3,7 +3,7 @@ import BazarCard from "@client/components/BazarCard";
 import BazarRating from "@client/components/BazarRating";
 import LazyImage from "@client/components/LazyImage";
 import { H3, Span } from "@client/components/Typography";
-import { useAppContext } from "contexts/app/AppContext";
+import { useAppContext } from "@client/contexts/app/AppContext";
 import Add from "@mui/icons-material/Add";
 import Close from "@mui/icons-material/Close";
 import Favorite from "@mui/icons-material/Favorite";

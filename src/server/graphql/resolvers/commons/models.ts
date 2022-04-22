@@ -28,9 +28,3 @@ export const DepositAddress = objectType({
 	},
 });
 
-
-export const CommercialCategory = enumType({
-	name: 'commercialCategory',
-	members: ['INDUMENTARIA', 'BLANQUERIA', 'CUIDADO', 'VARIOS'],
-	description: 'categoria comercial',
-})

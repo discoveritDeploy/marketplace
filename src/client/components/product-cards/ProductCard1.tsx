@@ -85,6 +85,7 @@ export interface ProductCard1Props extends ProductInterface {
   className?: string;
   style?: CSSProperties;
   hoverEffect?: boolean;
+  id?: string;
 }
 
 const ProductCard1: React.FC<ProductCard1Props> = (

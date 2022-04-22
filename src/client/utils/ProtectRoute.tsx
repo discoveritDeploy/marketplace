@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAuth } from './AuthProvider';
-import FullPageLoader from '@client/components/circularProgress/circularProgress';
+import FullPageLoader from '@client/components/circularProgress/InConstruction';
+import { Auth } from '@client/types/commonTypes'
 
 const ProtectRoute: React.FC = ({ children }) => {
-	const { isAuthenticated } = useAuth();
-	console.log('isAuthenticated: ', isAuthenticated)
+	const { isAuthenticated } = useAuth() as Auth
 	
 	if ((!isAuthenticated && typeof window !== "undefined" && window?.location?.pathname !== '/')){
 			
