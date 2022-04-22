@@ -64,7 +64,7 @@
     "react-hot-toast": "^2.2.0",
     "simplebar-react": "^2.3.6",
     "slug": "^5.2.0",
-    "stripe": "^8.205.0",
+    "stripe": "^8.219.0",
     "urql": "^2.2.0",
     "yup": "^0.32.11"
   },
