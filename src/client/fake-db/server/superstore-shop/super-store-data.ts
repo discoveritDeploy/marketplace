@@ -11,6 +11,9 @@ import deportesyfitness from 'public/assets/images/categories/deportesyfitness.p
 import joyasyrelojes from 'public/assets/images/categories/joyasyrelojes.png'
 import juegosyjuguetes from 'public/assets/images/categories/juegosyjuguetes.png'
 import souvenirscotillonyfiestas from 'public/assets/images/categories/souvenirscotillonyfiestas.png'
+import randomUser1 from 'public/assets/images/randomUser1.png'
+import randomUser2 from 'public/assets/images/randomUser2.png'
+import randomUser3 from 'public/assets/images/randomUser3.png'
 
 export const mainCarouselData = [
 	{
@@ -328,31 +331,23 @@ export const usersReviews = [
 		userName: "Juana Isaoralde",
 		category: "Home y Deco",
 		date: new Date(),
-		imgUrl: '/assets/images/randomUser1.png',
+		imgUrl: randomUser1,
 		alt: "User writing in her pc"
 	},
 	{
-		review: "Hacer un pedido para mi local a los distribuidores o fabricantes de marcas puede demorar muchas horas cada vex que quiero reponer stock o buscar nuevos productos. En Discoverit encuentro todos los productos que quiero en un solo lugar y esta integrado con nuestra información de facturación. Esto me ahorra mucho tiempo.",
-		userName: "Juana Isaoralde",
-		category: "Home y Deco",
+		review: "Como fabricante, teníamos muchos problemas con planillas Excel, envíos de catálogos por email o whatsapp a nuestros clientes, pero cuando comenzamos a utilizar discoverit para digitalizar toda nuestra operacion mayorista, nuestro negocio no dejó de crecer",
+		userName: "Flavio Rubio",
+		category: "Blanquería",
 		date: new Date(),
-		imgUrl: '/assets/images/randomUser1.png',
+		imgUrl: randomUser2,
 		alt: "User writing in her pc"
 	},
 	{
-		review: "Hacer un pedido para mi local a los distribuidores o fabricantes de marcas puede demorar muchas horas cada vex que quiero reponer stock o buscar nuevos productos. En Discoverit encuentro todos los productos que quiero en un solo lugar y esta integrado con nuestra información de facturación. Esto me ahorra mucho tiempo.",
-		userName: "Juana Isaoralde",
-		category: "Home y Deco",
+		review: "Entre la financiación que recibimos para comprar y la facilidad de tener los mejores catálogos para abastecernos, podemos decir que discoverit nos impulsó y mejor el negocio mayorista",
+		userName: "Hugo Bassi",
+		category: "Bazar",
 		date: new Date(),
-		imgUrl: '/assets/images/randomUser1.png',
-		alt: "User writing in her pc"
-	},
-	{
-		review: "Hacer un pedido para mi local a los distribuidores o fabricantes de marcas puede demorar muchas horas cada vex que quiero reponer stock o buscar nuevos productos. En Discoverit encuentro todos los productos que quiero en un solo lugar y esta integrado con nuestra información de facturación. Esto me ahorra mucho tiempo.",
-		userName: "Juana Isaoralde",
-		category: "Home y Deco",
-		date: new Date(),
-		imgUrl: '/assets/images/randomUser1.png',
+		imgUrl: randomUser3,
 		alt: "User writing in her pc"
 	}
 ]

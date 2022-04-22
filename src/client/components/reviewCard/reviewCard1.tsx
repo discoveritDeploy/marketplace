@@ -6,7 +6,6 @@ import {
 	styled,
 } from "@mui/material";
 import React, { CSSProperties } from "react";
-import FlexBox from "../FlexBox";
 
 
 const StyledBazarCard = styled(BazarCard)(() => ({
@@ -42,15 +41,6 @@ const ImageWrapper = styled(Box)(({ theme }) => ({
 }));
 
 
-const ContentWrapper = styled(Box)(() => ({
-	padding: "1rem",
-	"& .title, & .categories": {
-		whiteSpace: "nowrap",
-		overflow: "hidden",
-		textOverflow: "ellipsis",
-	},
-}));
-
 export interface ReviewCard1Props {
   className?: string;
   style?: CSSProperties;
@@ -83,6 +73,7 @@ const ReviewCard1: React.FC<ReviewCard1Props> = ({
 					src={imgUrl}
 					layout="fill"
 					alt={alt}
+					placeholder="blur"
 				/>
 			</ImageWrapper>
 			<Box flex="1 1 0" minWidth="0px" pr={1} mr={1}>

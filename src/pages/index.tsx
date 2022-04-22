@@ -18,13 +18,14 @@ export interface Props {
   mainCarouselData: any[];
   flashDealsData: any[];
   serviceList: any[];
+  reviewList: any[];
 }
 const IndexPage: NextPage<Props> = (props) => {
 	const {
 		mainCarouselData,
 		flashDealsData,
 		serviceList,
-		// reviewList
+		reviewList
 	} = props;
 
 	return (
@@ -32,7 +33,7 @@ const IndexPage: NextPage<Props> = (props) => {
 			<Section1 carouselData={mainCarouselData} />
 			<Section12 serviceList={serviceList} />
 			<Section14 flashDeals={flashDealsData} />
-			{/* <Section15 usersReview={reviewList} /> */}
+			<Section15 usersReview={reviewList} /> 
 			<Section16 />
 		</AppLayout>
 	);
@@ -42,13 +43,13 @@ export async function getStaticProps() {
 	const mainCarouselData = await getMainCarousel();
 	const flashDealsData = await getFlashDeals();
 	const serviceList = await getServiceList();
-	// const reviewList = await getUserReviews();
+	const reviewList = await getUserReviews();
 	return {
 		props: {
 			mainCarouselData,
 			flashDealsData,
 			serviceList,
-			// reviewList
+			reviewList
 		},
 	};
 }
