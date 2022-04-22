@@ -1,12 +1,12 @@
-import AppStore from "client/components/AppStore";
-import BazarIconButton from "client/components/BazarIconButton";
-import Image from "client/components/BazarImage";
-import Facebook from "client/components/icons/Facebook";
-import Google from "client/components/icons/Google";
-import Instagram from "client/components/icons/Instagram";
-import Twitter from "client/components/icons/Twitter";
-import Youtube from "client/components/icons/Youtube";
-import { Paragraph } from "client/components/Typography";
+// import AppStore from "@client/components/AppStore";
+import BazarIconButton from "@client/components/BazarIconButton";
+import Image from "@client/components/BazarImage";
+// import Facebook from "@client/components/icons/Facebook";
+// import Google from "@client/components/icons/Google";
+// import Instagram from "@client/components/icons/Instagram";
+// import Twitter from "@client/components/icons/Twitter";
+// import Youtube from "@client/components/icons/Youtube";
+// import { Paragraph } from "@client/components/Typography";
 import { Box, Container, Grid, styled } from "@mui/material";
 import Link from "next/link";
 import React, { FC } from "react";
@@ -36,17 +36,11 @@ const Footer: FC = () => {
 							<Grid item lg={4} md={6} sm={6} xs={12}>
 								<Link href="/">
 									<a>
-										<Image mb={2.5} src="/assets/images/logo.svg" alt="logo" />
+										<Image mb={2.5} src="/assets/images/logo.png" alt="logo" />
 									</a>
 								</Link>
 
-								<Paragraph mb={2.5} color="grey.500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Auctor libero id et, in gravida. Sit diam duis mauris nulla
-                  cursus. Erat et lectus vel ut sollicitudin elit at amet.
-								</Paragraph>
-
-								<AppStore />
+								{/* <AppStore /> */}
 							</Grid>
 
 							<Grid item lg={2} md={6} sm={6} xs={12}>
@@ -138,30 +132,24 @@ const Footer: FC = () => {
 };
 
 const aboutLinks = [
-	"Careers",
-	"Our Stores",
-	"Our Cares",
-	"Terms & Conditions",
-	"Privacy Policy",
+	"Sobre Discoverit",
+	"Blog"
 ];
 
 const customerCareLinks = [
-	"Help Center",
-	"How to Buy",
-	"Track Your Order",
-	"Corporate & Bulk Purchasing",
-	"Returns & Refunds",
+	"Quiero vender",
+	"Quiero Comprar",
 ];
 
 const iconList = [
-	{ icon: Facebook, url: "https://www.facebook.com/UILibOfficial" },
-	{ icon: Twitter, url: "https://twitter.com/uilibofficial" },
-	{
-		icon: Youtube,
-		url: "https://www.youtube.com/channel/UCsIyD-TSO1wQFz-n2Y4i3Rg",
-	},
-	{ icon: Google, url: "/" },
-	{ icon: Instagram, url: "https://www.instagram.com/uilibofficial/" },
+	// { icon: Facebook, url: "https://www.facebook.com/UILibOfficial" },
+	// { icon: Twitter, url: "https://twitter.com/uilibofficial" },
+	// {
+	// 	icon: Youtube,
+	// 	url: "https://www.youtube.com/channel/UCsIyD-TSO1wQFz-n2Y4i3Rg",
+	// },
+	// { icon: Google, url: "/" },
+	// { icon: Instagram, url: "https://www.instagram.com/uilibofficial/" },
 ];
 
 export default Footer;

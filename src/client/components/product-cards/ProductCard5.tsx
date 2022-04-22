@@ -1,6 +1,6 @@
-import HoverBox from "client/components/HoverBox";
-import LazyImage from "client/components/LazyImage";
-import { H4 } from "client/components/Typography";
+import HoverBox from "@client/components/HoverBox";
+import LazyImage from "@client/components/LazyImage";
+import { H4 } from "@client/components/Typography";
 import { Box } from "@mui/material";
 import React from "react";
 

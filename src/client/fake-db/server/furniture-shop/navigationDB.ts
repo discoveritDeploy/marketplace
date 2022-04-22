@@ -1,4 +1,4 @@
-import Mock from "client/fake-db/mock";
+import Mock from "@client/fake-db/mock";
 import { furnitureShopNavigation } from "./furnitureShopData";
 
 Mock.onGet("/api/furniture-shop/navigation").reply(() => {

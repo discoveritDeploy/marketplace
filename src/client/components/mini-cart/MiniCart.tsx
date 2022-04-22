@@ -1,17 +1,17 @@
-import BazarAvatar from "client/components/BazarAvatar";
-import BazarButton from "client/components/BazarButton";
-import BazarIconButton from "client/components/BazarIconButton";
-import FlexBox from "client/components/FlexBox";
-import ShoppingBagOutlined from "client/components/icons/ShoppingBagOutlined";
-import LazyImage from "client/components/LazyImage";
-import { H5, Tiny } from "client/components/Typography";
-import { useAppContext } from "client/contexts/app/AppContext";
+import BazarAvatar from "@client/components/BazarAvatar";
+import BazarButton from "@client/components/BazarButton";
+import BazarIconButton from "@client/components/BazarIconButton";
+import FlexBox from "@client/components/FlexBox";
+import ShoppingBagOutlined from "@client/components/icons/ShoppingBagOutlined";
+import LazyImage from "@client/components/LazyImage";
+import { H5, Tiny } from "@client/components/Typography";
+import { useAppContext } from "@client/contexts/app/AppContext";
 import Add from "@mui/icons-material/Add";
 import Close from "@mui/icons-material/Close";
 import Remove from "@mui/icons-material/Remove";
 import { Box, Divider } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { CartItem } from "client/reducers/cartReducer";
+import { CartItem } from "@client/reducers/cartReducer";
 import Link from "next/link";
 import React, { useCallback } from "react";
 

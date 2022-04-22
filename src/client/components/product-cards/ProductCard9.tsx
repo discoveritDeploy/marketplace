@@ -1,6 +1,6 @@
-import Image from "client/components/BazarImage";
-import FlexBox from "client/components/FlexBox";
-import { H5, Span } from "client/components/Typography";
+import Image from "@client/components/BazarImage";
+import FlexBox from "@client/components/FlexBox";
+import { H5, Span } from "@client/components/Typography";
 import Add from "@mui/icons-material/Add";
 import Close from "@mui/icons-material/Close";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";

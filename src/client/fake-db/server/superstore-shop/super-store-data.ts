@@ -1,4 +1,16 @@
-import bazarReactDatabase from "client/data/bazar-react-database";
+import bazarReactDatabase from "@client/data/bazar-react-database";
+import bazarycocina from 'public/assets/images/categories/bazarycocina.png'
+import textilesdehogarydecoracion from 'public/assets/images/categories/textilesdehogarydecoracion.png'
+import organizacionparaelhogar from 'public/assets/images/categories/organizacionparaelhogar.png'
+import ropayaccesorios from 'public/assets/images/categories/ropayaccesorios.png'
+import animalesymascotas from 'public/assets/images/categories/animalesymascotas.png'
+import artelibreriaymerceria from 'public/assets/images/categories/artelibreriaymerceria.png'
+import bebes from 'public/assets/images/categories/bebes.png'
+import bellezaycuidadopersonal from 'public/assets/images/categories/bellezaycuidadopersonal.png'
+import deportesyfitness from 'public/assets/images/categories/deportesyfitness.png'
+import joyasyrelojes from 'public/assets/images/categories/joyasyrelojes.png'
+import juegosyjuguetes from 'public/assets/images/categories/juegosyjuguetes.png'
+import souvenirscotillonyfiestas from 'public/assets/images/categories/souvenirscotillonyfiestas.png'
 
 export const mainCarouselData = [
 	{
@@ -15,84 +27,64 @@ export const mainCarouselData = [
 
 export const flashDealsData = [
 	{
-		price: 250,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 25,
-		id: 4674163016,
-		rating: 4,
+		title: "Bazar y Cocina",
+		imgUrl: bazarycocina,
+		id: 1,
 	},
 	{
-		price: 350,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 15,
-		id: 1786818620,
-		rating: 3,
+		title: "Textiles de hogar y decoración",
+		imgUrl: textilesdehogarydecoracion,
+		id: 2,
 	},
 	{
-		price: 150,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 28,
-		id: 5287174158,
-		rating: 5,
+		title: "Organización para el Hogar",
+		imgUrl: organizacionparaelhogar,
+		id: 3,
 	},
 	{
-		price: 180,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 21,
-		id: 6708885936,
-		rating: 4,
+		title: "Ropa y Accesorios",
+		imgUrl: ropayaccesorios,
+		id: 4,
 	},
 	{
-		price: 250,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 25,
-		id: 8287533170,
-		rating: 4,
+		title: "Animales y Mascotas",
+		imgUrl: animalesymascotas,
+		id: 5,
 	},
 	{
-		price: 180,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 21,
-		id: 9812971972,
-		rating: 4,
+		title: "Arte, Librería y Mercería",
+		imgUrl: artelibreriaymerceria,
+		id: 6,
 	},
 	{
-		price: 150,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 28,
-		id: 3518328281,
-		rating: 5,
+		title: "Bebés",
+		imgUrl: bebes,
+		id: 7,
 	},
 	{
-		price: 350,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 15,
-		id: 2485294764,
-		rating: 3,
+		title: "Belleza y Cuidado Personal",
+		imgUrl: bellezaycuidadopersonal,
+		id: 8,
 	},
 	{
-		price: 299,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 19,
-		id: 2427928893,
-		rating: 5,
+		title: "Deportes y Fitness",
+		imgUrl: deportesyfitness,
+		id: 9,
 	},
 	{
-		price: 180,
-		title: "Smart watch black",
-		imgUrl: "/assets/images/categoryImg.png",
-		discount: 21,
-		id: 2124324879,
-		rating: 4,
+		title: "Joyas y Relojes",
+		imgUrl: joyasyrelojes,
+		id: 10,
+	},
+	{
+		title: "Juegos y Juguetes",
+		imgUrl: juegosyjuguetes,
+		id: 11,
+	},
+	{
+		title: "Souvenirs, Cotillón y Fiestas",
+		imgUrl: souvenirscotillonyfiestas,
+		id: 12,
 	},
 ];
 
@@ -315,7 +307,7 @@ export const bottomCategoryList = [
 export const serviceList = [
 	{
 		icon: "Truck",
-		title: "Worldwide Delivery",
+		title: "Envíos a todo el pais",
 		description: "Despreocupate de coordinar"
 	},
 	{

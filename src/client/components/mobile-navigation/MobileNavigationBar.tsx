@@ -1,12 +1,12 @@
-import CategoryOutlined from "client/components/icons/CategoryOutline";
-import Home from "client/components/icons/Home";
-import ShoppingBagOutlined from "client/components/icons/ShoppingBagOutlined";
-import User2 from "client/components/icons/User2";
-import NavLink from "client/components/nav-link/NavLink";
-import { useAppContext } from "client/contexts/app/AppContext";
-import useWindowSize from "client/hooks/useWindowSize";
+import CategoryOutlined from "@client/components/icons/CategoryOutline";
+import Home from "@client/components/icons/Home";
+import ShoppingBagOutlined from "@client/components/icons/ShoppingBagOutlined";
+import User2 from "@client/components/icons/User2";
+import NavLink from "@client/components/nav-link/NavLink";
+import { useAppContext } from "@client/contexts/app/AppContext";
+import useWindowSize from "@client/hooks/useWindowSize";
 import { Badge, Box, styled } from "@mui/material";
-import { layoutConstant } from "client/utils/constants";
+import { layoutConstant } from "@client/utils/constants";
 import React, { FC } from "react";
 
 // styled components

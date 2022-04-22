@@ -1,5 +1,5 @@
 import { Box, BoxProps, Select, SelectProps } from "@mui/material";
-import { Small } from "client/components/Typography";
+import { Small } from "@client/components/Typography";
 
 
 const BazarSelectField: React.FC<SelectProps & BoxProps> = ({

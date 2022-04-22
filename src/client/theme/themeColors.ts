@@ -122,7 +122,7 @@ export const themeColors = {
 	success,
 	text: {
 		primary: grey[900],
-		secondary: grey[200],
+		secondary: grey[800],
 		disabled: grey[400],
 		paragraph: grey[500],
 		muted: grey[800]

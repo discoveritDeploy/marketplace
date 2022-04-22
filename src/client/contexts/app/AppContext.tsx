@@ -4,7 +4,7 @@ import {
 	initialState,
 	rootActionType,
 	rootReducer,
-} from "client/reducers/rootReducer";
+} from "@client/reducers/rootReducer";
 
 interface ContextProps {
   state: typeof initialState;

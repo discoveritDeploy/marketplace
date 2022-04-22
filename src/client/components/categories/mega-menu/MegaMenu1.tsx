@@ -1,6 +1,6 @@
-import FlexBox from "client/components/FlexBox";
-import LazyImage from "client/components/LazyImage";
-import NavLink from "client/components/nav-link/NavLink";
+import FlexBox from "@client/components/FlexBox";
+import LazyImage from "@client/components/LazyImage";
+import NavLink from "@client/components/nav-link/NavLink";
 import { Box, Card, Grid } from "@mui/material";
 import Link from "next/link";
 import React, { FC } from "react";

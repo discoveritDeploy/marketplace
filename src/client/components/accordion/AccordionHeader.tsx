@@ -1,4 +1,4 @@
-import FlexBox from "client/components/FlexBox";
+import FlexBox from "@client/components/FlexBox";
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import { BoxProps } from "@mui/material";
 import { styled } from "@mui/material/styles";

@@ -11,5 +11,5 @@ module.exports = withPrismaPlugin({
 			};
 		}
 		return config;
-	},
+	}
 });

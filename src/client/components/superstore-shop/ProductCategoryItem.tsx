@@ -1,6 +1,6 @@
-import BazarCard from "client/components/BazarCard";
-import LazyImage from "client/components/LazyImage";
-import { H4 } from "client/components/Typography";
+import BazarCard from "@client/components/BazarCard";
+import LazyImage from "@client/components/LazyImage";
+import { H4 } from "@client/components/Typography";
 import { styled } from "@mui/material";
 import { SxProps } from "@mui/system";
 import React, { FC, HtmlHTMLAttributes } from "react";

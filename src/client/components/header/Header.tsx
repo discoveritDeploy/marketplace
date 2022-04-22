@@ -1,12 +1,12 @@
-import BazarButton from "client/components/BazarButton";
-import Image from "client/components/BazarImage";
-import CategoryMenu from "client/components/categories/CategoryMenu";
-import FlexBox from "client/components/FlexBox";
-import Category from "client/components/icons/Category";
-import ShoppingBagOutlined from "client/components/icons/ShoppingBagOutlined";
-import MiniCart from "client/components/mini-cart/MiniCart";
-import Login from "client/components/sessions/Login";
-import { useAppContext } from "client/contexts/app/AppContext";
+import BazarButton from "@client/components/BazarButton";
+import Image from "@client/components/BazarImage";
+import CategoryMenu from "@client/components/categories/CategoryMenu";
+import FlexBox from "@client/components/FlexBox";
+import Category from "@client/components/icons/Category";
+import ShoppingBagOutlined from "@client/components/icons/ShoppingBagOutlined";
+import MiniCart from "@client/components/mini-cart/MiniCart";
+import Login from "@client/components/sessions/Login";
+import { useAppContext } from "@client/contexts/app/AppContext";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutline from "@mui/icons-material/PersonOutline";
 import toast from "react-hot-toast";
@@ -21,11 +21,11 @@ import {
 	useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { layoutConstant } from "client/utils/constants";
+import { layoutConstant } from "@client/utils/constants";
 import clsx from "clsx";
 import Link from "next/link";
 import React, { FC, useState } from "react";
-import SearchBox from "client/components/search-box/SearchBox";
+import SearchBox from "@client/components/search-box/SearchBox";
 
 // component props interface
 interface HeaderProps {
@@ -93,7 +93,7 @@ const Header: FC<HeaderProps> = ({ isFixed, className }) => {
 							<Image
 								height={28}
 								mb={0.5}
-								src="/assets/images/logo.svg"
+								src="/assets/images/logo.png"
 								alt="logo"
 							/>
 						</a>

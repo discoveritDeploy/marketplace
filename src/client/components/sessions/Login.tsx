@@ -1,11 +1,11 @@
-import BazarButton from "client/components/BazarButton";
-import BazarTextField from "client/components/BazarTextField";
-import { H3, Small } from "client/components/Typography";
+import BazarButton from "@client/components/BazarButton";
+import BazarTextField from "@client/components/BazarTextField";
+import { H3, Small } from "@client/components/Typography";
 import { Card, CardProps, MenuItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useMutation } from "urql";
-import { CommercialCategory } from 'client/graphql/types.generated'
-import { useCreatePreUserBrandMutation } from 'client/graphql/createPreUserBrand.generated'
+import { CommercialCategory } from '@client/graphql/types.generated'
+import { useCreatePreUserBrandMutation } from '@client/graphql/createPreUserBrand.generated'
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
 
@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import * as yup from "yup";
 import BazarSelectField from "../BazarSelectField";
-import { CreatePreUserBrandInput } from "client/graphql/types.generated";
+import { CreatePreUserBrandInput } from "@client/graphql/types.generated";
 
 const fbStyle = { background: "#3B5998", color: "white" };
 const googleStyle = { background: "#4285F4", color: "white" };

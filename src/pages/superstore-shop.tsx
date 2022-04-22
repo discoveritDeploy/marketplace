@@ -1,24 +1,24 @@
-import Section1 from "client/components/superstore-shop/Section1";
-import Section10 from "client/components/superstore-shop/Section10";
-import Section11 from "client/components/superstore-shop/Section11";
-import Section12 from "client/components/superstore-shop/Section12";
-import Section13 from "client/components/superstore-shop/Section13";
-import Section2 from "client/components/superstore-shop/Section2";
-import Section3 from "client/components/superstore-shop/Section3";
-import Section4 from "client/components/superstore-shop/Section4";
-import Section5 from "client/components/superstore-shop/Section5";
-import Section6 from "client/components/superstore-shop/Section6";
-import Section7 from "client/components/superstore-shop/Section7";
-import Section8 from "client/components/superstore-shop/Section8";
-import Section9 from "client/components/superstore-shop/Section9";
-import AppLayout from "client/components/layout/AppLayout";
+import Section1 from "@client/components/superstore-shop/Section1";
+import Section10 from "@client/components/superstore-shop/Section10";
+import Section11 from "@client/components/superstore-shop/Section11";
+import Section12 from "@client/components/superstore-shop/Section12";
+import Section13 from "@client/components/superstore-shop/Section13";
+import Section2 from "@client/components/superstore-shop/Section2";
+import Section3 from "@client/components/superstore-shop/Section3";
+import Section4 from "@client/components/superstore-shop/Section4";
+import Section5 from "@client/components/superstore-shop/Section5";
+import Section6 from "@client/components/superstore-shop/Section6";
+import Section7 from "@client/components/superstore-shop/Section7";
+import Section8 from "@client/components/superstore-shop/Section8";
+import Section9 from "@client/components/superstore-shop/Section9";
+import AppLayout from "@client/components/layout/AppLayout";
 import { NextPage } from "next";
 import {
 	getBigDiscountList,
 	getFlashDeals,
 	getMainCarousel,
 	getTopCategories,
-} from "client/utils/api/superstore-shop/carousels";
+} from "@client/utils/api/superstore-shop/carousels";
 import {
 	getCarBrands,
 	getCarList,
@@ -34,7 +34,7 @@ import {
 	getServiceList,
 	getTopRatedBrand,
 	getTopRatedProduct,
-} from "client/utils/api/superstore-shop/sections";
+} from "@client/utils/api/superstore-shop/sections";
 
 interface Props {
   mainCarouselData?: any[];

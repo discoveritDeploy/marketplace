@@ -1,6 +1,6 @@
-import BazarCard from "client/components/BazarCard";
-import LazyImage from "client/components/LazyImage";
-import { H3 } from "client/components/Typography";
+import BazarCard from "@client/components/BazarCard";
+import LazyImage from "@client/components/LazyImage";
+import { H3 } from "@client/components/Typography";
 import {
 	Box,
 	styled,
@@ -19,6 +19,7 @@ const StyledBazarCard = styled(BazarCard)(({theme}) => ({
 	transition: "all 250ms ease-in-out",
 	borderRadius: "8px",
 	color: theme.palette.text.primary,
+	width: "300px",
 	"&:hover": {
 		background: theme.palette.grey[300],
 		"& h3": {
@@ -34,6 +35,7 @@ const ImageWrapper = styled(Box)(({ theme }) => ({
 	position: "relative",
 	display: "inline-block",
 	textAlign: "center",
+	objectFit: "cover",
 	[theme.breakpoints.down("sm")]: {
 		display: "block",
 	},
@@ -71,20 +73,15 @@ const ProductCard1: React.FC<ProductCard1Props> = ({
 
 	return (
 		<StyledBazarCard hoverEffect={hoverEffect}>
-			<ImageWrapper>
-
-			
-				<Link href={`/category/${id}`}>
-					<a>
-						<LazyImage
-							src={imgUrl}
-							width={0}
-							height={0}
-							layout="responsive"
-							alt={title}
-						/>
-					</a>
-				</Link>
+			<ImageWrapper  width="300px" height="270px">
+				<LazyImage
+					src={imgUrl}
+					layout="fill"
+					alt={title}
+					objectFit="cover"
+					placeholder="blur"
+					// loader={() => <Skeleton variant="rectangular" width="277px" height="270px" />}
+				/>
 			</ImageWrapper>
 
 			<ContentWrapper>

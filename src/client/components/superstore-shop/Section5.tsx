@@ -1,5 +1,5 @@
-import BazarCard from "client/components/BazarCard";
-import NewArrival from "client/components/icons/NewArrival";
+import BazarCard from "@client/components/BazarCard";
+import NewArrival from "@client/components/icons/NewArrival";
 import { Grid } from "@mui/material";
 import React, { FC } from "react";
 import CategorySectionCreator from "../CategorySectionCreator";

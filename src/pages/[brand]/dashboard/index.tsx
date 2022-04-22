@@ -1,18 +1,18 @@
-import BrandIncomeCharts from "client/components/dashboards/BrandIncomeCharts";
-import BrandOrdersChart from "client/components/dashboards/BrandOrdersChart"
-import FlexBox from "client/components/FlexBox";
-import DashboardPageHeader from "client/components/layout/DashboardPageHeader";
-import VendorDashboardLayout from "client/components/layout/VendorDashboardLayout";
-import BrandSellsAndOrders from 'client/components/dashboards/BrandSellsAndOrders'
-import { H2, H5, Paragraph } from "client/components/Typography";
+import BrandIncomeCharts from "@client/components/dashboards/BrandIncomeCharts";
+import BrandOrdersChart from "@client/components/dashboards/BrandOrdersChart"
+import FlexBox from "@client/components/FlexBox";
+import DashboardPageHeader from "@client/components/layout/DashboardPageHeader";
+import VendorDashboardLayout from "@client/components/layout/VendorDashboardLayout";
+import BrandSellsAndOrders from '@client/components/dashboards/BrandSellsAndOrders'
+import { H2, H5, Paragraph } from "@client/components/Typography";
 import ShoppingBag from "@mui/icons-material/ShoppingBag";
 import { styled } from "@mui/system";
 import { Box, Button, Card, Grid } from "@mui/material";
-import { typeFormat } from "client/components/formattedNumber/formattedNumber";
+import { typeFormat } from "@client/components/formattedNumber/formattedNumber";
 import React from "react";
-import FormattedNumber from "client/components/formattedNumber/formattedNumber";
-import TopProducts from "client/components/tables/topProducts";
-import SalesLastsMonths from "client/components/tables/salesLastMonths";
+import FormattedNumber from "@client/components/formattedNumber/formattedNumber";
+import TopProducts from "@client/components/tables/topProducts";
+import SalesLastsMonths from "@client/components/tables/salesLastMonths";
 
 const StyledButton = styled(Button)(({ theme }) => ({
 	padding: "4px 12px",

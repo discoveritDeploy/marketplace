@@ -1,5 +1,5 @@
-import CarouselCard1 from "client/components/carousel-cards/CarouselCard1";
-import Navbar from "client/components/navbar/Navbar";
+import CarouselCard1 from "@client/components/carousel-cards/CarouselCard1";
+import Navbar from "@client/components/navbar/Navbar";
 import { Box, Container, styled } from "@mui/material";
 import { Fragment } from "react";
 import { NextPage } from "next";

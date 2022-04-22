@@ -1,8 +1,8 @@
-import BazarButton from "client/components/BazarButton";
-import Image from "client/components/BazarImage";
-import BazarTextField from "client/components/BazarTextField";
-import FlexBox from "client/components/FlexBox";
-import { H3, H6, Small } from "client/components/Typography";
+import BazarButton from "@client/components/BazarButton";
+import Image from "@client/components/BazarImage";
+import BazarTextField from "@client/components/BazarTextField";
+import FlexBox from "@client/components/FlexBox";
+import { H3, H6, Small } from "@client/components/Typography";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import {

@@ -1,7 +1,7 @@
-import Card1 from "client/components/Card1";
-import DashboardPageHeader from "client/components/layout/DashboardPageHeader";
-import VendorDashboardLayout from "client/components/layout/VendorDashboardLayout";
-import countryList from "client/data/countryList";
+import Card1 from "@client/components/Card1";
+import DashboardPageHeader from "@client/components/layout/DashboardPageHeader";
+import VendorDashboardLayout from "@client/components/layout/VendorDashboardLayout";
+import countryList from "@client/data/countryList";
 import CameraAlt from "@mui/icons-material/CameraAlt";
 import Settings from "@mui/icons-material/Settings";
 import { Autocomplete, Avatar, Button, Grid, TextField } from "@mui/material";

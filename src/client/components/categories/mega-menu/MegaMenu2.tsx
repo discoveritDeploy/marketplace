@@ -1,4 +1,4 @@
-import BazarCard from "client/components/BazarCard";
+import BazarCard from "@client/components/BazarCard";
 import React, { FC } from "react";
 import CategoryMenuItem from "../CategoryMenuItem";
 import MegaMenu3 from "./MegaMenu3";

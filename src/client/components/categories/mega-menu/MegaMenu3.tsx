@@ -1,9 +1,9 @@
-import BazarCard from "client/components/BazarCard";
-import Image from "client/components/BazarImage";
-import FlexBox from "client/components/FlexBox";
-import LazyImage from "client/components/LazyImage";
-import NavLink from "client/components/nav-link/NavLink";
-import { H3, Small } from "client/components/Typography";
+import BazarCard from "@client/components/BazarCard";
+import Image from "@client/components/BazarImage";
+import FlexBox from "@client/components/FlexBox";
+import LazyImage from "@client/components/LazyImage";
+import NavLink from "@client/components/nav-link/NavLink";
+import { H3, Small } from "@client/components/Typography";
 import { Box, Grid } from "@mui/material";
 import Link from "next/link";
 import React, { FC } from "react";

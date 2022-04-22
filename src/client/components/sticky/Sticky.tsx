@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { slideDown } from "client/animations/keyframes";
+import { slideDown } from "@client/animations/keyframes";
 import clsx from "clsx";
 import React, {
 	ReactElement,

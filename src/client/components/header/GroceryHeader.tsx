@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import BazarButton from "client/components/BazarButton";
-import CategoryMenu from "client/components/categories/CategoryMenu";
-import FlexBox from "client/components/FlexBox";
-import Category from "client/components/icons/Category";
-import ShoppingBagOutlined from "client/components/icons/ShoppingBagOutlined";
-import MiniCart from "client/components/mini-cart/MiniCart";
-import GrocerySearchBox from "client/components/search-box/GrocerySearchBox";
-import Login from "client/components/sessions/Login";
+import BazarButton from "@client/components/BazarButton";
+import CategoryMenu from "@client/components/categories/CategoryMenu";
+import FlexBox from "@client/components/FlexBox";
+import Category from "@client/components/icons/Category";
+import ShoppingBagOutlined from "@client/components/icons/ShoppingBagOutlined";
+import MiniCart from "@client/components/mini-cart/MiniCart";
+import GrocerySearchBox from "@client/components/search-box/GrocerySearchBox";
+import Login from "@client/components/sessions/Login";
 import { useAppContext } from "contexts/app/AppContext";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import PersonOutline from "@mui/icons-material/PersonOutline";
@@ -77,7 +77,7 @@ const GroceryHeader: FC<GroceryHeaderProps> = ({ isFixed }) => {
 				>
 					<Link href="/">
 						<a>
-							<img src="/assets/images/logo.svg" alt="logo" />
+							<img src="/assets/images/logo.png" alt="logo" />
 						</a>
 					</Link>
 

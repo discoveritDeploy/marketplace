@@ -1,4 +1,4 @@
-import LazyImage from "client/components/LazyImage";
+import LazyImage from "@client/components/LazyImage";
 import { Container, Grid } from "@mui/material";
 import Link from "next/link";
 import React, { FC } from "react";

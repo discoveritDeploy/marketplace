@@ -1,7 +1,7 @@
-import FlexBox from "client/components/FlexBox";
-import ProductCard1 from "client/components/product-cards/ProductCard1";
-import { Span } from "client/components/Typography";
-import productDatabase from "client/data/product-database";
+import FlexBox from "@client/components/FlexBox";
+import ProductCard1 from "@client/components/product-cards/ProductCard1";
+import { Span } from "@client/components/Typography";
+import productDatabase from "@client/data/product-database";
 import { Grid, Pagination } from "@mui/material";
 import React from "react";
 

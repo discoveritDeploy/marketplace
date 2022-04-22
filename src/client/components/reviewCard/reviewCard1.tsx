@@ -1,6 +1,6 @@
-import BazarCard from "client/components/BazarCard";
-import LazyImage from "client/components/LazyImage";
-import { H4, H5, Paragraph } from "client/components/Typography";
+import BazarCard from "@client/components/BazarCard";
+import LazyImage from "@client/components/LazyImage";
+import { H4, H5, Paragraph } from "@client/components/Typography";
 import {
 	Box,
 	styled,

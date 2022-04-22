@@ -1,7 +1,7 @@
-import Footer from "client/components/footer/Footer";
-import Header from "client/components/header/Header";
-import MobileNavigationBar from "client/components/mobile-navigation/MobileNavigationBar";
-import Sticky from "client/components/sticky/Sticky";
+import Footer from "@client/components/footer/Footer";
+import Header from "@client/components/header/Header";
+import MobileNavigationBar from "@client/components/mobile-navigation/MobileNavigationBar";
+import Sticky from "@client/components/sticky/Sticky";
 import {
 	styled,
 } from "@mui/material";

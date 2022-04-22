@@ -198,6 +198,7 @@ type Mutation {
 }
 
 type Order {
+  createdAt: String
   id: ID
   orderBrand: OrderBrand
   orderProduct: [OrderProduct]
@@ -206,6 +207,7 @@ type Order {
   payment: Payment
   shippingId: Int
   totalAmount: Float
+  updatedAt: String
 }
 
 type OrderBrand {
@@ -443,9 +445,11 @@ enum commercialCategory {
 
 """status de la orden"""
 enum orderStatus {
+  CANCELLED
   CONFIRMED
   DELIVERED
   INVOICED
+  NEW
   PAID
   SHIPPED
 }

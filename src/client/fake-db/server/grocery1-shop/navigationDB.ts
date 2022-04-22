@@ -1,4 +1,4 @@
-import Mock from "client/fake-db/mock";
+import Mock from "@client/fake-db/mock";
 import { grocery1Navigation } from "./grocery1Data";
 
 Mock.onGet("/api/grocery1/navigation").reply(() => {

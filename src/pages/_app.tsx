@@ -1,20 +1,22 @@
-import "client/fake-db";
-import { client } from "client/graphql/client";
+import "@client/fake-db";
+import { client } from "@client/graphql/client";
 import Head from "next/head";
 import Router from "next/router";
 import "nprogress/nprogress.css";
 import nProgress from "nprogress";
 import { AppProps } from "next/app";
-import MuiTheme from "client/theme/MuiTheme";
+import MuiTheme from "@client/theme/MuiTheme";
 import "simplebar/dist/simplebar.min.css";
-import OpenGraphTags from "client/utils/OpenGraphTags";
+import OpenGraphTags from "@client/utils/OpenGraphTags";
 import React, { Fragment, useEffect } from "react";
-import GoogleAnalytics from "client/utils/GoogleAnalytics";
-import { AppProvider } from "client/contexts/app/AppContext";
-import createEmotionCache from "client/createEmotionCache";
+import GoogleAnalytics from "@client/utils/GoogleAnalytics";
+import { AppProvider } from "@client/contexts/app/AppContext";
+import createEmotionCache from "@client/createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import { Client, Provider } from "urql";
-import ToasterElement from "client/Toaster";
+import { AuthProvider } from "@client/utils/AuthProvider";
+import ProtectRoute from "@client/utils/ProtectRoute";
+import ToasterElement from "@client/Toaster";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -52,22 +54,26 @@ const App = ({
 	console.log('cliewnt: ', clientUrlq)
 	return (
 		<AppProvider>
-			<CacheProvider value={clientAndEmotionCache}>
-				<Head>
-					<meta name="viewport" content="width=device-width, initial-scale=1" />
-					<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-					<GoogleAnalytics />
-					<OpenGraphTags />
-				</Head>
-				<Provider value={client}>
-					<MuiTheme>
-						<Layout>
-							<ToasterElement />
-							<Component {...pageProps} />
-						</Layout>
-					</MuiTheme>
-				</Provider>
-			</CacheProvider>
+			<AuthProvider>
+				<ProtectRoute>
+					<CacheProvider value={clientAndEmotionCache}>
+						<Head>
+							<meta name="viewport" content="width=device-width, initial-scale=1" />
+							<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+							<GoogleAnalytics />
+							<OpenGraphTags />
+						</Head>
+						<Provider value={client}>
+							<MuiTheme>
+								<Layout>
+									<ToasterElement />
+									<Component {...pageProps} />
+								</Layout>
+							</MuiTheme>
+						</Provider>
+					</CacheProvider>
+				</ProtectRoute>
+			</AuthProvider>
 		</AppProvider>
 	);
 };

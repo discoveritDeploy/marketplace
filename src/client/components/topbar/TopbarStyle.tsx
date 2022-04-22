@@ -1,6 +1,6 @@
 import { styled } from "@mui/system";
-import { MuiThemeProps } from "client/theme/theme";
-import { layoutConstant } from "client/utils/constants";
+import { MuiThemeProps } from "@client/theme/theme";
+import { layoutConstant } from "@client/utils/constants";
 
 const TopbarStyle = styled("div")(({ palette }: MuiThemeProps) => ({
 	root: {

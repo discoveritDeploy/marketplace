@@ -1,7 +1,7 @@
-import Accordion from "client/components/accordion/Accordion";
-import AccordionHeader from "client/components/accordion/AccordionHeader";
-import FlexBox from "client/components/FlexBox";
-import { H5, H6, Paragraph, Span } from "client/components/Typography";
+import Accordion from "@client/components/accordion/Accordion";
+import AccordionHeader from "@client/components/accordion/AccordionHeader";
+import FlexBox from "@client/components/FlexBox";
+import { H5, H6, Paragraph, Span } from "@client/components/Typography";
 import {
 	Card,
 	Checkbox,

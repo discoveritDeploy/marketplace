@@ -1,5 +1,5 @@
-import HoverBox from "client/components/HoverBox";
-import LazyImage from "client/components/LazyImage";
+import HoverBox from "@client/components/HoverBox";
+import LazyImage from "@client/components/LazyImage";
 import { Card, Chip } from "@mui/material";
 import React from "react";
 

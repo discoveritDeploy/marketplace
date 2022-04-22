@@ -1,4 +1,4 @@
-import NavLink, { NavLinkProps } from "client/components/nav-link/NavLink";
+import NavLink, { NavLinkProps } from "@client/components/nav-link/NavLink";
 import { Card } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";

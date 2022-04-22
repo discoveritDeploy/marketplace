@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import React from "react";
-import FlexBox from "client/components/FlexBox";
-import AppleStore from "client/components/icons/AppleStore";
-import PlayStore from "client/components/icons/PlayStore";
+import FlexBox from "@client/components/FlexBox";
+import AppleStore from "@client/components/icons/AppleStore";
+import PlayStore from "@client/components/icons/PlayStore";
 
 const AppStore = () => {
 	return (

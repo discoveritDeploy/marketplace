@@ -1,4 +1,4 @@
-import FlexBox from "client/components/FlexBox";
+import FlexBox from "@client/components/FlexBox";
 import Assignment from "@mui/icons-material/Assignment";
 import Dashboard from "@mui/icons-material/Dashboard";
 import NoteAdd from "@mui/icons-material/NoteAdd";

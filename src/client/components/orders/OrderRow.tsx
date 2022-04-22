@@ -1,80 +1,104 @@
-import TableRow from "client/components/TableRow";
-import { H5 } from "client/components/Typography";
+import TableRow from "@client/components/TableRow";
+import { H5 } from "@client/components/Typography";
 import East from "@mui/icons-material/East";
 import { Chip, IconButton, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { format } from "date-fns";
+import { es } from 'date-fns/locale'
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { FC } from "react";
-
-type retail = {
-  nickname: string
-}
+import { Order } from '@client/types/commonTypes'
 // component props interface
 export interface OrderRowProps {
-  item: {
-    order_id: any;
-    status: string;
-    href: string;
-    creation_date: string | Date;
-    last_update: string | Date;
-    payment_amount: number;
-    retail: retail,
-  };
+  item: Order;
 }
 
 const OrderRow: FC<OrderRowProps> = ({ item }) => {
+	const {  query } = useRouter();
 	const getColor = (status: string) => {
 		switch (status) {
-		case "Pendiente de facturar":
+		case "NEW":
+			return "success";
+		case "CONFIRMED":
 			return "secondary";
-		case "Entregada":
+		case "INVOICED":
 			return "success";
-		case "Nueva":
+		case "PAID":
 			return "success";
-		case "Pendiente de pago":
-			return "error";
-		case "Cancelada":
+		case "SHIPPED":
+			return "success";
+		case "DELIVERED":
+			return "success";
+		case "CANCELLED":
 			return "error";
 		default:
 			return "";
 		}
 	};
 
+	const getLabel = (status: string) => {
+		switch (status) {
+		case "NEW":
+			return "Nueva";
+		case "CONFIRMED":
+			return "Confirmada";
+		case "INVOICED":
+			return "Facturada";
+		case 'PAID':
+			return 'Pagada'
+		case "SHIPPED":
+			return "Enviada";
+		case "DELIVERED":
+			return "ENtregada";
+		case "CANCELLED":
+			return "Cancelada";
+		default:
+			return "";
+		}
+	};
+
 	return (
-		<Link href={item.href}>
+		<Link href={{
+			pathname: "/[brand]/orders/[id]/[status]", 
+			query:{ 
+				brand: query.brand as string,
+				id: item.id,
+				status: item.orderStatus.toLocaleLowerCase()
+			}
+		}}>
 			<a>
 				<TableRow sx={{ my: "1rem", padding: "6px 18px" }}>
 					<H5 m={0.75} textAlign="left">
-						{item.order_id}
+						{item.id}
 					</H5>
 					<Box m={0.75}>
 						<Chip
 							size="small"
-							label={item.status}
+							label={getLabel(item.orderStatus)}
 							sx={{
 								p: "0.25rem 0.5rem",
 								fontSize: 12,
-								color: getColor(item.status)
-									? `${getColor(item.status)}.900`
+								color: getColor(item.orderStatus)
+									? `${getColor(item.orderStatus)}.900`
 									: "inherit",
-								backgroundColor: getColor(item.status)
-									? `${getColor(item.status)}.100`
+								backgroundColor: getColor(item.orderStatus)
+									? `${getColor(item.orderStatus)}.100`
 									: "none",
 							}}
 						/>
 					</Box>
 					<Typography className="pre" m={0.75} textAlign="left">
-						{format(new Date(item.creation_date), "MMM dd, yyyy")}
+						{format(new Date(item.createdAt), "MMM dd, yyyy", { locale: es})}
 					</Typography>
 					<Typography className="pre" m={0.75} textAlign="left">
-						{format(new Date(item.creation_date), "MMM dd, yyyy")}
+						{format(new Date(item.updatedAt), "MMM dd, yyyy", { locale: es})}
 					</Typography>
 					<Typography m={0.75} textAlign="left">
-            ${item.payment_amount.toFixed(2)}
+            ${item.totalAmount.toFixed(2)}
 					</Typography>
 					<Typography m={0.75} textAlign="left">
-						{item.retail.nickname}
+						{item.orderRetail.nickname}
 					</Typography>
 					<Typography
 						textAlign="center"

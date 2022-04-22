@@ -1,9 +1,9 @@
-import BazarCard from "client/components/BazarCard";
-import BazarIconButton from "client/components/BazarIconButton";
-import { Container, Grid, SvgIconClassKey, SvgIconProps } from "@mui/material";
+import BazarCard from "@client/components/BazarCard";
+import BazarIconButton from "@client/components/BazarIconButton";
+import { Container, Grid, SvgIconProps } from "@mui/material";
 import React, { FC } from "react";
 import { H4, Span } from "../Typography";
-import appIcons from "client/components/icons";
+import appIcons from "@client/components/icons";
 import FlexBox from "../FlexBox";
 
 type service = {
@@ -11,7 +11,7 @@ type service = {
 }
 
 interface Props {
-  serviceList: any[];
+  serviceList: service[];
 }
 const Section12: FC<Props> = ({ serviceList }) => {
 	return (

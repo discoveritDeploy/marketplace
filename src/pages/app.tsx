@@ -1,16 +1,16 @@
-import "client/fake-db";
+import "@client/fake-db";
 import Head from "next/head";
 import Router from "next/router";
 import "nprogress/nprogress.css";
 import nProgress from "nprogress";
 import { AppProps } from "next/app";
-import MuiTheme from "client/theme/MuiTheme";
+import MuiTheme from "@client/theme/MuiTheme";
 import "simplebar/dist/simplebar.min.css";
-import OpenGraphTags from "client/utils/OpenGraphTags";
+import OpenGraphTags from "@client/utils/OpenGraphTags";
 import React, { Fragment, useEffect } from "react";
-import GoogleAnalytics from "client/utils/GoogleAnalytics";
-// import { AppProvider } from "client/contexts/app/AppContext";
-import createEmotionCache from "client/createEmotionCache";
+import GoogleAnalytics from "@client/utils/GoogleAnalytics";
+// import { AppProvider } from "@client/contexts/app/AppContext";
+import createEmotionCache from "@client/createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 
 // Client-side cache, shared for the whole session of the user in the browser.

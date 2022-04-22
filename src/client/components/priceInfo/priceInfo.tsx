@@ -3,7 +3,7 @@ import FlexBox from '../FlexBox';
 import FormattedNumber from '../formattedNumber/formattedNumber';
 import InformationTooltip from '../tooltip/tooltip';
 import { Box } from '@mui/system';
-import {Paragraph} from 'client/components/Typography';
+import {Paragraph} from '@client/components/Typography';
 
 interface PropsPriceInfo {
     value: number,

@@ -5,7 +5,7 @@ import {
 	flashDealsData,
 	serviceList,
 	usersReviews,
-} from 'client/fake-db/server/superstore-shop/super-store-data';
+} from '@client/fake-db/server/superstore-shop/super-store-data';
 import { Props } from './index'
 import Home from './index';
 import { createMockRouter } from '../__mocks__/mockRouter';

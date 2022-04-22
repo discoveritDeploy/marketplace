@@ -1,4 +1,4 @@
-import navigations from "client/data/navigations";
+import navigations from "@client/data/navigations";
 import { Box, styled } from "@mui/material";
 import React, { FC } from "react";
 import CategoryMenuItem from "./CategoryMenuItem";

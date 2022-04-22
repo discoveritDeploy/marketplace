@@ -14,19 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "@theme/*": [
-        "/client/theme/*"
-      ],
-      "@components/*": [
-        "/client/components/*"
-      ],
-      "@hooks/*": [
-        "/client/hooks/*"
+      "@public/*": [
+        "public/*"
       ],
       "@client/*": [
-        "/client/*"
+        "src/client/*"
       ],
     }
 

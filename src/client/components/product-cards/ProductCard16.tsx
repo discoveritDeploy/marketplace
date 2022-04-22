@@ -2,12 +2,12 @@
 import Link from "next/link";
 import FlexBox from "../FlexBox";
 import { Box, styled } from "@mui/system";
-import LazyImage from "client/components/LazyImage";
-import { H3, Span } from "client/components/Typography";
+import LazyImage from "@client/components/LazyImage";
+import { H3, Span } from "@client/components/Typography";
 import React, { FC, useCallback, CSSProperties } from "react";
-import BazarRating from "client/components/BazarRating";
+import BazarRating from "@client/components/BazarRating";
 import { useTheme } from "@mui/system";
-import { CartItem } from "client/reducers/cartReducer";
+import { CartItem } from "@client/reducers/cartReducer";
 import PreviewIcon from "@mui/icons-material/RemoveRedEye";
 import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/AddShoppingCart";

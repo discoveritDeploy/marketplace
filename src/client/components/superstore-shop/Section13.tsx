@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { Box } from "@mui/material";
-import FlexBox from "client/components/FlexBox";
-import HoverBox from "client/components/HoverBox";
-import { H4 } from "client/components/Typography";
-import BazarCard from "client/components/BazarCard";
-import LazyImage from "client/components/LazyImage";
-import GiftBox from "client/components/icons/GiftBox";
-import useWindowSize from "client/hooks/useWindowSize";
-import Carousel from "client/components/carousel/Carousel";
+import FlexBox from "@client/components/FlexBox";
+import HoverBox from "@client/components/HoverBox";
+import { H4 } from "@client/components/Typography";
+import BazarCard from "@client/components/BazarCard";
+import LazyImage from "@client/components/LazyImage";
+import GiftBox from "@client/components/icons/GiftBox";
+import useWindowSize from "@client/hooks/useWindowSize";
+import Carousel from "@client/components/carousel/Carousel";
 import React, { FC, useEffect, useState } from "react";
 import CategorySectionCreator from "../CategorySectionCreator";
 

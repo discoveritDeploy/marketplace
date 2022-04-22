@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { TableBody, TableContainer, TableHead, Table, TableCell, TableRow, styled } from "@mui/material";
-import { LastXMonths } from 'client/utils/utils';
+import { LastXMonths } from '@client/utils/utils';
 import InformationTooltip from '../tooltip/tooltip';
 import FormattedNumber from '../formattedNumber/formattedNumber';
 

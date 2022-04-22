@@ -1,7 +1,7 @@
-import BazarCard from "client/components/BazarCard";
-import BazarImage from "client/components/BazarImage";
-import FlexBox from "client/components/FlexBox";
-import { H2, Paragraph, Small } from "client/components/Typography";
+import BazarCard from "@client/components/BazarCard";
+import BazarImage from "@client/components/BazarImage";
+import FlexBox from "@client/components/FlexBox";
+import { H2, Paragraph, Small } from "@client/components/Typography";
 import { styled } from "@mui/material";
 import Link from "next/link";
 import React, { FC } from "react";

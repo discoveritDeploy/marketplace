@@ -1,12 +1,12 @@
-import BazarCard from "client/components/BazarCard";
-import LazyImage from "client/components/LazyImage";
-import { H3, Paragraph } from "client/components/Typography";
-import { useAppContext } from "client/contexts/app/AppContext";
-import PriceInfo from "client/components/priceInfo/priceInfo";
+import BazarCard from "@client/components/BazarCard";
+import LazyImage from "@client/components/LazyImage";
+import { H3, Paragraph } from "@client/components/Typography";
+import { useAppContext } from "@client/contexts/app/AppContext";
+import PriceInfo from "@client/components/priceInfo/priceInfo";
 import Close from "@mui/icons-material/Close";
 import Favorite from "@mui/icons-material/Favorite";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import {ProductInterface} from 'client/types/productTypes';
+import {ProductInterface} from '@client/types/productTypes';
 import RemoveRedEye from "@mui/icons-material/RemoveRedEye";
 import {
 	Box,

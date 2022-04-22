@@ -1,10 +1,10 @@
-import Category from "client/components/icons/Category";
-import useWindowSize from "client/hooks/useWindowSize";
+import Category from "@client/components/icons/Category";
+import useWindowSize from "@client/hooks/useWindowSize";
 import { Box } from "@mui/material";
 import React, { FC, useEffect, useState } from "react";
 import Carousel from "../carousel/Carousel";
-import CategorySectionCreator from "client/components/CategorySectionCreator";
-import ProductCard18 from "client/components/product-cards/ProductCard18";
+import CategorySectionCreator from "@client/components/CategorySectionCreator";
+import ProductCard18 from "@client/components/product-cards/ProductCard18";
 
 interface Props {
   flashDeals: any[];

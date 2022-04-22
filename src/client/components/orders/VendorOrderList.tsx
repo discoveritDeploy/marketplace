@@ -1,14 +1,14 @@
-import FlexBox from "client/components/FlexBox";
-import TableRow from "client/components/TableRow";
-import { H5 } from "client/components/Typography";
+import FlexBox from "@client/components/FlexBox";
+import TableRow from "@client/components/TableRow";
+import { H5 } from "@client/components/Typography";
 import { Pagination } from "@mui/material";
 import React, { FC, Fragment } from "react";
 import OrderRow from "./OrderRow";
+import { Order } from '@client/types/commonTypes'
 
 // component props interface
-export interface VendorOrderListProps {}
 
-const VendorOrderList: FC<VendorOrderListProps> = () => {
+const VendorOrderList: FC= () => {
 	return (
 		<Fragment>
 			<TableRow
@@ -58,58 +58,157 @@ const VendorOrderList: FC<VendorOrderListProps> = () => {
 	);
 };
 
-const orderList = [
+
+const orderList: Order[] = [
 	{
-		order_id: "1050017AS",
-		status: "Pendiente de facturar",
-		creation_date: new Date(),
-		last_updated: new Date(),
-		payment_amount: 350,
-		retail: {
-			nickname: "Cliente"
+		id: "1050017AS",
+		createdAt: new Date(new Date().setDate(3)),
+		updatedAt: new Date(new Date().setDate(4)),
+		orderStatus: "DELIVERED",
+		orderProduct: [{
+			id: "as1234567890",
+			title: "sabanas peruanas",
+			quantity: 15,
+			unitPrice: 3200
+		}],
+		totalAmount: 47500,
+		orderRetail: {
+			id: "34564322",
+			nickname: "once textiles",
+			cuit: 452622728298,
+			address: "Avda Libertador 7208, NUñez",
+			tax_status: "Responsable Inscripto",
+			fullname: "Textiles Corcho S.A."
 		},
-		href: "/vendor/orders/5452423",
+		orderBrand: {
+			id: "123432345",
+			nickname: "demo brand"
+		},
+		payment: {
+			status: "UNPAID",
+			withholding: [{type: 'mercadopago'}]
+		},
+		shippingId: 1234567890
 	},
 	{
-		order_id: "1050017AS",
-		status: "Pendiente de pago",
-		creation_date: new Date(),
-		last_updated: new Date(),
-		payment_amount: 500,
-		retail: {
-			nickname: "Cliente"
+		id: "1050017AS",
+		createdAt: new Date(new Date().setDate(3)),
+		updatedAt: new Date(new Date().setDate(4)),
+		orderStatus: "INVOICED",
+		orderProduct: [{
+			id: "as1234567890",
+			title: "sabanas peruanas",
+			quantity: 15,
+			unitPrice: 3200
+		}],
+		totalAmount: 47500,
+		orderRetail: {
+			id: "34564322",
+			nickname: "once textiles",
+			cuit: 452622728298,
+			address: "Avda Libertador 7208, NUñez",
+			tax_status: "Responsable Inscripto",
+			fullname: "Textiles Corcho S.A."
 		},
-		href: "/vendor/orders/5452423",
+		orderBrand: {
+			id: "123432345",
+			nickname: "demo brand"
+		},
+		payment: {
+			status: "UNPAID",
+			withholding: [{type: 'mercadopago'}]
+		},
+		shippingId: 1234567890
 	},
 	{
-		order_id: "1050017AS",
-		status: "Entregada",
-		creation_date: "2020/12/23",
-		payment_amount: 700,
-		retail: {
-			nickname: "Cliente"
+		id: "1050017AS",
+		createdAt: new Date(new Date().setDate(3)),
+		updatedAt: new Date(new Date().setDate(4)),
+		orderStatus: "NEW",
+		orderProduct: [{
+			id: "as1234567890",
+			title: "sabanas peruanas",
+			quantity: 15,
+			unitPrice: 3200
+		}],
+		totalAmount: 47500,
+		orderRetail: {
+			id: "34564322",
+			nickname: "once textiles",
+			cuit: 452622728298,
+			address: "Avda Libertador 7208, NUñez",
+			tax_status: "Responsable Inscripto",
+			fullname: "Textiles Corcho S.A."
 		},
-		href: "/vendor/orders/5452423",
+		orderBrand: {
+			id: "123432345",
+			nickname: "demo brand"
+		},
+		payment: {
+			status: "UNPAID",
+			withholding: [{type: 'mercadopago'}]
+		},
+		shippingId: 1234567890
 	},
 	{
-		order_id: "1050017AS",
-		status: "Nueva",
-		creation_date: "2020/12/23",
-		payment_amount: 700,
-		retail: {
-			nickname: "Cliente"
+		id: "1050017AS",
+		createdAt: new Date(new Date().setDate(3)),
+		updatedAt: new Date(new Date().setDate(4)),
+		orderStatus: "CONFIRMED",
+		orderProduct: [{
+			id: "as1234567890",
+			title: "sabanas peruanas",
+			quantity: 15,
+			unitPrice: 3200
+		}],
+		totalAmount: 47500,
+		orderRetail: {
+			id: "34564322",
+			nickname: "once textiles",
+			cuit: 452622728298,
+			address: "Avda Libertador 7208, NUñez",
+			tax_status: "Responsable Inscripto",
+			fullname: "Textiles Corcho S.A."
 		},
-		href: "/vendor/orders/5452423",
+		orderBrand: {
+			id: "123432345",
+			nickname: "demo brand"
+		},
+		payment: {
+			status: "UNPAID",
+			withholding: [{type: 'mercadopago'}]
+		},
+		shippingId: 1234567890
 	},
 	{
-		order_id: "1050017AS",
-		status: "Cancelada",
-		creation_date: "2020/12/15",
-		payment_amount: 300,
-		retail: {
-			nickname: "Cliente"
+		id: "1050017AS",
+		createdAt: new Date(new Date().setDate(3)),
+		updatedAt: new Date(new Date().setDate(4)),
+		orderStatus: "CONFIRMED",
+		orderProduct: [{
+			id: "as1234567890",
+			title: "sabanas peruanas",
+			quantity: 15,
+			unitPrice: 3200
+		}],
+		totalAmount: 47500,
+		orderRetail: {
+			id: "34564322",
+			nickname: "once textiles",
+			cuit: 452622728298,
+			address: "Avda Libertador 7208, NUñez",
+			tax_status: "Responsable Inscripto",
+			fullname: "Textiles Corcho S.A."
 		},
-		href: "/vendor/orders/5452423",
+		orderBrand: {
+			id: "123432345",
+			nickname: "demo brand"
+		},
+		payment: {
+			status: "UNPAID",
+			withholding: [{type: 'mercadopago'}]
+		},
+		shippingId: 1234567890
 	},
 ];
 

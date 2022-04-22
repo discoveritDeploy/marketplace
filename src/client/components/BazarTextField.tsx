@@ -1,5 +1,5 @@
 import { Box, BoxProps, TextField, TextFieldProps } from "@mui/material";
-import { Small } from "client/components/Typography";
+import { Small } from "@client/components/Typography";
 
 export interface BazarTextFieldProps {}
 

@@ -1,8 +1,8 @@
 import ArrowRight from "@mui/icons-material/ArrowRight";
 import Link from "next/link";
 import React, { ReactNode } from "react";
-import FlexBox from "client/components/FlexBox";
-import { H2 } from "client/components//Typography";
+import FlexBox from "@client/components/FlexBox";
+import { H2 } from "@client/components//Typography";
 
 export interface CategorySectionHeaderProps {
   title?: string;

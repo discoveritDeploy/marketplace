@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Card, Button} from '@mui/material';
 import { styled } from "@mui/system";
-import { H5, H2 } from 'client/components/Typography';
+import { H5, H2 } from '@client/components/Typography';
 import FormattedNumber from '../formattedNumber/formattedNumber';
 
 interface KpiList{

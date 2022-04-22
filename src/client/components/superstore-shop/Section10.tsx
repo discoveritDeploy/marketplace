@@ -1,6 +1,6 @@
-import BazarCard from "client/components/BazarCard";
-import Category from "client/components/icons/Category";
-import LazyImage from "client/components/LazyImage";
+import BazarCard from "@client/components/BazarCard";
+import Category from "@client/components/icons/Category";
+import LazyImage from "@client/components/LazyImage";
 import { Box, Container, Grid, styled } from "@mui/material";
 import Link from "next/link";
 import React, { FC } from "react";

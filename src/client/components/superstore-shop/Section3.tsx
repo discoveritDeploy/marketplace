@@ -1,7 +1,7 @@
-import BazarCard from "client/components/BazarCard";
-import Carousel from "client/components/carousel/Carousel";
-import Category from "client/components/icons/Category";
-import useWindowSize from "client/hooks/useWindowSize";
+import BazarCard from "@client/components/BazarCard";
+import Carousel from "@client/components/carousel/Carousel";
+import Category from "@client/components/icons/Category";
+import useWindowSize from "@client/hooks/useWindowSize";
 import Link from "next/link";
 import React, { FC, useEffect, useState } from "react";
 import CategorySectionCreator from "../CategorySectionCreator";

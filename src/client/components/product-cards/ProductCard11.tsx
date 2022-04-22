@@ -1,5 +1,5 @@
-import LazyImage from "client/components/LazyImage";
-import { Paragraph } from "client/components/Typography";
+import LazyImage from "@client/components/LazyImage";
+import { Paragraph } from "@client/components/Typography";
 import { Box } from "@mui/material";
 import React, { FC } from "react";
 

@@ -1,7 +1,7 @@
-import BazarButton from "client/components/BazarButton";
-import BazarImage from "client/components/BazarImage";
-import Countdown from "client/components/fashion-shop/countdown";
-import { H2, H3, H4, Paragraph } from "client/components/Typography";
+import BazarButton from "@client/components/BazarButton";
+import BazarImage from "@client/components/BazarImage";
+import Countdown from "@client/components/fashion-shop/countdown";
+import { H2, H3, H4, Paragraph } from "@client/components/Typography";
 import { Favorite } from "@mui/icons-material";
 import { Box, Grid, styled } from "@mui/material";
 import React, { FC } from "react";

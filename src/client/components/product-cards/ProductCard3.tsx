@@ -1,9 +1,9 @@
-import BazarButton from "client/components/BazarButton";
-import BazarRating from "client/components/BazarRating";
-import FlexBox from "client/components/FlexBox";
-import HoverBox from "client/components/HoverBox";
-import LazyImage from "client/components/LazyImage";
-import { H4 } from "client/components/Typography";
+import BazarButton from "@client/components/BazarButton";
+import BazarRating from "@client/components/BazarRating";
+import FlexBox from "@client/components/FlexBox";
+import HoverBox from "@client/components/HoverBox";
+import LazyImage from "@client/components/LazyImage";
+import { H4 } from "@client/components/Typography";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import Link from "next/link";

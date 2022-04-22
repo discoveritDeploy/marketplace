@@ -4,12 +4,12 @@ import FlexBox from "../FlexBox";
 import { useTheme } from "@mui/system";
 import { Box, styled } from "@mui/system";
 import Add from "@mui/icons-material/Add";
-import LazyImage from "client/components/LazyImage";
+import LazyImage from "@client/components/LazyImage";
 import { Button, Chip } from "@mui/material";
 import Remove from "@mui/icons-material/Remove";
-import { CartItem } from "client/reducers/cartReducer";
-import { H3, Span } from "client/components/Typography";
-import BazarRating from "client/components/BazarRating";
+import { CartItem } from "@client/reducers/cartReducer";
+import { H3, Span } from "@client/components/Typography";
+import BazarRating from "@client/components/BazarRating";
 import { useAppContext } from "contexts/app/AppContext";
 import React, { FC, useCallback, CSSProperties, Fragment } from "react";
 

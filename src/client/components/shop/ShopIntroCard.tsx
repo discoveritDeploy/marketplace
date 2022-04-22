@@ -1,13 +1,13 @@
-import FlexBox from "client/components/FlexBox";
-import FacebookFilled from "client/components/icons/FacebookFilled";
-import InstagramFilled from "client/components/icons/InstagramFilled";
-import TwitterFilled from "client/components/icons/TwitterFilled";
-import YoutubeFilled from "client/components/icons/YoutubeFilled";
-import { H3, Small, Span } from "client/components/Typography";
+import FlexBox from "@client/components/FlexBox";
+import FacebookFilled from "@client/components/icons/FacebookFilled";
+import InstagramFilled from "@client/components/icons/InstagramFilled";
+import TwitterFilled from "@client/components/icons/TwitterFilled";
+import YoutubeFilled from "@client/components/icons/YoutubeFilled";
+import { H3, Small, Span } from "@client/components/Typography";
 import Call from "@mui/icons-material/Call";
 import Place from "@mui/icons-material/Place";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import FormattedNumber from 'client/components/formattedNumber/formattedNumber'
+import FormattedNumber from '@client/components/formattedNumber/formattedNumber'
 import PercentOutlinedIcon from '@mui/icons-material/PercentOutlined';
 import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
 import { Avatar, Button, Card, Rating } from "@mui/material";

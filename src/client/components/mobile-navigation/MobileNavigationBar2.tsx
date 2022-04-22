@@ -1,13 +1,13 @@
 import React, { FC, ReactNode, useEffect, useState } from "react";
-import Home from "client/components/icons/Home";
-import User2 from "client/components/icons/User2";
-import useWindowSize from "client/hooks/useWindowSize";
-import { layoutConstant } from "client/utils/constants";
-import NavLink from "client/components/nav-link/NavLink";
+import Home from "@client/components/icons/Home";
+import User2 from "@client/components/icons/User2";
+import useWindowSize from "@client/hooks/useWindowSize";
+import { layoutConstant } from "@client/utils/constants";
+import NavLink from "@client/components/nav-link/NavLink";
 import { Badge, Box, Drawer, styled } from "@mui/material";
-import { useAppContext } from "client/contexts/app/AppContext";
-import CategoryOutlined from "client/components/icons/CategoryOutline";
-import ShoppingBagOutlined from "client/components/icons/ShoppingBagOutlined";
+import { useAppContext } from "@client/contexts/app/AppContext";
+import CategoryOutlined from "@client/components/icons/CategoryOutline";
+import ShoppingBagOutlined from "@client/components/icons/ShoppingBagOutlined";
 
 // styled components
 const Wrapper = styled(Box)(({ theme }) => ({

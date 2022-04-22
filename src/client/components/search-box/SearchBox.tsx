@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import BazarMenu from "client/components/BazarMenu";
-import FlexBox from "client/components/FlexBox";
+import BazarMenu from "@client/components/BazarMenu";
+import FlexBox from "@client/components/FlexBox";
 import KeyboardArrowDownOutlined from "@mui/icons-material/KeyboardArrowDownOutlined";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 import { Box, Card, MenuItem, TextField } from "@mui/material";

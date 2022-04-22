@@ -1,5 +1,5 @@
 import React from 'react';
-import FlexBox from 'client/components/FlexBox';
+import FlexBox from '@client/components/FlexBox';
 import { Box, BoxProps, styled } from "@mui/material";
 import { H4 } from '../Typography';
 

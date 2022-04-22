@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import BazarCard from "client/components/BazarCard";
-import productDatabase from "client/data/product-database";
+import BazarCard from "@client/components/BazarCard";
+import productDatabase from "@client/data/product-database";
 import { Box, Container, Grid } from "@mui/material";
 import React, { FC, useEffect, useState } from "react";
 import CategorySectionHeader from "../CategorySectionHeader";

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import BazarButton from "client/components/BazarButton";
+import BazarButton from "@client/components/BazarButton";
 import { Box, debounce, MenuItem, TextField } from "@mui/material";
 import Link from "next/link";
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";

@@ -1,6 +1,6 @@
-import BazarCard from "client/components/BazarCard";
-import DottedStar from "client/components/icons/DottedStar";
-import RankBadge from "client/components/icons/RankBadge";
+import BazarCard from "@client/components/BazarCard";
+import DottedStar from "@client/components/icons/DottedStar";
+import RankBadge from "@client/components/icons/RankBadge";
 import { Box, Container, Grid } from "@mui/material";
 import Link from "next/link";
 import React, { FC } from "react";

@@ -1,12 +1,14 @@
-import FlexBox from "client/components/FlexBox";
-import Sidenav from "client/components/sidenav/Sidenav";
-import { H2 } from "client/components/Typography";
-import useWindowSize from "client/hooks/useWindowSize";
+import FlexBox from "@client/components/FlexBox";
+import Sidenav from "@client/components/sidenav/Sidenav";
+import { H2 } from "@client/components/Typography";
+import useWindowSize from "@client/hooks/useWindowSize";
 import Menu from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/system";
-import StatusWizardForOrders from "client/components/layout/statusWizardForOrders";
+import StatusWizardForOrders from "@client/components/layout/statusWizardForOrders";
 import React from "react";
+import { useRouter } from "next/router";
+import { STATUS_ORDERS } from '@client/types/commonTypes'
 
 const StyledBox = styled(Box)(({ theme }) => ({
 	display: "column",
@@ -36,6 +38,8 @@ export interface DashboardPageHeaderProps {
   navigation?: any;
 }
 
+
+
 const DashboardPageHeader: React.FC<DashboardPageHeaderProps> = ({
 	title,
 	button,
@@ -44,7 +48,8 @@ const DashboardPageHeader: React.FC<DashboardPageHeaderProps> = ({
 }) => {
 	const width = useWindowSize();
 	const isTablet = width < 1025;
-
+	const { query } = useRouter();
+	const current: STATUS_ORDERS = query?.status;
 	return (
 		<StyledBox>
 			<FlexBox mt={2} className="headerHold">
@@ -63,9 +68,10 @@ const DashboardPageHeader: React.FC<DashboardPageHeaderProps> = ({
 
 				{!isTablet && button}
 			</FlexBox>
+			{current &&	
 			<Box mt="32px">
-				<StatusWizardForOrders current={1} />
-			</Box>
+				<StatusWizardForOrders />
+			</Box>}
 			{isTablet && !!button && <Box mt={2}>{button}</Box>}
 		</StyledBox>
 	);

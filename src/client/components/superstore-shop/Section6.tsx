@@ -1,5 +1,5 @@
-import BazarCard from "client/components/BazarCard";
-import productDatabase from "client/data/product-database";
+import BazarCard from "@client/components/BazarCard";
+import productDatabase from "@client/data/product-database";
 import { Box, Container, Grid } from "@mui/material";
 import React, { FC, useState } from "react";
 import CategorySectionHeader from "../CategorySectionHeader";

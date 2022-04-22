@@ -1,8 +1,8 @@
-import BazarCard from "client/components/BazarCard";
-import FlexBox from "client/components/FlexBox";
-import HoverBox from "client/components/HoverBox";
-import LazyImage from "client/components/LazyImage";
-import { H6, Span } from "client/components/Typography";
+import BazarCard from "@client/components/BazarCard";
+import FlexBox from "@client/components/FlexBox";
+import HoverBox from "@client/components/HoverBox";
+import LazyImage from "@client/components/LazyImage";
+import { H6, Span } from "@client/components/Typography";
 import { SxProps } from "@mui/system";
 import Link from "next/link";
 import React from "react";

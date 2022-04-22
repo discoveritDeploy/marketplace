@@ -1,4 +1,4 @@
-import { Small } from "client/components/Typography";
+import { Small } from "@client/components/Typography";
 import Link from "next/link";
 import React, { FC } from "react";
 

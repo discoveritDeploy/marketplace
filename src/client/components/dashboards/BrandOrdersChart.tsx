@@ -11,7 +11,7 @@ import {
 	LineElement,
 	LineController,
 } from 'chart.js';
-import { H3 } from "client/components/Typography";
+import { H3 } from "@client/components/Typography";
 import { Box, Card } from '@mui/material';
 
 

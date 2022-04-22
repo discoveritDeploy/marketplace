@@ -1,6 +1,6 @@
 import { FC, useRef } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { LastXDays } from 'client/utils/utils';
+import { LastXDays } from '@client/utils/utils';
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -12,7 +12,7 @@ import {
 	LineElement,
 	LineController
 } from 'chart.js';
-import { H3 } from "client/components/Typography";
+import { H3 } from "@client/components/Typography";
 import { Box, Card } from '@mui/material';
 
 

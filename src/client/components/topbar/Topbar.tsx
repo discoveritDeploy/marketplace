@@ -1,15 +1,15 @@
-import Image from "client/components/BazarImage";
-import BazarMenu from "client/components/BazarMenu";
-import FlexBox from "client/components/FlexBox";
-import NavLink from "client/components/nav-link/NavLink";
-import { Span } from "client/components/Typography";
+import Image from "@client/components/BazarImage";
+import BazarMenu from "@client/components/BazarMenu";
+import FlexBox from "@client/components/FlexBox";
+import NavLink from "@client/components/nav-link/NavLink";
+import { Span } from "@client/components/Typography";
 import CallOutlined from "@mui/icons-material/CallOutlined";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import MailOutline from "@mui/icons-material/MailOutline";
 import { Container, MenuItem } from "@mui/material";
 import TouchRipple from "@mui/material/ButtonBase";
 import { styled } from "@mui/material/styles";
-import { layoutConstant } from "client/utils/constants";
+import { layoutConstant } from "@client/utils/constants";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -101,7 +101,7 @@ const Topbar = () => {
 							<Image
 								display="block"
 								height="28px"
-								src="/assets/images/logo.svg"
+								src="/assets/images/logo.png"
 								alt="logo"
 							/>
 						</Link>

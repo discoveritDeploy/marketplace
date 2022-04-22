@@ -1,7 +1,7 @@
-import BazarRating from "client/components/BazarRating";
-import HoverBox from "client/components/HoverBox";
-import LazyImage from "client/components/LazyImage";
-import { H4, Small } from "client/components/Typography";
+import BazarRating from "@client/components/BazarRating";
+import HoverBox from "@client/components/HoverBox";
+import LazyImage from "@client/components/LazyImage";
+import { H4, Small } from "@client/components/Typography";
 import { Box } from "@mui/material";
 import React, { CSSProperties } from "react";
 import FlexBox from "../FlexBox";

@@ -151,11 +151,13 @@ type Payment {
 }
 
 enum orderStatus {
+  NEW
   CONFIRMED
   INVOICED
   PAID
   SHIPPED
   DELIVERED
+  CANCELLED
 }
 
 model Order {

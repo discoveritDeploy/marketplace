@@ -1,9 +1,10 @@
 import React, { useState, FC } from 'react';
 import { Stepper, Step, StepLabel } from '@mui/material';
-import { TABS_STATUS_ORDER, Status } from 'client/utils/constants'
-
+import { TABS_STATUS_ORDER, Status } from '@client/utils/constants'
+import { STATUS_ORDERS } from '@client/types/commonTypes'
+import { useRouter } from "next/router";
+import ParsedUrlQuery from "next/router";
 interface WizardProps {
-    current: number
 }
 
 const styles = (theme: any) => ({
@@ -20,10 +21,24 @@ const styles = (theme: any) => ({
 	},
 });
 
-const StatusWizardForOrders: FC <WizardProps>= ({current}) => {
-	console.log('TABS_STATUS_ORDER: ', TABS_STATUS_ORDER)
+export const orderIndex = {
+	NEW: 0,
+	CONFIRMED: 1,
+	INVOICED: 2,
+	PAID: 3,
+	SHIPPED: 4,
+	DELIVERED: 5,
+}
+
+
+const StatusWizardForOrders: FC <WizardProps>= () => {
+	const { query } = useRouter();
+	
+	const status: string = query?.status as string;
+	const current: STATUS_ORDERS = status.toUpperCase() as STATUS_ORDERS || 'NEW';
+
 	return (
-		<Stepper alternativeLabel activeStep={current} >
+		<Stepper alternativeLabel activeStep={Object.keys(orderIndex).indexOf(current)} >
 			{TABS_STATUS_ORDER.map((tab: Status) => (
 				<Step key={tab.value} >
 					<StepLabel 

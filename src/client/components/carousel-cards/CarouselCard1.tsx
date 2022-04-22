@@ -1,5 +1,5 @@
-import BazarImage from "client/components/BazarImage";
-import { Paragraph } from "client/components/Typography";
+import BazarImage from "@client/components/BazarImage";
+import { Paragraph } from "@client/components/Typography";
 import { Box, Button, Grid, styled } from "@mui/material";
 import React, { FC } from "react";
 import FlexBox from "../FlexBox";

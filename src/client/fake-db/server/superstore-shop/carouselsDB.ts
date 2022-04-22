@@ -2,8 +2,8 @@
 // YOU NEED TO BUILD YOUR OWN SERVER
 // IF YOU NEED HELP ABOUT SERVER SIDE IMPLEMENTATION
 // CONTACT US AT support@ui-lib.com
-import bazarReactDatabase from "client/data/bazar-react-database";
-import Mock from "client/fake-db/mock";
+import bazarReactDatabase from "@client/data/bazar-react-database";
+import Mock from "@client/fake-db/mock";
 import {
 	mainCarouselData,
 	topCategoryList,

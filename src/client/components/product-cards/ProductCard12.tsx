@@ -1,8 +1,8 @@
-import BazarImage from "client/components/BazarImage";
-import BazarRating from "client/components/BazarRating";
-import FlexBox from "client/components/FlexBox";
-import HoverBox from "client/components/HoverBox";
-import { H4 } from "client/components/Typography";
+import BazarImage from "@client/components/BazarImage";
+import BazarRating from "@client/components/BazarRating";
+import FlexBox from "@client/components/FlexBox";
+import HoverBox from "@client/components/HoverBox";
+import { H4 } from "@client/components/Typography";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import { Box } from "@mui/material";
 import Link from "next/link";

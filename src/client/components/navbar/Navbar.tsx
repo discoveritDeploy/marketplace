@@ -1,7 +1,7 @@
-import BazarCard from "client/components/BazarCard";
-import FlexBox from "client/components/FlexBox";
-import NavLink from "client/components/nav-link/NavLink";
-import navbarNavigations from "client/data/navbarNavigations";
+import BazarCard from "@client/components/BazarCard";
+import FlexBox from "@client/components/FlexBox";
+import NavLink from "@client/components/nav-link/NavLink";
+import navbarNavigations from "@client/data/navbarNavigations";
 import ArrowRight from "@mui/icons-material/ArrowRight";
 import { Box, Container, MenuItem, styled } from "@mui/material";
 import React, { FC } from "react";

@@ -1,9 +1,9 @@
-import Category from "client/components/icons/Category";
+import Category from "@client/components/icons/Category";
 import { Box } from "@mui/material";
 import React, { FC } from "react";
 import Carousel from "../carousel/Carousel";
-import CategorySectionCreator from "client/components/CategorySectionCreator";
-import ReviewCard1 from "client/components/reviewCard/reviewCard1";
+import CategorySectionCreator from "@client/components/CategorySectionCreator";
+import ReviewCard1 from "@client/components/reviewCard/reviewCard1";
 
 interface Props {
   usersReview: any[];
