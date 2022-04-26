@@ -45,7 +45,7 @@
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.0",
     "formik": "^2.2.9",
-    "graphql": "^15.8.0",
+    "graphql": "^16.4.0",
     "graphql-tag": "^2.12.6",
     "merge": "^2.1.1",
     "micro": "^9.3.4",
